@@ -2,40 +2,34 @@ package com.techelevator.model;
 
 public class Brewery {
     //properties/fields
-    private int brewery_id;
-    private int beer_id;
-    private char brewery_name;
-    private char brewery_img;
-    private char brewery_hours;
-    private char brewery_history;
-    private char brewery_email;
-    private  int brewery_phone;
-    private char brewery_website;
-    private boolean brewery_active;
+    private int breweryId;
+    private int beerId;
+    private String breweryName;
+    private String breweryImg;
+    private String breweryHours;
+    private String breweryHistory;
+    private String breweryEmail;
+    private String breweryPhone;
+    private String breweryWebsite;
+    private boolean breweryActive;
 
     //constructor
 
 
-    public Brewery(int brewery_id,
-                   int beer_id,
-                   char brewery_name,
-                   char brewery_img,
-                   char brewery_hours,
-                   char brewery_history,
-                   char brewery_email,
-                   int brewery_phone,
-                   char brewery_website,
-                   boolean brewery_active) {
-        this.brewery_id = brewery_id;
-        this.beer_id = beer_id;
-        this.brewery_name = brewery_name;
-        this.brewery_img = brewery_img;
-        this.brewery_hours = brewery_hours;
-        this.brewery_history = brewery_history;
-        this.brewery_email = brewery_email;
-        this.brewery_phone = brewery_phone;
-        this.brewery_website = brewery_website;
-        this.brewery_active = brewery_active;
+    public Brewery() {
+    }
+
+    public Brewery(int breweryId, int beerId, String breweryName, String breweryImg, String breweryHours, String breweryHistory, String breweryEmail, String breweryPhone, String breweryWebsite, boolean breweryActive) {
+        this.breweryId = breweryId;
+        this.beerId = beerId;
+        this.breweryName = breweryName;
+        this.breweryImg = breweryImg;
+        this.breweryHours = breweryHours;
+        this.breweryHistory = breweryHistory;
+        this.breweryEmail = breweryEmail;
+        this.breweryPhone = breweryPhone;
+        this.breweryWebsite = breweryWebsite;
+        this.breweryActive = breweryActive;
     }
 
     //methods
@@ -43,102 +37,103 @@ public class Brewery {
     @Override
     public String toString() {
         return "Brewery{" +
-                "brewery_id=" + brewery_id +
-                ", beer_id=" + beer_id +
-                ", brewery_name=" + brewery_name +
-                ", brewery_img=" + brewery_img +
-                ", brewery_hours=" + brewery_hours +
-                ", brewery_history=" + brewery_history +
-                ", brewery_email=" + brewery_email +
-                ", brewery_phone=" + brewery_phone +
-                ", brewery_website=" + brewery_website +
-                ", brewery_active=" + brewery_active +
+                "breweryId=" + breweryId +
+                ", beerId=" + beerId +
+                ", breweryName='" + breweryName + '\'' +
+                ", breweryImg='" + breweryImg + '\'' +
+                ", breweryHours='" + breweryHours + '\'' +
+                ", breweryHistory='" + breweryHistory + '\'' +
+                ", breweryEmail='" + breweryEmail + '\'' +
+                ", breweryPhone=" + breweryPhone +
+                ", breweryWebsite='" + breweryWebsite + '\'' +
+                ", breweryActive=" + breweryActive +
                 '}';
     }
+
 
     //getters
 
 
-    public int getBrewery_id() {
-        return brewery_id;
+    public int getBreweryId() {
+        return breweryId;
     }
 
-    public int getBeer_id() {
-        return beer_id;
+    public int getBeerId() {
+        return beerId;
     }
 
-    public char getBrewery_name() {
-        return brewery_name;
+    public String getBreweryName() {
+        return breweryName;
     }
 
-    public char getBrewery_img() {
-        return brewery_img;
+    public String getBreweryImg() {
+        return breweryImg;
     }
 
-    public char getBrewery_hours() {
-        return brewery_hours;
+    public String getBreweryHours() {
+        return breweryHours;
     }
 
-    public char getBrewery_history() {
-        return brewery_history;
+    public String getBreweryHistory() {
+        return breweryHistory;
     }
 
-    public char getBrewery_email() {
-        return brewery_email;
+    public String getBreweryEmail() {
+        return breweryEmail;
     }
 
-    public int getBrewery_phone() {
-        return brewery_phone;
+    public String getBreweryPhone() {
+        return breweryPhone;
     }
 
-    public char getBrewery_website() {
-        return brewery_website;
+    public String getBreweryWebsite() {
+        return breweryWebsite;
     }
 
-    public boolean isBrewery_active() {
-        return brewery_active;
+    public boolean isBreweryActive() {
+        return breweryActive;
     }
 
     //setter
 
 
-    public void setBrewery_id(int brewery_id) {
-        this.brewery_id = brewery_id;
+    public void setBreweryId(int breweryId) {
+        this.breweryId = breweryId;
     }
 
-    public void setBeer_id(int beer_id) {
-        this.beer_id = beer_id;
+    public void setBeerId(int beerId) {
+        this.beerId = beerId;
     }
 
-    public void setBrewery_name(char brewery_name) {
-        this.brewery_name = brewery_name;
+    public void setBreweryName(String breweryName) {
+        this.breweryName = breweryName;
     }
 
-    public void setBrewery_img(char brewery_img) {
-        this.brewery_img = brewery_img;
+    public void setBreweryImg(String breweryImg) {
+        this.breweryImg = breweryImg;
     }
 
-    public void setBrewery_hours(char brewery_hours) {
-        this.brewery_hours = brewery_hours;
+    public void setBreweryHours(String breweryHours) {
+        this.breweryHours = breweryHours;
     }
 
-    public void setBrewery_history(char brewery_history) {
-        this.brewery_history = brewery_history;
+    public void setBreweryHistory(String breweryHistory) {
+        this.breweryHistory = breweryHistory;
     }
 
-    public void setBrewery_email(char brewery_email) {
-        this.brewery_email = brewery_email;
+    public void setBreweryEmail(String breweryEmail) {
+        this.breweryEmail = breweryEmail;
     }
 
-    public void setBrewery_phone(int brewery_phone) {
-        this.brewery_phone = brewery_phone;
+    public void setBreweryPhone(String breweryPhone) {
+        this.breweryPhone = breweryPhone;
     }
 
-    public void setBrewery_website(char brewery_website) {
-        this.brewery_website = brewery_website;
+    public void setBreweryWebsite(String breweryWebsite) {
+        this.breweryWebsite = breweryWebsite;
     }
 
-    public void setBrewery_active(boolean brewery_active) {
-        this.brewery_active = brewery_active;
+    public void setBreweryActive(boolean breweryActive) {
+        this.breweryActive = breweryActive;
     }
 }
