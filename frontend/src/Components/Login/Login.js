@@ -5,6 +5,7 @@ import {withRouter} from 'react-router-dom'
 import {addToken, addUser} from '../../Redux/actionCreators'
 import {baseUrl} from '../../Shared/baseUrl'
 import axios from 'axios'
+import Navbar from '../Home/Navbar'
 
 
 
@@ -46,7 +47,8 @@ class Login extends Component {
     render(){
         return(
             <div>
-                <h1>Please Sign In</h1>
+                <Navbar />
+                <h2>Please Sign In</h2>
                 <label class="sr-only">Username</label>
                 <input
                     type="text"

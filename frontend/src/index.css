@@ -11,3 +11,59 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.navbar { /*Navbar*/
+  display: flex;
+  background-color: brown;
+  align-content: center;
+}
+.branding { /*Navbar*/
+  align-content: center;
+  padding: 10px;
+  justify-items: center;
+  margin: 10px;
+  max-width: 250px;
+  }
+
+ .shortcut { /*Navbar*/
+    font-size: 2.5em;
+    list-style: none;
+    justify-content: center;
+    align-content: center;
+  }
+  .userInfo { /*Navbar*/
+    align-content: center;
+    padding: 10px;
+    justify-items: center;
+    margin: 10px;
+    max-width: 250px;
+  }
+  .userImg { /*Navbar*/
+    background-color: rgb(228, 240, 64);
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    text-align: center;
+    text-justify: center;
+    font-size: 50px;
+  }
+  
+  .card-image { /*BreweriesList*/
+    object-fit: cover;
+    max-width: 400px;
+    height: 168px;
+    left: 40px;
+    top: 100px;
+    border-radius: 5px;
+    }
+    .brewerycard { /*BreweriesList*/
+        display: flex;
+        border-bottom: 1px solid #F5F5F5;
+       
+        margin: 40px;
+        align-items: center;
+    }
+    .card-details { /*BreweriesList*/
+        margin: 20px;
+    }
+  

@@ -1,19 +1,26 @@
-import axios from 'axios'
+import axios from 'axios' 
 import {Component} from 'react'
 import {Link} from 'react-router-dom'
 import { baseUrl } from '../../Shared/baseUrl'
+import Navbar from '../Home/Navbar'
 
 class Register extends Component{
+
 
     constructor(props){
         super(props);
         this.state = {
+            over21: false,
             username: '',
             password: '',
             confirmPassword: ''
         }
         
     }
+    isChecked = () => {
+        this.setState((state)=>({over21:!state.over21}))
+    }
+
 
     handleInputChange = (event) => {
         event.preventDefault()
@@ -23,18 +30,24 @@ class Register extends Component{
     }
 
     handleSubmit = () => {
-        const data = {username: this.state.username, password: this.state.password, confirmPassword: this.state.confirmPassword, role: 'USER'}
+        const data = {over21: this.state.over21, username: this.state.username, password: this.state.password, confirmPassword: this.state.confirmPassword, role: 'USER'}
         if(this.state.password === this.state.confirmPassword){
             axios.post(baseUrl + "/register", data)
         }else{
             alert("Password and Confirm Password must match!!!")
         }
     }
+   
 
     render(){
         return(
             <div>
+                    <Navbar />
                 <h1>Create Account</h1>
+                <div>
+                    <span> "I certify that I am over 21 years of age" </span>
+                    <input type="checkbox" onChange={this.isChecked}/>
+                </div>
                 <label class="sr-only">Username</label>
                 <input
                     type="text"
@@ -67,8 +80,12 @@ class Register extends Component{
                     onChange={this.handleInputChange}
                     required
                 />
-                <Link to="/login">Have an account?</Link>
-                <button type="submit" onClick={this.handleSubmit}>Sign in</button>
+            
+                <button type="submit" disabled={!this.state.over21}>Let's make a TOAST!</button>
+                <sp/>
+                <div>
+                <Link to="/login">I already have an account?</Link>
+                </div>
             </div>
         )
     }
