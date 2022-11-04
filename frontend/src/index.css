@@ -66,4 +66,26 @@ code {
     .card-details { /*BreweriesList*/
         margin: 20px;
     }
-  
+        
+  .breweryDetails { /*BreweryDetails*/
+    display: flex;
+    margin: auto;
+    padding: 20px;
+   
+  }
+  .breweryInfo { /*BreweryDetails*/
+    width: 35%;
+   margin: 15px; 
+   font-size: 1.25rem;
+  }
+  .beersList { /*BreweryDetails*/
+    width: 60%;
+   margin: 15px; 
+   border: 5px solid black;
+  }
+  .breweryHeader { /*BreweryDetails*/
+    text-align: center;
+  }
+  .beercard { /*BeerList*/
+    border: 5px solid black;
+  }

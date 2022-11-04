@@ -84,7 +84,7 @@ class Register extends Component{
                 <button type="submit" disabled={!this.state.over21}>Let's make a TOAST!</button>
                 <sp/>
                 <div>
-                <Link to="/login">I already have an account?</Link>
+                <Link to="/login">I already have an account!</Link>
                 </div>
             </div>
         )
