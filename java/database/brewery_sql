@@ -13,33 +13,33 @@ CREATE TABLE IF NOT EXISTS public.users
     CONSTRAINT pk_user PRIMARY KEY (user_id)
 );
 
-CREATE TABLE IF NOT EXISTS public.brewery
+CREATE TABLE IF NOT EXISTS public."brewery"
 (
-    brewery_id serial NOT NULL,
-    brewery_img character varying(500),
-    brewery_hours character varying(200),
-    brewery_history character varying(500),
-    brewery_email character varying(100),
-    beer_id integer NOT NULL,
-    brewery_name character varying(200),
-    brewery_phone character varying(10),
-    brewery_website character varying(200),
-    brewery_active boolean,
-    CONSTRAINT brewery_email UNIQUE (brewery_email)
+   "brewery_id" serial NOT NULL PRIMARY KEY,
+    "brewery_img" character varying(500),
+    "brewery_hours" character varying(200),
+    "brewery_history" character varying(500),
+    "brewery_email" character varying(100),
+    "beer_id" integer NOT NULL,
+    "brewery_name" character varying(200),
+    "brewery_phone" character varying(10),
+    "brewery_website" character varying(200),
+    "brewery_active" boolean,
+    CONSTRAINT "brewery_email" UNIQUE (brewery_email)
 );
 
-CREATE TABLE IF NOT EXISTS public.review
+CREATE TABLE IF NOT EXISTS public."review"
 (
-    review_id serial NOT NULL,
-    beer_id integer,
-    review "char",
-    rating integer,
+    "review_id" serial NOT NULL,
+    "beer_id" integer,
+    "review" character,
+    "rating" integer,
     PRIMARY KEY (review_id)
 );
 
-CREATE TABLE IF NOT EXISTS public.beers
+CREATE TABLE IF NOT EXISTS public."beers"
 (
-    beer_id serial NOT NULL,
+    "beer_id" serial NOT NULL PRIMARY KEY,
     beer_img character varying(500),
     brewery_id integer NOT NULL,
     beer_name character varying(200),
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS public.beers
 
 CREATE TABLE IF NOT EXISTS public.brewery_location
 (
-    brewery_location_id serial NOT NULL,
+    brewery_location_id serial NOT NULL PRIMARY KEY,
     brewery_id integer NOT NULL,
     brewery_street character varying(100),
     brewery_city character varying(60),
@@ -64,51 +64,51 @@ CREATE TABLE IF NOT EXISTS public.beers_brewery
     brewery_brewery_id serial NOT NULL
 );
 
-ALTER TABLE IF EXISTS public.users
-    ADD FOREIGN KEY (review_id)
-    REFERENCES public.review (review_id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID;
+-- ALTER TABLE IF EXISTS public.users
+--     ADD FOREIGN KEY (review_id)
+--     REFERENCES public.review (review_id) MATCH SIMPLE
+--     ON UPDATE NO ACTION
+--     ON DELETE NO ACTION
+--     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public.review
-    ADD FOREIGN KEY (beer_id)
-    REFERENCES public.brewery (beer_id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID;
+-- ALTER TABLE IF EXISTS public.review
+--     ADD FOREIGN KEY (beer_id)
+--     REFERENCES public.brewery (beer_id) MATCH SIMPLE
+--     ON UPDATE NO ACTION
+--     ON DELETE NO ACTION
+--     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public.beers
-    ADD FOREIGN KEY (brewery_id)
-    REFERENCES public.brewery (brewery_id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID;
+-- ALTER TABLE IF EXISTS public.beers
+--     ADD FOREIGN KEY (brewery_id)
+--     REFERENCES public.brewery (brewery_id) MATCH SIMPLE
+--     ON UPDATE NO ACTION
+--     ON DELETE NO ACTION
+--     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public.brewery_location
-    ADD FOREIGN KEY (brewery_id)
-    REFERENCES public.brewery_location (brewery_id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID;
+-- ALTER TABLE IF EXISTS public.brewery_location
+--     ADD FOREIGN KEY (brewery_id)
+--     REFERENCES public.brewery_location (brewery_id) MATCH SIMPLE
+--     ON UPDATE NO ACTION
+--     ON DELETE NO ACTION
+--     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public.beers_brewery
-    ADD FOREIGN KEY (beers_brewery_id)
-    REFERENCES public.beers (brewery_id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID;
+-- ALTER TABLE IF EXISTS public.beers_brewery
+--     ADD FOREIGN KEY (beers_brewery_id)
+--     REFERENCES public.beers (brewery_id) MATCH SIMPLE
+--     ON UPDATE NO ACTION
+--     ON DELETE NO ACTION
+--     NOT VALID;
 
 
-ALTER TABLE IF EXISTS public.beers_brewery
-    ADD FOREIGN KEY (brewery_brewery_id)
-    REFERENCES public.brewery (brewery_id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID;
+-- ALTER TABLE IF EXISTS public.beers_brewery
+--     ADD FOREIGN KEY (brewery_brewery_id)
+--     REFERENCES public.brewery (brewery_id) MATCH SIMPLE
+--     ON UPDATE NO ACTION
+--     ON DELETE NO ACTION
+--     NOT VALID;
 
 END;
