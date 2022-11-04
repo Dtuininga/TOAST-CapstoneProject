@@ -42,13 +42,16 @@ CREATE TABLE IF NOT EXISTS public.beers
     beer_id serial NOT NULL,
     beer_img character varying(500),
     brewery_id integer NOT NULL,
-    beer_name character varying(200)
+    beer_name character varying(200),
+    beer_abv numeric(2, 1),
+    beer_type character varying(60),
+    beer_description character varying(200)
 );
 
 CREATE TABLE IF NOT EXISTS public.brewery_location
 (
     brewery_location_id serial NOT NULL,
-    beer_id integer NOT NULL,
+    brewery_id integer NOT NULL,
     brewery_street character varying(100),
     brewery_city character varying(60),
     brewery_state character varying(30),
@@ -86,8 +89,8 @@ ALTER TABLE IF EXISTS public.beers
 
 
 ALTER TABLE IF EXISTS public.brewery_location
-    ADD FOREIGN KEY (beer_id)
-    REFERENCES public.brewery (beer_id) MATCH SIMPLE
+    ADD FOREIGN KEY (brewery_id)
+    REFERENCES public.brewery_location (brewery_id) MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
     NOT VALID;

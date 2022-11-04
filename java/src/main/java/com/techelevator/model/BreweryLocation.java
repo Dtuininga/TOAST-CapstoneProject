@@ -3,7 +3,7 @@ package com.techelevator.model;
 public class BreweryLocation {
     //properties/fields
     private int brewery_location;
-    private int beer_id;
+    private int  brewery_id;
     private char brewery_street;
     private char brewery_city;
     private char brewery_state;
@@ -13,13 +13,13 @@ public class BreweryLocation {
 
     public BreweryLocation(
             int brewery_location,
-            int beer_id,
+            int brewery_id,
             char brewery_street,
             char brewery_city,
             char brewery_state,
             int brewery_zipcode) {
         this.brewery_location = brewery_location;
-        this.beer_id = beer_id;
+        this.brewery_id = brewery_id;
         this.brewery_street = brewery_street;
         this.brewery_city = brewery_city;
         this.brewery_state = brewery_state;
@@ -32,7 +32,7 @@ public class BreweryLocation {
     public String toString() {
         return "BreweryLocation{" +
                 "brewery_location=" + brewery_location +
-                ", beer_id=" + beer_id +
+                ", brewery_id=" + brewery_id +
                 ", brewery_street=" + brewery_street +
                 ", brewery_city=" + brewery_city +
                 ", brewery_state=" + brewery_state +
@@ -40,15 +40,17 @@ public class BreweryLocation {
                 '}';
     }
 
+
     //getters
 
     public int getBrewery_location() {
         return brewery_location;
     }
 
-    public int getBeer_id() {
-        return beer_id;
+    public int getBrewery_id() {
+        return brewery_id;
     }
+
 
     public char getBrewery_street() {
         return brewery_street;
@@ -72,8 +74,8 @@ public class BreweryLocation {
         this.brewery_location = brewery_location;
     }
 
-    public void setBeer_id(int beer_id) {
-        this.beer_id = beer_id;
+    public void setBrewery_id(int brewery_id) {
+        this.brewery_id = brewery_id;
     }
 
     public void setBrewery_street(char brewery_street) {
