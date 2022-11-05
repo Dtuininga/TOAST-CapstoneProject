@@ -24,6 +24,10 @@ code {
   margin: 10px;
   max-width: 250px;
   }
+  .toastLogo {
+    max-width:200px;
+    height:200px;
+  }
 
  .shortcut { /*Navbar*/
     font-size: 2.5em;

@@ -2,7 +2,7 @@ import React from "react";
 
 
 export default function BeerList() {
-    //TODO: change hardcoded values to props, map over data list. (card duplicated 'cos I'm lazy)
+    //TODO: change hardcoded values to props, map over data list. (card duplicated for now 'cos I'm lazy)
 
 return(
     <div>
