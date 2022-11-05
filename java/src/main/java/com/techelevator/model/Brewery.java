@@ -3,15 +3,17 @@ package com.techelevator.model;
 public class Brewery {
     //properties/fields
     private int breweryId;
-    private int beerId;
+
     private String breweryName;
     private String breweryImg;
     private String breweryHours;
     private String breweryHistory;
     private String breweryEmail;
+    private int beerId;
     private String breweryPhone;
     private String breweryWebsite;
     private boolean breweryActive;
+    private String breweryAddress;
 
     //constructor
 
@@ -19,47 +21,44 @@ public class Brewery {
     public Brewery() {
     }
 
-    public Brewery(int breweryId, int beerId, String breweryName, String breweryImg, String breweryHours, String breweryHistory, String breweryEmail, String breweryPhone, String breweryWebsite, boolean breweryActive) {
+    public Brewery(int breweryId, String breweryName, String breweryImg, String breweryHours, String breweryHistory, String breweryEmail, int beerId, String breweryPhone, String breweryWebsite, boolean breweryActive, String breweryAddress) {
         this.breweryId = breweryId;
-        this.beerId = beerId;
         this.breweryName = breweryName;
         this.breweryImg = breweryImg;
         this.breweryHours = breweryHours;
         this.breweryHistory = breweryHistory;
         this.breweryEmail = breweryEmail;
+        this.beerId = beerId;
         this.breweryPhone = breweryPhone;
         this.breweryWebsite = breweryWebsite;
         this.breweryActive = breweryActive;
+        this.breweryAddress = breweryAddress;
     }
 
-    //methods
+//methods
 
     @Override
     public String toString() {
         return "Brewery{" +
                 "breweryId=" + breweryId +
-                ", beerId=" + beerId +
                 ", breweryName='" + breweryName + '\'' +
                 ", breweryImg='" + breweryImg + '\'' +
                 ", breweryHours='" + breweryHours + '\'' +
                 ", breweryHistory='" + breweryHistory + '\'' +
                 ", breweryEmail='" + breweryEmail + '\'' +
-                ", breweryPhone=" + breweryPhone +
+                ", beerId=" + beerId +
+                ", breweryPhone='" + breweryPhone + '\'' +
                 ", breweryWebsite='" + breweryWebsite + '\'' +
                 ", breweryActive=" + breweryActive +
+                ", breweryAddress='" + breweryAddress + '\'' +
                 '}';
     }
 
 
     //getters
 
-
     public int getBreweryId() {
         return breweryId;
-    }
-
-    public int getBeerId() {
-        return beerId;
     }
 
     public String getBreweryName() {
@@ -94,15 +93,19 @@ public class Brewery {
         return breweryActive;
     }
 
+    public String getBreweryAddress() {
+        return breweryAddress;
+    }
+
+    public int getBeerId() {
+        return beerId;
+    }
+
     //setter
 
 
     public void setBreweryId(int breweryId) {
         this.breweryId = breweryId;
-    }
-
-    public void setBeerId(int beerId) {
-        this.beerId = beerId;
     }
 
     public void setBreweryName(String breweryName) {
@@ -135,5 +138,13 @@ public class Brewery {
 
     public void setBreweryActive(boolean breweryActive) {
         this.breweryActive = breweryActive;
+    }
+
+    public void setBreweryAddress(String breweryAddress) {
+        this.breweryAddress = breweryAddress;
+    }
+
+    public void setBeerId(int beerId) {
+        this.beerId = beerId;
     }
 }
