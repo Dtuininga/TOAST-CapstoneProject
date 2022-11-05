@@ -19,4 +19,9 @@ public class BreweryService {
     public List <Brewery> getAllBreweries(){return breweryDao.getAllBreweries();}
 
     public Brewery getBreweryByBreweryId(int breweryId){return breweryDao.getBreweryById(breweryId);}
+
+    public void createBrewery(Brewery brewery) {
+        breweryDao.addNewBrewery(brewery);
+
+    }
 }

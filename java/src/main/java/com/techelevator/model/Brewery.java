@@ -10,6 +10,7 @@ public class Brewery {
     private String breweryHistory;
     private String breweryEmail;
     private int beerId;
+    private int userId;
     private String breweryPhone;
     private String breweryWebsite;
     private boolean breweryActive;
@@ -21,7 +22,7 @@ public class Brewery {
     public Brewery() {
     }
 
-    public Brewery(int breweryId, String breweryName, String breweryImg, String breweryHours, String breweryHistory, String breweryEmail, int beerId, String breweryPhone, String breweryWebsite, boolean breweryActive, String breweryAddress) {
+    public Brewery(int breweryId, String breweryName, String breweryImg, String breweryHours, String breweryHistory, String breweryEmail, int beerId, int userId, String breweryPhone, String breweryWebsite, boolean breweryActive, String breweryAddress) {
         this.breweryId = breweryId;
         this.breweryName = breweryName;
         this.breweryImg = breweryImg;
@@ -29,6 +30,7 @@ public class Brewery {
         this.breweryHistory = breweryHistory;
         this.breweryEmail = breweryEmail;
         this.beerId = beerId;
+        this.userId = userId;
         this.breweryPhone = breweryPhone;
         this.breweryWebsite = breweryWebsite;
         this.breweryActive = breweryActive;
@@ -47,6 +49,7 @@ public class Brewery {
                 ", breweryHistory='" + breweryHistory + '\'' +
                 ", breweryEmail='" + breweryEmail + '\'' +
                 ", beerId=" + beerId +
+                ", userId =" + userId +
                 ", breweryPhone='" + breweryPhone + '\'' +
                 ", breweryWebsite='" + breweryWebsite + '\'' +
                 ", breweryActive=" + breweryActive +
@@ -101,6 +104,10 @@ public class Brewery {
         return beerId;
     }
 
+    public int getUserId() {
+        return userId;
+    }
+
     //setter
 
 
@@ -146,5 +153,9 @@ public class Brewery {
 
     public void setBeerId(int beerId) {
         this.beerId = beerId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 }
