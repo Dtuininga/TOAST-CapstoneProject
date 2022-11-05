@@ -12,7 +12,7 @@ import java.util.List;
 @Component
 public class JdbcBreweryDao implements BreweryDao {
 
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
 
     public JdbcBreweryDao(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
