@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS public.brewery
 
 CREATE TABLE IF NOT EXISTS public.review
 (
-    review_id serial NOT NULL PRIMARY,
+    review_id serial NOT NULL,
     beer_id integer,
     review character varying(150),
     rating integer,
