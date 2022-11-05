@@ -4,10 +4,7 @@ import com.techelevator.model.Brewery;
 import com.techelevator.services.BreweryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,4 +19,7 @@ public class BreweryController {
     public List<Brewery> getAllBreweries(){
         return breweryService.getAllBreweries();
     }
+
+    @RequestMapping(value = "breweries/{id}", method = RequestMethod.GET)
+    public Brewery getBreweryByBreweryId(@PathVariable int id){return breweryService.getBreweryByBreweryId(id);}
 }

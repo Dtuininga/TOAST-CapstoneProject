@@ -6,6 +6,7 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class JdbcBreweryDao implements BreweryDao {
         List<Brewery> breweries = new ArrayList<>();
         String sql = "SELECT brewery_id, " +
                      "brewery_img, brewery_hours, brewery_history, brewery_email, " +
-                     "beer_id, brewery_name, brewery_phone, brewery_website, brewery_active " +
+                     "beer_id, brewery_name, brewery_phone, brewery_website, brewery_active, brewery_address " +
                      "FROM brewery";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()){
@@ -40,11 +41,16 @@ public class JdbcBreweryDao implements BreweryDao {
 
     @Override
     public Brewery getBreweryById(int breweryId) {
+        Brewery brewery = new Brewery();
         String sql = "SELECT brewery_id, " +
                 "brewery_img, brewery_hours, brewery_history, brewery_email, " +
-                "brewery_name, brewery_phone, brewery_website, brewery_active, brewery_address" +
-                "FROM brewery";
-        return null;
+                "beer_id, brewery_name, brewery_phone, brewery_website, brewery_active, brewery_address " +
+                "FROM brewery WHERE brewery_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, breweryId);
+        while (results.next()){
+            brewery = mapRowToBrewery(results);
+        }
+        return brewery;
     }
 
     @Override
@@ -69,6 +75,7 @@ public class JdbcBreweryDao implements BreweryDao {
         brewery.setBreweryHours(rowSet.getString("brewery_hours"));
         brewery.setBreweryHistory(rowSet.getString("brewery_history"));
         brewery.setBreweryEmail(rowSet.getString("brewery_email"));
+        brewery.setBeerId(rowSet.getInt("beer_id"));
         brewery.setBreweryName(rowSet.getString("brewery_name"));
         brewery.setBreweryPhone(rowSet.getString("brewery_phone"));
         brewery.setBreweryWebsite(rowSet.getString("brewery_website"));

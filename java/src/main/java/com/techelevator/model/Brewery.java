@@ -9,6 +9,7 @@ public class Brewery {
     private String breweryHours;
     private String breweryHistory;
     private String breweryEmail;
+    private int beerId;
     private String breweryPhone;
     private String breweryWebsite;
     private boolean breweryActive;
@@ -20,13 +21,14 @@ public class Brewery {
     public Brewery() {
     }
 
-    public Brewery(int breweryId, String breweryName, String breweryImg, String breweryHours, String breweryHistory, String breweryEmail, String breweryPhone, String breweryWebsite, boolean breweryActive, String breweryAddress) {
+    public Brewery(int breweryId, String breweryName, String breweryImg, String breweryHours, String breweryHistory, String breweryEmail, int beerId, String breweryPhone, String breweryWebsite, boolean breweryActive, String breweryAddress) {
         this.breweryId = breweryId;
         this.breweryName = breweryName;
         this.breweryImg = breweryImg;
         this.breweryHours = breweryHours;
         this.breweryHistory = breweryHistory;
         this.breweryEmail = breweryEmail;
+        this.beerId = beerId;
         this.breweryPhone = breweryPhone;
         this.breweryWebsite = breweryWebsite;
         this.breweryActive = breweryActive;
@@ -44,6 +46,7 @@ public class Brewery {
                 ", breweryHours='" + breweryHours + '\'' +
                 ", breweryHistory='" + breweryHistory + '\'' +
                 ", breweryEmail='" + breweryEmail + '\'' +
+                ", beerId=" + beerId +
                 ", breweryPhone='" + breweryPhone + '\'' +
                 ", breweryWebsite='" + breweryWebsite + '\'' +
                 ", breweryActive=" + breweryActive +
@@ -94,6 +97,9 @@ public class Brewery {
         return breweryAddress;
     }
 
+    public int getBeerId() {
+        return beerId;
+    }
 
     //setter
 
@@ -136,5 +142,9 @@ public class Brewery {
 
     public void setBreweryAddress(String breweryAddress) {
         this.breweryAddress = breweryAddress;
+    }
+
+    public void setBeerId(int beerId) {
+        this.beerId = beerId;
     }
 }

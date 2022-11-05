@@ -17,4 +17,6 @@ public class BreweryService {
     public BreweryService(JdbcBreweryDao breweryDao){ this.breweryDao = breweryDao;}
 
     public List <Brewery> getAllBreweries(){return breweryDao.getAllBreweries();}
+
+    public Brewery getBreweryByBreweryId(int breweryId){return breweryDao.getBreweryById(breweryId);}
 }
