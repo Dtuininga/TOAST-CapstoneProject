@@ -42,7 +42,7 @@ public class JdbcBreweryDao implements BreweryDao {
     public Brewery getBreweryById(int breweryId) {
         String sql = "SELECT brewery_id, " +
                 "brewery_img, brewery_hours, brewery_history, brewery_email, " +
-                "beer_id, brewery_name, brewery_phone, brewery_website, brewery_active " +
+                "brewery_name, brewery_phone, brewery_website, brewery_active, brewery_address" +
                 "FROM brewery";
         return null;
     }
@@ -73,6 +73,7 @@ public class JdbcBreweryDao implements BreweryDao {
         brewery.setBreweryPhone(rowSet.getString("brewery_phone"));
         brewery.setBreweryWebsite(rowSet.getString("brewery_website"));
         brewery.setBreweryActive(rowSet.getBoolean("brewery_active"));
+        brewery.setBreweryAddress(rowSet.getString("brewery_address"));
 
         return brewery;
     }

@@ -20,9 +20,20 @@ public class Brewery {
     public Brewery() {
     }
 
+    public Brewery(int breweryId, String breweryName, String breweryImg, String breweryHours, String breweryHistory, String breweryEmail, String breweryPhone, String breweryWebsite, boolean breweryActive, String breweryAddress) {
+        this.breweryId = breweryId;
+        this.breweryName = breweryName;
+        this.breweryImg = breweryImg;
+        this.breweryHours = breweryHours;
+        this.breweryHistory = breweryHistory;
+        this.breweryEmail = breweryEmail;
+        this.breweryPhone = breweryPhone;
+        this.breweryWebsite = breweryWebsite;
+        this.breweryActive = breweryActive;
+        this.breweryAddress = breweryAddress;
+    }
 
-
-    //methods
+//methods
 
     @Override
     public String toString() {
@@ -33,20 +44,19 @@ public class Brewery {
                 ", breweryHours='" + breweryHours + '\'' +
                 ", breweryHistory='" + breweryHistory + '\'' +
                 ", breweryEmail='" + breweryEmail + '\'' +
-                ", breweryPhone=" + breweryPhone +
+                ", breweryPhone='" + breweryPhone + '\'' +
                 ", breweryWebsite='" + breweryWebsite + '\'' +
                 ", breweryActive=" + breweryActive +
+                ", breweryAddress='" + breweryAddress + '\'' +
                 '}';
     }
 
 
     //getters
 
-
     public int getBreweryId() {
         return breweryId;
     }
-
 
     public String getBreweryName() {
         return breweryName;
@@ -79,6 +89,11 @@ public class Brewery {
     public boolean isBreweryActive() {
         return breweryActive;
     }
+
+    public String getBreweryAddress() {
+        return breweryAddress;
+    }
+
 
     //setter
 
@@ -117,5 +132,9 @@ public class Brewery {
 
     public void setBreweryActive(boolean breweryActive) {
         this.breweryActive = breweryActive;
+    }
+
+    public void setBreweryAddress(String breweryAddress) {
+        this.breweryAddress = breweryAddress;
     }
 }
