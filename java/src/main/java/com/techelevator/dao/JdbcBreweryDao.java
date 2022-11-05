@@ -22,10 +22,14 @@ public class JdbcBreweryDao implements BreweryDao {
     public List<Brewery> getAllBreweries() {
         List<Brewery> breweries = new ArrayList<>();
         String sql = "SELECT brewery_id, " +
-                     "brewery_img, brewery_hours, brewer_history, brewery_email, " +
+                     "brewery_img, brewery_hours, brewery_history, brewery_email, " +
                      "beer_id, brewery_name, brewery_phone, brewery_website, brewery_active " +
                      "FROM brewery";
-
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while(results.next()){
+            Brewery brewery = mapRowToBrewery(results);
+            breweries.add(brewery);
+        }
         return breweries;
     }
 
@@ -35,7 +39,11 @@ public class JdbcBreweryDao implements BreweryDao {
     }
 
     @Override
-    public Brewery getBreweryById(long breweryId) {
+    public Brewery getBreweryById(int breweryId) {
+        String sql = "SELECT brewery_id, " +
+                "brewery_img, brewery_hours, brewery_history, brewery_email, " +
+                "beer_id, brewery_name, brewery_phone, brewery_website, brewery_active " +
+                "FROM brewery";
         return null;
     }
 
