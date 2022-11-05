@@ -3,7 +3,7 @@ package com.techelevator.model;
 public class Brewery {
     //properties/fields
     private int breweryId;
-    private int beerId;
+
     private String breweryName;
     private String breweryImg;
     private String breweryHours;
@@ -12,6 +12,7 @@ public class Brewery {
     private String breweryPhone;
     private String breweryWebsite;
     private boolean breweryActive;
+    private String breweryAddress;
 
     //constructor
 
@@ -19,18 +20,7 @@ public class Brewery {
     public Brewery() {
     }
 
-    public Brewery(int breweryId, int beerId, String breweryName, String breweryImg, String breweryHours, String breweryHistory, String breweryEmail, String breweryPhone, String breweryWebsite, boolean breweryActive) {
-        this.breweryId = breweryId;
-        this.beerId = beerId;
-        this.breweryName = breweryName;
-        this.breweryImg = breweryImg;
-        this.breweryHours = breweryHours;
-        this.breweryHistory = breweryHistory;
-        this.breweryEmail = breweryEmail;
-        this.breweryPhone = breweryPhone;
-        this.breweryWebsite = breweryWebsite;
-        this.breweryActive = breweryActive;
-    }
+
 
     //methods
 
@@ -38,7 +28,6 @@ public class Brewery {
     public String toString() {
         return "Brewery{" +
                 "breweryId=" + breweryId +
-                ", beerId=" + beerId +
                 ", breweryName='" + breweryName + '\'' +
                 ", breweryImg='" + breweryImg + '\'' +
                 ", breweryHours='" + breweryHours + '\'' +
@@ -58,9 +47,6 @@ public class Brewery {
         return breweryId;
     }
 
-    public int getBeerId() {
-        return beerId;
-    }
 
     public String getBreweryName() {
         return breweryName;
@@ -99,10 +85,6 @@ public class Brewery {
 
     public void setBreweryId(int breweryId) {
         this.breweryId = breweryId;
-    }
-
-    public void setBeerId(int beerId) {
-        this.beerId = beerId;
     }
 
     public void setBreweryName(String breweryName) {
