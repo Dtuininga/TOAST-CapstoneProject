@@ -48,6 +48,7 @@ class Login extends Component {
         return(
             <div>
                 <Navbar />
+                <div className="login">
                 <h2>Please Sign In</h2>
                 <label class="sr-only">Username</label>
                 <input
@@ -71,8 +72,11 @@ class Login extends Component {
                     onChange={this.handleInputChange}
                     required
                 />
-                <Link to="/register">Need an account?</Link>
-                <button type="submit" onClick={this.handleLogin}>Sign in</button>
+                <button className="loginButton" type="submit" onClick={this.handleLogin}>Sign in</button>
+                <div>
+                <Link to="/register">Not registered? Set up an account here!</Link>
+                </div>
+            </div>
             </div>
         )
     }

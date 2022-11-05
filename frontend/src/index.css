@@ -14,7 +14,7 @@ code {
 
 .navbar { /*Navbar*/
   display: flex;
-  background-color: brown;
+  background-color: #C73E1D;
   align-content: center;
 }
 .branding { /*Navbar*/
@@ -92,4 +92,39 @@ code {
   }
   .beercard { /*BeerList*/
     border: 5px solid black;
+  }
+  .login { /*existing acct login*/
+    display: block;
+    margin: auto;
+    margin-top: 15px;
+    max-width: 40%;
+    justify-items: center;
+    border: 4px solid #3A4F41;
+    padding: 10px;
+  }
+  .loginButton {
+    width:150px;
+    height: 50px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 20px;
+    background-color: #C73E1D;
+  }
+
+  .registration { /*account creation*/
+    display: block;
+    margin: auto;
+    margin-top: 15px;
+    max-width: 40%;
+    border: 4px solid #3A4F41;
+    padding: 10px;
+  }
+  .registerButton {
+    width:300px;
+    height: 50px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 20px;
+    
+   
   }

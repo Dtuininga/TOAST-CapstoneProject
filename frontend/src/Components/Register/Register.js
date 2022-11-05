@@ -43,6 +43,7 @@ class Register extends Component{
         return(
             <div>
                     <Navbar />
+                    <div className="registration">
                 <h1>Create Account</h1>
                 <div>
                     <span> "I certify that I am over 21 years of age" </span>
@@ -81,11 +82,12 @@ class Register extends Component{
                     required
                 />
             
-                <button type="submit" disabled={!this.state.over21}>Let's make a TOAST!</button>
+                <button type="submit" className="registerButton" disabled={!this.state.over21}>Let's make a TOAST!</button>
                 <sp/>
                 <div>
                 <Link to="/login">I already have an account!</Link>
                 </div>
+            </div>
             </div>
         )
     }
