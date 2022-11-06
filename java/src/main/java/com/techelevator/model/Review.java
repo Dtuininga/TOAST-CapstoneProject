@@ -9,10 +9,7 @@ public class Review {
 
     //constructors
 
-    public Review(int reviewId,
-                  int beerId,
-                  String review,
-                  int rating) {
+    public Review() {
         this.reviewId = reviewId;
         this.beerId = beerId;
         this.review = review;
