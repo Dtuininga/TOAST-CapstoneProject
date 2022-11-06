@@ -1,3 +1,6 @@
+/*Palette link: https://coolors.co/3b0d11-3a4f41-e1dee3-c73e1d-ff8c42 */
+/*DarkSienna: #3B0D11 KombuGreen: #3A4F41 Gainsboro: #E1DEE3 Sinopia: #C73E1D MangoTango: #FF8C42 */
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -28,12 +31,22 @@ code {
     max-width:200px;
     height:200px;
   }
+  button {
+    display: block;
+    min-width: 400px;
+   border-radius: 6px;
+   margin: 3px;
+    background-color: #E1DEE3;
+    
+  }
 
  .shortcut { /*Navbar*/
-    font-size: 2.5em;
-    list-style: none;
+    font-size: 2.2em;
     justify-content: center;
     align-content: center;
+    min-width: 300px;
+    text-decoration: none;
+    color: #3A4F41;
   }
   .userInfo { /*Navbar*/
     align-content: center;
@@ -58,14 +71,16 @@ code {
     height: 168px;
     left: 40px;
     top: 100px;
+    padding: 15px;
     border-radius: 5px;
     }
     .brewerycard { /*BreweriesList*/
         display: flex;
-        border-bottom: 1px solid #F5F5F5;
-       
+        border: 4px solid #3A4F41;
         margin: 40px;
         align-items: center;
+        text-decoration: none;
+        color: #3A4F41;
     }
     .card-details { /*BreweriesList*/
         margin: 20px;
@@ -80,19 +95,38 @@ code {
   .breweryInfo { /*BreweryDetails*/
     width: 35%;
    margin: 15px; 
-   font-size: 1.25rem;
+   font-size: 1.5rem;
+   background-color: #FF8C42;
   }
   .beersList { /*BreweryDetails*/
-    width: 60%;
-   margin: 15px; 
-   border: 5px solid black;
+    max-width: 40%;
+    border: 4px solid #3A4F41;
+    padding: 10px;
   }
   .breweryHeader { /*BreweryDetails*/
     text-align: center;
   }
   .beercard { /*BeerList*/
     border: 5px solid black;
+    text-decoration: none;
+        color: #3A4F41;
+        display: flex;
+        border: 4px solid #3A4F41;
+        margin: 10px;
+        align-items: center;
+        text-decoration: none;
+        color: #3A4F41;
   }
+  .beercard-image { /*BeerList*/
+    object-fit: cover;
+    max-width: 400px;
+    height: 168px;
+    left: 40px;
+    top: 100px;
+    padding: 15px;
+    border-radius: 5px;
+    }
+
   .login { /*existing acct login*/
     display: block;
     margin: auto;
@@ -100,15 +134,17 @@ code {
     max-width: 40%;
     justify-items: center;
     border: 4px solid #3A4F41;
+    background-color: #FF8C42;
     padding: 10px;
   }
-  .loginButton {
-    width:150px;
+  .loginButton { /*existing acct login*/
+    max-width:40%;
+    min-width: 250px;
     height: 50px;
     font-size: 1.3rem;
     font-weight: 700;
-    margin: 20px;
-    background-color: #C73E1D;
+    margin: auto;
+    background-color: #E1DEE3;
   }
 
   .registration { /*account creation*/
@@ -118,13 +154,18 @@ code {
     max-width: 40%;
     border: 4px solid #3A4F41;
     padding: 10px;
+    background-color: #FF8C42;
+    font-size: 1.25rem;
   }
-  .registerButton {
-    width:300px;
+  .registerButton { /*account creation*/
+    max-width:40%;
+    min-width: 250px;
     height: 50px;
     font-size: 1.3rem;
     font-weight: 700;
-    margin: 20px;
-    
-   
+    margin: auto;
+  }
+
+  .beerStats {
+    display: flex;
   }

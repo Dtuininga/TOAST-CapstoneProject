@@ -1,9 +1,9 @@
 import React from "react";
 
 export default function Navbar() {
-    //TODO: better logo, change circle to user's chosen color? favorite beer?
-    //redesign middle links->buttons, admin/brewer tools should change or 
-    //dissappear depending on login level
+    //TODO: change circle to user's chosen color? favorite beer? userpic?
+    //admin/brewer tools should change or dissappear depending on login level
+    //remove "home" link in top left corner, make clicking logo return to login screen?
 
 return(
     
@@ -12,10 +12,10 @@ return(
             <img src="./Images/TOAST!logoColor.jpg" className="toastLogo" alt="BeerToaster logo"></img>
                 <h1>TOAST!</h1>
             </div>
-            <div >
-                <li><a href="./breweries" className="shortcut">Breweries List</a></li>
-                <li><a href="./beers" className="shortcut">Global Beer List</a></li>
-                <li><a href="./admin_tools" className="shortcut">Admin/Brewer Tools</a></li>
+            <div classname= "shortcutButtons">
+                <button><a href="./BreweriesList" className="shortcut">Breweries List</a></button>
+                <button><a href="./BeerList" className="shortcut">Global Beer List</a></button>
+                <button><a href="./admin_tools" className="shortcut">Admin/Brewer Tools</a></button>
             </div>
             <div className = "userInfo">
                 <div className="userImg">?</div>

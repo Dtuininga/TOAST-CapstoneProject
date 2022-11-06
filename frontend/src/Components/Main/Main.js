@@ -7,6 +7,10 @@ import {addToken, deleteUser} from '../../Redux/actionCreators'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import Navbar from '../Home/Navbar'
+import BreweriesList from '../Brewery/BreweriesList'
+import BeerList from '../Beer/BeerList'
+import BreweryDetails from '../Brewery/BreweryDetails'
+import BeerDetails from '../Beer/BeerDetails'
 
 const mapStateToProps = state => {
     return {
@@ -36,7 +40,7 @@ class Main extends Component {
                 {this.props.token.token !== undefined ?
                         <div>
                             <Navbar />
-                            <Link to='/home'>Home | </Link>
+                            <Link to='/home'>Home</Link>
                             <Link to='/login' onClick={this.handleLogout}>logout</Link> 
                             <Redirect to='/home'/>
 
@@ -47,6 +51,10 @@ class Main extends Component {
                 <Switch>
                     <Route path='/login' component={() => <Login/>}/>
                     <Route path='/register'component={() => <Register/>}/>
+                    <Route path='/BreweriesList' component={() => <BreweriesList />} />
+                    <Route path='/BreweryDetails' component={() => <BreweryDetails />} />
+                    <Route path='/BeerList' component={() => <BeerList />} />
+                    <Route path='/BeerDetails' component={() => <BeerDetails />} />
                     <Route path='/home' component={this.props.token.token !== undefined ? () => <Home/> : null}/>
                     <Redirect to='/login'/>
                 </Switch>

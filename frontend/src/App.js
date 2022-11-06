@@ -2,8 +2,7 @@ import Main from './Components/Main/Main'
 import {Provider} from 'react-redux'
 import {BrowserRouter} from 'react-router-dom'
 import {ConfigureStore} from './Redux/configureStore'
-import BreweriesList from './Components/Brewery/BreweriesList'
-import BreweryDetails from './Components/Beer/BeerDetails'
+import BeerDetails from './Components/Beer/BeerDetails'
 
 
 const store = ConfigureStore();

@@ -2,33 +2,34 @@ import React from "react";
 import Navbar from "../Home/Navbar";
 import BeerList from "../Beer/BeerList"
 
-export default function BreweryDetails() {
+export default function BeerDetails() {
+    //ToDo: add review list to bottom, pretty up the info text, shrink pic with window resize, standardize pic size/aspect
+    // use math for average rating
+
 
         return(
             <div>
             <Navbar />
-            <div className="breweryHeader">
-            <img src="./Images/MoesTavern.jpg" className="breweryBanner" />
-            <h1 className="breweryName">Moe's Tavern</h1>
-            </div>
-            <div className="breweryDetails">
-                <div className="breweryInfo">
+               <div className="beerStats">
+                <div className="beerImage">
+                 <img src="https://pyxis.nymag.com/v1/imgs/1ef/403/49499034ebf7c1fc90c366162319691a36-13-duff-beer.rsquare.w700.jpg" className="breweryBanner" />
+                </div>
+                <div className="beerInfo">
+                    <h1 className="beerName">Duff</h1>
+                    <a href="./BreweryDetails" >Brewed by: Moe's Tavern</a>
                     <ul>
-                    <li>breweryOwner: Moe Szyslak</li>
-                    <li>address: Main st, Springfield MA</li>
-                    <li>hours: 4pm-2am weekdays, sunday 12pm-10pm</li>
-                    <li>contactPhone: *disconnected*</li>
-                    <li>contactEmail: StopPrankCallingMe@Compuserve.com</li>
-                    <li>about: Where the elite meet to fete. We had an Aerosmith concert one time. Could happen again, I ain't saying for sure.</li>
-                    <li>Website: www.moestavern.myspace.com</li>
+                    <li>Beer Type: Lager</li>
+                    <li>ABV: 4.6%</li>
+                    <li>Description: Sweet nectar of the gods. Endorsed by Duffman himself.</li>
+                    <li>Average Rating: &#127866;</li>
+                    
                     </ul>
                 </div>
-                <div className="breweryBeers">
-                    <BeerList />
-                </div>
-
+                
             </div>
-
+            <div className="reviewSection">
+                    (import review section by beer)
+            </div>
             </div>
         )
 
