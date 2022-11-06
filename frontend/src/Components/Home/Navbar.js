@@ -9,7 +9,7 @@ return(
     
         <div className="navbar">
             <div className="branding">
-            <img src="./Images/TOAST!logoColor.jpg" className="toastLogo" alt="BeerToaster logo"></img>
+            <img src="./Images/toastnobkgd.png" className="toastLogo" alt="BeerToaster logo"></img>
                 <h1>TOAST!</h1>
             </div>
             <div classname= "shortcutButtons">
