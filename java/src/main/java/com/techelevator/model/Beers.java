@@ -2,90 +2,90 @@ package com.techelevator.model;
 
 public class Beers {
     //properties / fields
-    private int beer_id;
-    private int brewery_id;
-    private char beer_img;
-    private char beer_name;
-    private double beer_abv;
-    private char beer_type;
-    private char beer_description;
+    private int beerId;
+    private int breweryId;
+    private String beerImg;
+    private String beerName;
+    private double beerAbv;
+    private String beerType;
+    private String beerDescription;
 
     //constructor
 
-    public Beers(int beer_id,
-                 int brewery_id,
-                 char beer_img,
-                 char beer_name,
-                 double beer_abv,
-                 char beer_type,
-                 char beer_description) {
-        this.beer_id = beer_id;
-        this.brewery_id = brewery_id;
-        this.beer_img = beer_img;
-        this.beer_name = beer_name;
-        this.beer_abv = beer_abv;
-        this.beer_type = beer_type;
-        this.beer_description = beer_description;
+    public Beers(int beerId,
+                 int breweryId,
+                 String beerImg,
+                 String beerName,
+                 double beerAbv,
+                 String beerType,
+                 String beerDescription) {
+        this.beerId = beerId;
+        this.breweryId = breweryId;
+        this.beerImg = beerImg;
+        this.beerName = beerName;
+        this.beerAbv = beerAbv;
+        this.beerType = beerType;
+        this.beerDescription = beerDescription;
     }
 
     //getters
 
-    public int getBeer_id() {
-        return beer_id;
+    public int getBeerId() {
+        return beerId;
     }
 
-    public int getBrewery_id() {
-        return brewery_id;
+    public int getBreweryId() {
+        return breweryId;
     }
 
-    public char getBeer_img() {
-        return beer_img;
+    public String getBeerImg() {
+        return beerImg;
     }
 
-    public char getBeer_name() {
-        return beer_name;
+    public String getBeerName() {
+        return beerName;
     }
 
-    public double getBeer_abv() {
-        return beer_abv;
+    public double getBeerAbv() {
+        return beerAbv;
     }
 
-    public char getBeer_type() {
-        return beer_type;
+    public String getBeerType() {
+        return beerType;
     }
 
-    public char getBeer_description() {
-        return beer_description;
+    public String getBeerDescription() {
+        return beerDescription;
     }
 
     //setters
 
 
-    public void setBeer_id(int beer_id) {
-        this.beer_id = beer_id;
+    public void setBeerId(int beerId) {
+        this.beerId = beerId;
     }
 
-    public void setBrewery_id(int brewery_id) {
-        this.brewery_id = brewery_id;
+    public void setBreweryId(int breweryId) {
+        this.breweryId = breweryId;
     }
 
-    public void setBeer_img(char beer_img) {
-        this.beer_img = beer_img;
+    public void setBeerImg(String beerImg) {
+        this.beerImg = beerImg;
     }
 
-    public void setBeer_name(char beer_name) {
-        this.beer_name = beer_name;
+    public void setBeerName(String beerName) {
+        this.beerName = beerName;
     }
 
-    public void setBeer_abv(double beer_abv) {
-        this.beer_abv = beer_abv;
+    public void setBeerAbv(double beerAbv) {
+        this.beerAbv = beerAbv;
     }
 
-    public void setBeer_type(char beer_type) {
-        this.beer_type = beer_type;
+    public void setBeerType(String beerType) {
+        this.beerType = beerType;
     }
 
-    public void setBeer_description(char beer_description) {
-        this.beer_description = beer_description;
+    public void setBeerDescription(String beerDescription) {
+        this.beerDescription = beerDescription;
     }
 }

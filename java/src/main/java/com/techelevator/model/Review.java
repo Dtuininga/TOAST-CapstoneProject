@@ -2,19 +2,19 @@ package com.techelevator.model;
 
 public class Review {
     //properties/fields
-    private int review_id;
-    private int beer_id;
-    private char review;
+    private int reviewId;
+    private int beerId;
+    private String review;
     private int rating;
 
     //constructors
 
-    public Review(int review_id,
-                  int beer_id,
-                  char review,
+    public Review(int reviewId,
+                  int beerId,
+                  String review,
                   int rating) {
-        this.review_id = review_id;
-        this.beer_id = beer_id;
+        this.reviewId = reviewId;
+        this.beerId = beerId;
         this.review = review;
         this.rating = rating;
     }
@@ -25,8 +25,8 @@ public class Review {
     @Override
     public String toString() {
         return "Review{" +
-                "review_id=" + review_id +
-                ", beer_id=" + beer_id +
+                "review_id=" + reviewId +
+                ", beer_id=" + beerId +
                 ", review=" + review +
                 ", rating=" + rating +
                 '}';
@@ -34,15 +34,15 @@ public class Review {
 
     //getters
 
-    public int getReview_id() {
-        return review_id;
+    public int getReviewId() {
+        return reviewId;
     }
 
-    public int getBeer_id() {
-        return beer_id;
+    public int getBeerId() {
+        return beerId;
     }
 
-    public char getReview() {
+    public String getReview() {
         return review;
     }
 
@@ -52,15 +52,15 @@ public class Review {
 
     //setters
 
-    public void setReview_id(int review_id) {
-        this.review_id = review_id;
+    public void setReviewId(int reviewId) {
+        this.reviewId = reviewId;
     }
 
-    public void setBeer_id(int beer_id) {
-        this.beer_id = beer_id;
+    public void setBeerId(int beerId) {
+        this.beerId = beerId;
     }
 
-    public void setReview(char review) {
+    public void setReview(String review) {
         this.review = review;
     }
 
