@@ -4,6 +4,8 @@ import BeerList from "../Beer/BeerList"
 
 export default function BreweryDetails() {
 
+    //fetch: get brewery by id, get beer list by breweryID, get average of all beer ratings combined
+
         return(
             <div>
             <Navbar />
@@ -14,6 +16,7 @@ export default function BreweryDetails() {
             <div className="breweryDetails">
                 <div className="breweryInfo">
                     <ul>
+                    <li>Average Beer Score: &#127866; &#127866; &#127866;</li>
                     <li>breweryOwner: Moe Szyslak</li>
                     <li>address: Main st, Springfield MA</li>
                     <li>hours: 4pm-2am weekdays, sunday 12pm-10pm</li>

@@ -7,6 +7,8 @@ export default function BreweriesList() {
     //left to right by line for interest and visual distinction from beer list
     //each "card" should be clickable to direct to brewery detaisl for that brewery 
 
+    //fetch: get all breweries
+
 return(
     <div>
         <Navbar />

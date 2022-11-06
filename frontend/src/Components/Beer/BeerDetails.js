@@ -6,6 +6,7 @@ export default function BeerDetails() {
     //ToDo: add review list to bottom, pretty up the info text, shrink pic with window resize, standardize pic size/aspect
     // use math for average rating
 
+    //fetch: get beer by id, get reviews by beerID, add a review to a beer ID, get average review score
 
         return(
             <div>
@@ -28,7 +29,7 @@ export default function BeerDetails() {
                 
             </div>
             <div className="reviewSection">
-                    (import review section by beer)
+                    (import review section by beer, create a form to leave a review for this beer)
             </div>
             </div>
         )

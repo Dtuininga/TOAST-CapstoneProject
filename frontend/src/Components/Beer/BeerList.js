@@ -5,6 +5,7 @@ export default function BeerList() {
     //TODO: change hardcoded values to props, map over data list. Have Navbar appear when list by itself
     //able to arrange list by rating? alphabet? 
 
+        //fetch: get all beers
 return(
     <div>
     <a href="./BeerDetails" className="beercard">
