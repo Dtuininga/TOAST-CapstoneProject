@@ -15,14 +15,13 @@ export default function BreweriesList(props) {
 
     return(
     <div>
-        <Navbar />
     <a href={props.brewLink} className="brewerycard">
             <img src={props.brewImage} className="card-image" />
             <div className="card-details">
                 <h1>{props.brewName}</h1>
                 <h4 className="address">Address: {props.brewAddress}</h4> 
                 <h4 className="hours">Hours: {props.brewHours}</h4>
-                <h3>Rating: {props.brewRating}</h3>
+                <h4>Rating: {props.brewRating}</h4>
             </div>
             </a>
            </div>

@@ -13,7 +13,6 @@ import BreweryDetails from '../Brewery/BreweryDetails'
 import BeerDetails from '../Beer/BeerDetails'
 
 
-
 const mapStateToProps = state => {
     return {
         token: state.token,
@@ -39,9 +38,9 @@ class Main extends Component {
     render(){
         return(
             <div>
+                <Navbar />
                 {this.props.token.token !== undefined ?
                         <div>
-                            <Navbar />
                             <Link to='/home'>Home</Link>
                             <Link to='/login' onClick={this.handleLogout}>logout</Link> 
                             <Redirect to='/home'/>

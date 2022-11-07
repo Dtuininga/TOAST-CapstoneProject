@@ -47,7 +47,6 @@ class Login extends Component {
     render(){
         return(
             <div>
-                <Navbar />
                 <div className="login">
                 <h2>Please Sign In</h2>
                 <label class="sr-only">Username</label>
