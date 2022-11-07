@@ -13,7 +13,7 @@ return(
                 <h1>TOAST!</h1>
             </div>
             <div classname= "shortcutButtons">
-                <button><a href="./BreweriesList" className="shortcut">Breweries List</a></button>
+                <button><a href="./BreweryList" className="shortcut">Brewery List</a></button>
                 <button><a href="./BeerList" className="shortcut">Global Beer List</a></button>
                 <button><a href="./admin_tools" className="shortcut">Admin/Brewer Tools</a></button>
             </div>

@@ -7,10 +7,12 @@ import {addToken, deleteUser} from '../../Redux/actionCreators'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import Navbar from '../Home/Navbar'
-import BreweriesList from '../Brewery/BreweriesList'
+import BreweryList from '../Brewery/BreweryList'
 import BeerList from '../Beer/BeerList'
 import BreweryDetails from '../Brewery/BreweryDetails'
 import BeerDetails from '../Beer/BeerDetails'
+
+
 
 const mapStateToProps = state => {
     return {
@@ -51,7 +53,7 @@ class Main extends Component {
                 <Switch>
                     <Route path='/login' component={() => <Login/>}/>
                     <Route path='/register'component={() => <Register/>}/>
-                    <Route path='/BreweriesList' component={() => <BreweriesList />} />
+                    <Route path='/BreweryList' component={() => <BreweryList />} />
                     <Route path='/BreweryDetails' component={() => <BreweryDetails />} />
                     <Route path='/BeerList' component={() => <BeerList />} />
                     <Route path='/BeerDetails' component={() => <BeerDetails />} />
