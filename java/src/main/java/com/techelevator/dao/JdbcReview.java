@@ -16,7 +16,13 @@ public class JdbcReview implements ReviewDao{
     @Override
     public List<Review> getReviews(long beer_id) {
         List<Review> reviews = new ArrayList<>();
-        String sql = "select * from beer_reviews where beer_id = ?";
+        String sql = "select     " +
+                "review_id = ?, " +
+                "beer_id = ?, " +
+                "review = ?, " +
+                "rating = ? " +
+                "from beer_reviews " +
+                "where beer_id = ?";
         SqlRowSet rs = jdbcTemplate.queryForRowSet(sql, beer_id);
         while (rs.next()){
             Review review = new Review();
@@ -30,6 +36,14 @@ public class JdbcReview implements ReviewDao{
 
     @Override
     public void addReview(Review review) {
+        List<Review> reviews = new ArrayList<>();
+        String sql = "select     " +
+                "review_id = ?, " +
+                "beer_id = ?, " +
+                "review = ?, " +
+                "rating = ? " +
+                "from beer_reviews " +
+                "where beer_id = ?";
 
     }
 }
