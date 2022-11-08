@@ -19,7 +19,7 @@ public class JdbcReviewDao implements ReviewDao {
 
     @Override
     public List<Review> getReviewsByBeerId(int beerId) {
-        List<Review> reviews = new ArrayList<>();
+        List<Review> reviewsByBeer = new ArrayList<>();
         String sql = "select " +
                 "review_id = ?, " +
                 "beer_id = ?, " +
@@ -31,9 +31,9 @@ public class JdbcReviewDao implements ReviewDao {
         SqlRowSet rs = jdbcTemplate.queryForRowSet(sql, beerId);
         while (rs.next()) {
             Review review = mapRowToReview(rs);
-            reviews.add(review);
+            reviewsByBeer.add(review);
         }
-        return reviews;
+        return reviewsByBeer;
     }
 
     @Override

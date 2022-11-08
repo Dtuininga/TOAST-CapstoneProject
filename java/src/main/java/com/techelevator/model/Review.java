@@ -1,7 +1,9 @@
 package com.techelevator.model;
 
 public class Review {
+
     //properties/fields
+
     private int reviewId;
     private int beerId;
     private String review;
@@ -9,6 +11,10 @@ public class Review {
     private int userId;
 
     //constructors
+
+    public Review() {
+
+    }
 
     public Review(int reviewId, int beerId, String review, int rating, int userId) {
         this.reviewId = reviewId;
@@ -18,13 +24,7 @@ public class Review {
         this.userId = userId;
     }
 
-    public Review() {
-
-    }
-
-
     //methods
-
 
     @Override
     public String toString() {

@@ -1,6 +1,6 @@
 package com.techelevator.dao;
 
-import com.techelevator.model.Beers;
+import com.techelevator.model.*;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -23,14 +23,14 @@ public class JdbcBeerDao implements BeerDao {
         List<Beers> beers = new ArrayList<>();
 
         String sql =
-                "select  " +
-                        "set beer_id = ?, " +
-                        "brewery_id = ?, " +
-                        "beer_img = ?, " +
-                        "beerName = ?, " +
-                        "beer_abv = ?, " +
-                        "beerType = ?, " +
-                        "beerDescription = ? " +
+                "SELECT  " +
+                        "beer_id, " +
+                        "brewery_id, " +
+                        "beer_img, " +
+                        "beerName, " +
+                        "beer_abv, " +
+                        "beerType, " +
+                        "beerDescription " +
                         "from beers " +
                         "ORDER BY id";
         SqlRowSet rs = jdbcTemplate.queryForRowSet(sql);

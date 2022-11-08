@@ -1,7 +1,7 @@
 package com.techelevator.dao;
 
 
-import com.techelevator.model.Beers;
+import com.techelevator.model.*;
 
 import java.util.List;
 
