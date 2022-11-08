@@ -21,17 +21,17 @@ public class JdbcBeerDao implements BeerDao {
     @Override
     public List<Beers> getAllBeer() {
         List<Beers> beers = new ArrayList<>();
-
         String sql =
-                "select  " +
-                        "set beer_id = ?, " +
-                        "brewery_id = ?, " +
-                        "beer_img = ?, " +
-                        "beerName = ?, " +
-                        "beer_abv = ?, " +
-                        "beerType = ?, " +
-                        "beerDescription = ? " +
-                        "from beers " +
+                "SELECT  " +
+                        "beer_id, " +
+                        "brewery_id, " +
+                        "beer_img, " +
+                        "beer_name, " +
+                        "beer_abv, " +
+                        "beer_type, " +
+                        "beer_description," +
+                        "beer_active"+
+                        "FROM beers " +
                         "ORDER BY id";
         SqlRowSet rs = jdbcTemplate.queryForRowSet(sql);
         while (rs.next()) {
@@ -43,7 +43,16 @@ public class JdbcBeerDao implements BeerDao {
 
     @Override
         public void saveBeer (Beers newBeer){
-
+        String sql = "INSERT INTO beers (beer_img, brewery_id, beer_name, beer_abv, beer_type, beer_description, beer_active) " +
+                "VALUES (?,?,?,?,?,?,?)";
+        jdbcTemplate.update(sql,
+                newBeer.getBeerImg(),
+                newBeer.getBreweryId(),
+                newBeer.getBeerName(),
+                newBeer.getBeerAbv(),
+                newBeer.getBeerType(),
+                newBeer.getBeerDescription(),
+                newBeer.isActive());
         }
 
     @Override
@@ -58,10 +67,10 @@ public class JdbcBeerDao implements BeerDao {
                     "beer_id = ?, " +
                     "brewery_id = ?, " +
                     "beer_img = ?, " +
-                    "beerName = ?, " +
+                    "beer_name = ?, " +
                     "beer_abv = ?, " +
-                    "beerType = ?, " +
-                    "beerDescription = ? " +
+                    "beer_type = ?, " +
+                    "beer_description = ? " +
                     "from beers " +
                     "where id = ?";
             Beers beer = new Beers();
@@ -110,9 +119,10 @@ public class JdbcBeerDao implements BeerDao {
         beers.setBreweryId(rs.getInt("brewery_id"));
         beers.setBeerImg(rs.getString( "beer_img"));
         beers.setBeerName(rs.getString( "beer_name"));
-        beers.setBeerAbv(rs.getDouble("beer_Abv"));
+        beers.setBeerAbv(rs.getDouble("beer_abv"));
         beers.setBeerType(rs.getString("beer_type"));
         beers.setBeerDescription(rs.getString("beer_description"));
+        beers.setActive(rs.getBoolean("beer_active"));
         return beers;
     }
 }

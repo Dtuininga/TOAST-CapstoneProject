@@ -4,6 +4,7 @@ import com.techelevator.dao.JdbcBeerDao;
 import com.techelevator.model.Beers;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
