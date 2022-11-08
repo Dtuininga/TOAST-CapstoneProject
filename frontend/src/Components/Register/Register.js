@@ -23,7 +23,7 @@ class Register extends Component{
         this.setState((state)=>({over21:!state.over21}))
     }
 
-    isBrewer = () => {
+    isBrewer = () => {  //when checked, add form lines for brewery name, address, website, etc? 
         this.setState((state) => ({brewer: !state.brewer}))
         this.setState((state) => ({role: state.brewer ? 'BREWER' : 'USER'}))
     }
