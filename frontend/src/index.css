@@ -24,15 +24,38 @@ code {
     monospace;
 }
 
-.sidebar{
+.homeLink{
   display: flex;
-  flex-direction: column;
+  background-color: #C73E1D;
+  color: white;
+  font-size: large;
+  width:100%;
+}
+
+.sidebar{
+  
+  display: flex;
+  flex-direction:column;
   justify-content: start;
   align-items: center;
   background-color: #C73E1D;
   height: 100vh;
-  width: 18rem;
+  width: 0rem;
+  padding-right: 170px;
   position: fixed;
+  left: -130px;
+  transition: all 0.35s ease-out;
+}
+
+.sidebar:hover{
+  background-color: #C73E1D;
+  padding-right: 0;
+  left: 0px;
+  width: 18rem;
+}
+
+.sidebar:hover .mainPage:not(:hover) {
+  filter: blur(4px);
 }
 
 .navbar { /*Navbar*/
@@ -41,6 +64,7 @@ code {
   background-color: #C73E1D;
   align-content: center;
   height: 150px;
+
 }
 
 .navbar h1{
@@ -48,9 +72,7 @@ code {
   align-items: center;
   
 }
-.navbar button{
-  text-align: left;
-}
+
 
 .branding { /*Navbar*/
   display: flex;

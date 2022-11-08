@@ -29,18 +29,12 @@ const mapDispatchToProps = (dispatch) => ({
 class Main extends Component {
     constructor(props){
         super(props);
-        this.state = {
-            isActive: false
-        }
+        
     }
 
     handleLogout = () => {
         this.props.addToken("")
         this.props.deleteUser()
-    }
-
-    handlePush = () => {
-        this.setState((state) => ({isActive: !state.isActive}))
     }
     
 
@@ -58,9 +52,9 @@ class Main extends Component {
 
                         </div>  
                     : 
-                        <Link to='/login'>Home</Link>
+                        <Link className='homeLink' to='/login'>Home</Link>
                 }
-                {this.state.isActive && <Sidebar />}
+                <Sidebar />
                 <Switch>
                     <Route path='/login' component={() => <Login/>}/>
                     <Route path='/register'component={() => <Register/>}/>

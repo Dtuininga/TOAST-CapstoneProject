@@ -18,14 +18,14 @@ public class BeersService {
     }
 
     public void deleteBeer(long beerId){
-        beerDao.deleteBeer(long beerId);
+        beerDao.deleteBeer(beerId);
     };
 
     public Beers getBeerByID(long beerId){
-        return beerDao.getBeerByID(long beerId);
+        return beerDao.getBeerByID(beerId);
     };
 
    public void updateBeer(Beers beer){
-       beerDao.updateBeer(Beers beer);
+       beerDao.updateBeer(beer);
    };
 }
