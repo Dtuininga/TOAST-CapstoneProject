@@ -6,17 +6,18 @@ public class Review {
     private int beerId;
     private String review;
     private int rating;
+    private int userId;
 
     //constructors
 
-
-
-    public Review() {
+    public Review(int reviewId, int beerId, String review, int rating, int userId) {
         this.reviewId = reviewId;
         this.beerId = beerId;
         this.review = review;
         this.rating = rating;
+        this.userId = userId;
     }
+
 
     //methods
 
@@ -24,10 +25,11 @@ public class Review {
     @Override
     public String toString() {
         return "Review{" +
-                "review_id=" + reviewId +
-                ", beer_id=" + beerId +
-                ", review=" + review +
+                "reviewId=" + reviewId +
+                ", beerId=" + beerId +
+                ", review='" + review + '\'' +
                 ", rating=" + rating +
+                ", userId=" + userId +
                 '}';
     }
 
@@ -49,6 +51,8 @@ public class Review {
         return rating;
     }
 
+    public int getUserId() {return userId;}
+
     //setters
 
     public void setReviewId(int reviewId) {
@@ -66,4 +70,6 @@ public class Review {
     public void setRating(int rating) {
         this.rating = rating;
     }
+
+    public void setUserId(int userId) {this.userId = userId;}
 }

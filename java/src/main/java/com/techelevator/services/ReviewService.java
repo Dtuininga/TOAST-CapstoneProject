@@ -25,6 +25,6 @@ public class ReviewService {
     }
 
     public void addReview(Review review){
-        reviewDao.addReview(review);
+        reviewDao.addReview();
     }
 }
