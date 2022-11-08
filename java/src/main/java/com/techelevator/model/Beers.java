@@ -12,6 +12,10 @@ public class Beers {
 
     //constructor
 
+
+    public Beers() {
+    }
+
     public Beers(int beerId,
                  int breweryId,
                  String beerImg,
@@ -30,7 +34,7 @@ public class Beers {
 
     //getters
 
-    public int getBeerId() {
+    public int getBeerId(int beer_id) {
         return beerId;
     }
 

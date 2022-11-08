@@ -9,6 +9,8 @@ public class Review {
 
     //constructors
 
+
+
     public Review() {
         this.reviewId = reviewId;
         this.beerId = beerId;
