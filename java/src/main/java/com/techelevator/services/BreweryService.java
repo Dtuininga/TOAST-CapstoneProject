@@ -18,10 +18,21 @@ public class BreweryService {
 
     public List <Brewery> getAllBreweries(){return breweryDao.getAllBreweries();}
 
+    public List <Brewery> getBreweriesByUserId(int userId){
+        return breweryDao.getBreweriesByUserID(userId);
+    }
+
     public Brewery getBreweryByBreweryId(int breweryId){return breweryDao.getBreweryById(breweryId);}
 
     public void createBrewery(Brewery brewery) {
         breweryDao.addNewBrewery(brewery);
+    }
 
+    public void updateBrewery(Brewery brewery){
+        breweryDao.updateBrewery(brewery);
+    }
+
+    public void deleteBrewery(int breweryId){
+        breweryDao.deleteBrewery(breweryId);
     }
 }

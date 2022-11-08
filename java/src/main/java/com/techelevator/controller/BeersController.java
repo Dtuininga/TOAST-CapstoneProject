@@ -1,5 +1,6 @@
 package com.techelevator.controller;
 
+import com.techelevator.model.*;
 import com.techelevator.model.Beers;
 import com.techelevator.services.BeersService;
 import org.springframework.beans.factory.annotation.Autowired;

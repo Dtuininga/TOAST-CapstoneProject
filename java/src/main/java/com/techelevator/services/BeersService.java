@@ -9,7 +9,7 @@ import java.util.List;
 
 @Service
 public class BeersService {
-    private final restTemplate = new RestTemplate();
+    private final RestTemplate = new RestTemplate();
     private final JdbcTemplate jdbcTemplate = new JdbcTemplate();
     private final JdbcBeerDao beerDao;
 

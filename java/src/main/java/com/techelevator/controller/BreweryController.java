@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-//@PreAuthorize("isAuthenticated()")
+@PreAuthorize("isAuthenticated()")
 public class BreweryController {
     @Autowired
     private BreweryService breweryService;
@@ -24,9 +24,21 @@ public class BreweryController {
     @RequestMapping(value = "breweries/{id}", method = RequestMethod.GET)
     public Brewery getBreweryByBreweryId(@PathVariable int id){return breweryService.getBreweryByBreweryId(id);}
 
+    @RequestMapping(value = "breweriesbyuser/{id}", method = RequestMethod.GET)
+    public List<Brewery> getBreweriesByUserId(@PathVariable int id){ return breweryService.getBreweriesByUserId(id);}
+
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(value = "/addbrewery", method = RequestMethod.POST)
     public void addBrewery(@RequestBody Brewery brewery){
         breweryService.createBrewery(brewery);
     }
+
+    @RequestMapping(path = "/updatebrewery", method = RequestMethod.PUT)
+    public void updateBrewery(@RequestBody Brewery brewery){
+        breweryService.updateBrewery(brewery);
+    }
+
+    @RequestMapping(path = "/deletebrewery/{id}", method = RequestMethod.DELETE)
+    public void deleteBrewery(@PathVariable int id){breweryService.deleteBrewery(id);}
+
 }

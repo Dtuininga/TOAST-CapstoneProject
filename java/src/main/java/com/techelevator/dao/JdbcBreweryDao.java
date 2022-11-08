@@ -67,18 +67,38 @@ public class JdbcBreweryDao implements BreweryDao {
     }
 
     @Override
+    public List<Brewery> getBreweriesByUserID(int userId) {
+        List<Brewery> breweries = new ArrayList<>();
+        String sql = "SELECT brewery_id, " +
+                "brewery_img, brewery_hours, brewery_history, brewery_email, " +
+                "beer_id, user_id, brewery_name, brewery_phone, brewery_website, brewery_active, brewery_address " +
+                "FROM brewery WHERE user_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
+        while(results.next()){
+            Brewery brewery = mapRowToBrewery(results);
+            breweries.add(brewery);
+        }
+        return breweries;
+    }
+
+    @Override
     public void updateBrewery(Brewery brewery) {
 
+        String sql = "UPDATE brewery SET brewery_img = ?, brewery_hours = ?, brewery_history = ?, brewery_email = ?," +
+                "beer_id = ?, user_id = ?, brewery_name = ?, brewery_phone = ?, brewery_website = ?, brewery_active = ?, brewery_address = ?" +
+                "WHERE brewery_id = ?";
+        jdbcTemplate.update(sql, brewery.getBreweryImg(), brewery.getBreweryHours(), brewery.getBreweryHistory(), brewery.getBreweryEmail(),
+                            brewery.getBeerId(),brewery.getUserId(), brewery.getBreweryName(), brewery.getBreweryPhone(), brewery.getBreweryWebsite(),
+                            brewery.isBreweryActive(), brewery.getBreweryAddress(), brewery.getBreweryId());
+
     }
 
     @Override
-    public void deleteBrewery(Long breweryId) {
+    public void deleteBrewery(int breweryId) {
 
-    }
+        String sql = "DELETE FROM brewery WHERE brewery_id = ?;";
+        jdbcTemplate.update(sql, breweryId);
 
-    @Override
-    public List<Brewery> getBreweryByUserID(Long userId) {
-        return null;
     }
 
     private Brewery mapRowToBrewery(SqlRowSet rowSet){
