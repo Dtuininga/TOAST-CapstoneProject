@@ -1,3 +1,4 @@
+import React from 'react'
 import {Component} from 'react'
 import {Switch, Route, Redirect, Link} from 'react-router-dom'
 import Login from '../Login/Login'
@@ -11,12 +12,12 @@ import BreweryList from '../Brewery/BreweryList'
 import BeerList from '../Beer/BeerList'
 import BreweryDetails from '../Brewery/BreweryDetails'
 import BeerDetails from '../Beer/BeerDetails'
-
+import Sidebar from '../../Sidebar/Sidebar'
 
 const mapStateToProps = state => {
     return {
         token: state.token,
-        user: state.user
+        user: state.user,
     }
 }
 
@@ -28,6 +29,9 @@ const mapDispatchToProps = (dispatch) => ({
 class Main extends Component {
     constructor(props){
         super(props);
+        this.state = {
+            isActive: false
+        }
     }
 
     handleLogout = () => {
@@ -35,20 +39,27 @@ class Main extends Component {
         this.props.deleteUser()
     }
 
+    handlePush = () => {
+        this.setState((state) => ({isActive: !state.isActive}))
+    }
+
+
     render(){
         return(
-            <div>
-                <Navbar />
+            <div className='mainPage'>
+                <Navbar handleChange={this.handlePush} />
+                
                 {this.props.token.token !== undefined ?
                         <div>
-                            <Link to='/home'>Home</Link>
-                            <Link to='/login' onClick={this.handleLogout}>logout</Link> 
+                            <Link to='/home'>Home |</Link>
+                            <Link to='/login' onClick={this.handleLogout}> logout</Link> 
                             <Redirect to='/home'/>
 
                         </div>  
                     : 
-                        <Link to='/login'>Home | </Link>
+                        <Link to='/login'>Home</Link>
                 }
+                {this.state.isActive && <Sidebar />}
                 <Switch>
                     <Route path='/login' component={() => <Login/>}/>
                     <Route path='/register'component={() => <Register/>}/>

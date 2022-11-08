@@ -1,6 +1,7 @@
+import { checkPropTypes } from "prop-types";
 import React from "react";
 
-export default function Navbar() {
+export default function Navbar(props) {
     //TODO: change circle to user's chosen color? favorite beer? userpic?
     //admin/brewer tools should change or dissappear depending on login level
     //remove "home" link in top left corner, make clicking logo return to login screen?
@@ -12,17 +13,9 @@ return(
             <img src="./Images/toastnobkgd.png" className="toastLogo" alt="BeerToaster logo"></img>
                 <h1>TOAST!</h1>
             </div>
-            <div classname= "shortcutButtons">
-                <button><a href="./BreweryList" className="shortcut">Brewery List</a></button>
-                <button><a href="./BeerList" className="shortcut">Global Beer List</a></button>
-                <button><a href="./admin_tools" className="shortcut">Admin/Brewer Tools</a></button>
+                <button onClick={props.handleChange}>Sidebar</button>
             </div>
-            <div className = "userInfo">
-                <div className="userImg">?</div>
-            <h3 className="user">User ID: Barney</h3>
-            <h4 className="userReviews">Reviews Written: 1</h4>
-            </div>
-        </div>
+            
     
 )
 
