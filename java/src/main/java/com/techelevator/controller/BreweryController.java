@@ -1,6 +1,6 @@
 package com.techelevator.controller;
 
-import com.techelevator.model.Brewery;
+import com.techelevator.model.*;
 import com.techelevator.services.BreweryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

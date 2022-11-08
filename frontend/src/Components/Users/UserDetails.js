@@ -1,1 +1,1 @@
-//fetch: user by user id. user should only be able to see and edit their own profile and previous reviews
+//fetch: user by user id. user should only be able to see and edit their own profile

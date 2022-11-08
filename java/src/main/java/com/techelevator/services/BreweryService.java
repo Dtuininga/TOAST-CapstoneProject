@@ -1,7 +1,7 @@
 package com.techelevator.services;
 
 import com.techelevator.dao.JdbcBreweryDao;
-import com.techelevator.model.Brewery;
+import com.techelevator.model.*;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
