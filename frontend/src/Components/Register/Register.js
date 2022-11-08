@@ -13,12 +13,19 @@ class Register extends Component{
             over21: false,
             username: '',
             password: '',
-            confirmPassword: ''
+            confirmPassword: '',
+            brewer: false,
+            role: 'USER'
         }
         
     }
-    isChecked = () => {
+    is21 = () => {
         this.setState((state)=>({over21:!state.over21}))
+    }
+
+    isBrewer = () => {
+        this.setState((state) => ({brewer: !state.brewer}))
+        this.setState((state) => ({role: state.brewer ? 'BREWER' : 'USER'}))
     }
 
 
@@ -30,9 +37,10 @@ class Register extends Component{
     }
 
     handleSubmit = () => {
-        const data = {over21: this.state.over21, username: this.state.username, password: this.state.password, confirmPassword: this.state.confirmPassword, role: 'USER'}
+        const data = {over21: this.state.over21, username: this.state.username, password: this.state.password, confirmPassword: this.state.confirmPassword, role: this.state.role}
         if(this.state.password === this.state.confirmPassword){
             axios.post(baseUrl + "/register", data)
+            
         }else{
             alert("Password and Confirm Password must match!!!")
         }
@@ -42,12 +50,15 @@ class Register extends Component{
     render(){
         return(
             <div>
-                    <Navbar />
                     <div className="registration">
                 <h1>Create Account</h1>
                 <div>
-                    <span> "I certify that I am over 21 years of age" </span>
-                    <input type="checkbox" onChange={this.isChecked}/>
+                    <span> I am over 21 years of age </span>
+                    <input type="checkbox" onChange={this.is21}/>
+                </div>
+                <div>
+                <span> Are you a brewer? </span>
+                    <input type="checkbox" onChange={this.isBrewer}/>
                 </div>
                 <label class="sr-only">Username</label>
                 <input
@@ -82,7 +93,7 @@ class Register extends Component{
                     required
                 />
             
-                <button type="submit" className="registerButton" disabled={!this.state.over21}>Let's make a TOAST!</button>
+                <button type="submit" className="registerButton" onClick={this.handleSubmit} disabled={!this.state.over21}>Let's make a TOAST!</button>
                 <sp/>
                 <div>
                 <Link to="/login">I already have an account!</Link>
