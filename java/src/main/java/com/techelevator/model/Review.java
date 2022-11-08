@@ -18,6 +18,10 @@ public class Review {
         this.userId = userId;
     }
 
+    public Review() {
+
+    }
+
 
     //methods
 
