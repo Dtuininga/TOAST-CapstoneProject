@@ -1,6 +1,7 @@
+import { checkPropTypes } from "prop-types";
 import React from "react";
 
-function Sidebar(){
+function Sidebar(props){
     
     return(
         <div className="sidebar">
