@@ -1,7 +1,7 @@
 package com.techelevator.services;
 
 
-import com.techelevator.dao.ReviewDao;
+import com.techelevator.dao.*;
 import com.techelevator.model.Review;
 import com.techelevator.dao.JdbcReviewDao;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -20,11 +20,11 @@ public class ReviewService {
         this.reviewDao = reviewDao;
     }
 
-    public List<Review> getReviews(){
-        return reviewDao.getReviews();
+    public List<Review> getReviews(int beerId){
+        return reviewDao.getReviewsByBeerId(beerId);
     }
 
     public void addReview(Review review){
-        reviewDao.addReview();
+        reviewDao.addReview(review);
     }
 }

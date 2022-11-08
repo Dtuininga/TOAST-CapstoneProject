@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ReviewDao {
 
-    List<Review> getReviews(long review_id);
+    List<Review> getReviewsByBeerId(int beerID);
 
     void addReview(Review review);
 

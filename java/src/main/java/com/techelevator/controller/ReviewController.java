@@ -15,10 +15,10 @@ public class ReviewController {
     private ReviewService reviewService;
 
     @RequestMapping(value ="/reviews", method = RequestMethod.GET)
-    public List<Review> getReview() {return reviewService.getReviews();}
+    public List<Review> getReviewsByBeerId(int beerId) {return reviewService.getReviews(beerId);}
 
     @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(value = "/addReview", method = RequestMethod.Post)
+    @RequestMapping(value = "/addReview", method = RequestMethod.POST)
     public void addReview(@RequestBody Review review){
         reviewService.addReview(review);
     }
