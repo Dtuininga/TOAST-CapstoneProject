@@ -9,14 +9,14 @@ public class Beers {
     private double beerAbv;
     private String beerType;
     private String beerDescription;
-    private boolean isActive;
+    private boolean beerActive;
 
     //constructor
 
 
     public Beers() {}
 
-    public Beers(int beerId, int breweryId, String beerImg, String beerName, double beerAbv, String beerType, String beerDescription, boolean isActive) {
+    public Beers(int beerId, int breweryId, String beerImg, String beerName, double beerAbv, String beerType, String beerDescription, boolean beerActive) {
         this.beerId = beerId;
         this.breweryId = breweryId;
         this.beerImg = beerImg;
@@ -24,12 +24,12 @@ public class Beers {
         this.beerAbv = beerAbv;
         this.beerType = beerType;
         this.beerDescription = beerDescription;
-        this.isActive = isActive;
+        this.beerActive = beerActive;
     }
 
 //getters
 
-    public int getBeerId(int beer_id) {
+    public int getBeerId() {
         return beerId;
     }
 
@@ -57,8 +57,8 @@ public class Beers {
         return beerDescription;
     }
 
-    public boolean isActive() {
-        return isActive;
+    public boolean isBeerActive() {
+        return beerActive;
     }
 
     //setters
@@ -92,7 +92,7 @@ public class Beers {
         this.beerDescription = beerDescription;
     }
 
-    public void setActive(boolean active) {
-        isActive = active;
+    public void setBeerActive(boolean beerActive) {
+        this.beerActive = beerActive;
     }
 }

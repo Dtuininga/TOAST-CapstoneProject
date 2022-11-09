@@ -11,11 +11,11 @@ public interface BeerDao {
 
     void saveBeer(Beers newBeer);
 
-    void deleteBeer(long beerId);
+    void deleteBeer(int beerId);
 
-    Beers getBeerByID(long beerId);
+    Beers getBeerByID(int beerId);
 
-    List <Beers> getBeerByBreweryID(long breweryId);
+    List <Beers> getBeersByBreweryID(int breweryId);
 
     void updateBeer(Beers beer);
 

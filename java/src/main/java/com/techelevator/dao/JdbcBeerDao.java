@@ -22,17 +22,7 @@ public class JdbcBeerDao implements BeerDao {
     public List<Beers> getAllBeer() {
         List<Beers> beers = new ArrayList<>();
         String sql =
-                "SELECT  " +
-                        "beer_id, " +
-                        "brewery_id, " +
-                        "beer_img, " +
-                        "beer_name, " +
-                        "beer_abv, " +
-                        "beer_type, " +
-                        "beer_description," +
-                        "beer_active"+
-                        "FROM beers " +
-                        "ORDER BY id";
+                "SELECT beer_id, brewery_id, beer_img, beer_name, beer_abv, beer_type, beer_description,beer_active FROM beers ORDER BY beer_id;";
         SqlRowSet rs = jdbcTemplate.queryForRowSet(sql);
         while (rs.next()) {
             Beers b = mapRowToBeers(rs);
@@ -42,7 +32,7 @@ public class JdbcBeerDao implements BeerDao {
     }
 
     @Override
-        public void saveBeer (Beers newBeer){
+       public void saveBeer (Beers newBeer){
         String sql = "INSERT INTO beers (beer_img, brewery_id, beer_name, beer_abv, beer_type, beer_description, beer_active) " +
                 "VALUES (?,?,?,?,?,?,?)";
         jdbcTemplate.update(sql,
@@ -52,27 +42,18 @@ public class JdbcBeerDao implements BeerDao {
                 newBeer.getBeerAbv(),
                 newBeer.getBeerType(),
                 newBeer.getBeerDescription(),
-                newBeer.isActive());
+                newBeer.isBeerActive());
         }
 
     @Override
-        public void deleteBeer ( long beerId){
-            String sql = "delete from beer_reviews where beer_id = ?; delete from beer where id = ?";
-            jdbcTemplate.update(sql, beerId, beerId);
+       public void deleteBeer ( int beerId){
+            String sql = "DELETE FROM beers where beer_id = ?";
+            jdbcTemplate.update(sql, beerId);
         }
 
-            @Override
-        public Beers getBeerByID ( long beerId ){
-           String sql = "select  " +
-                    "beer_id = ?, " +
-                    "brewery_id = ?, " +
-                    "beer_img = ?, " +
-                    "beer_name = ?, " +
-                    "beer_abv = ?, " +
-                    "beer_type = ?, " +
-                    "beer_description = ? " +
-                    "from beers " +
-                    "where id = ?";
+    @Override
+       public Beers getBeerByID ( int beerId ){
+           String sql = "SELECT beer_id, brewery_id, beer_img, beer_name, beer_abv, beer_type, beer_description,beer_active FROM beers WHERE beer_id = ?;";
             Beers beer = new Beers();
             SqlRowSet rs = jdbcTemplate.queryForRowSet(sql, beerId);
             while (rs.next()) {
@@ -81,48 +62,55 @@ public class JdbcBeerDao implements BeerDao {
             return beer;
         }
 
+    @Override
+       public List<Beers> getBeersByBreweryID(int breweryId) {
+            List <Beers> beersByBrewery = new ArrayList<>();
+                String sql = "SELECT  " +
+                    "beer_id, " +
+                    "brewery_id, " +
+                    "beer_img, " +
+                    "beer_name, " +
+                    "beer_abv, " +
+                    "beer_type, " +
+                    "beer_description," +
+                    "beer_active "+
+                    "FROM beers " +
+                    "WHERE brewery_id = ?;";
 
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, breweryId);
+                while(results.next()){
+                    Beers beer = mapRowToBeers(results);
+                    beersByBrewery.add(beer);
+                }
+            return beersByBrewery;
+        }
 
     @Override
-    public List<Beers> getBeerByBreweryID(long breweryId) {
-        return null;
-    }
+       public void updateBeer (Beers beer) {
+            String sql = "UPDATE beers " +
+                         "SET brewery_id = ?, " +
+                         "beer_img = ?, " +
+                         "beer_name = ?, " +
+                         "beer_abv = ?, " +
+                         "beer_type = ?, " +
+                         "beer_description = ?, "+
+                         "beer_active = ? " +
+                         "WHERE beer_id = ?;";
+            jdbcTemplate.update(sql, beer.getBreweryId(), beer.getBeerImg(), beer.getBeerName(), beer.getBeerAbv(),
+                                beer.getBeerType(), beer.getBeerDescription(), beer.isBeerActive(), beer.getBeerId());
+        }
 
-            @Override
-        public void updateBeer (Beers beer) {
-                String sql =
-                        "update beers " +
-                                "set beer_id = ?, " +
-                                "brewery_id = ?, " +
-                                "beer_img = ?, " +
-                                "beerName = ?, " +
-                                "beer_abv = ?, " +
-                                "beerType = ?, " +
-                                "beerDescription = ?";
-                try {
-                    jdbcTemplate.update(sql,
-//                            beer.getBeerId(),
-                            beer.getBreweryId(),
-                            beer.getBeerImg(),
-                            beer.getBeerName(),
-                            beer.getBeerAbv(),
-                            beer.getBeerType(),
-                            beer.getBeerDescription());
-                } catch (Exception e) {
-                    System.err.println(e.getMessage());
-                }
-            }
 
     private Beers mapRowToBeers(SqlRowSet rs) {
         Beers beers = new Beers();
-        beers.getBeerId(rs.getInt("beer_id"));
+        beers.setBeerId(rs.getInt("beer_id"));
         beers.setBreweryId(rs.getInt("brewery_id"));
         beers.setBeerImg(rs.getString( "beer_img"));
         beers.setBeerName(rs.getString( "beer_name"));
         beers.setBeerAbv(rs.getDouble("beer_abv"));
         beers.setBeerType(rs.getString("beer_type"));
         beers.setBeerDescription(rs.getString("beer_description"));
-        beers.setActive(rs.getBoolean("beer_active"));
+        beers.setBeerActive(rs.getBoolean("beer_active"));
         return beers;
     }
 }

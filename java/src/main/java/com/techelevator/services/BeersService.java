@@ -18,19 +18,26 @@ public class BeersService {
         this.beerDao = beerDao;
     }
 
-    public List<Beers> getAllBeer(JdbcBeerDao beerDao){
-        return beerDao.getAllReviews();
+    public List<Beers> getAllBeer(){
+        return beerDao.getAllBeer();
     }
 
-    public void deleteBeer(long beerId){
-        beerDao.deleteBeer(beerId);
-    };
+    public List<Beers> getBeersByBreweryId(int breweryId){
+        return beerDao.getBeersByBreweryID(breweryId);
+    }
 
-    public Beers getBeerByID(long beerId){
+    public Beers getBeerByID(int beerId){
         return beerDao.getBeerByID(beerId);
     };
 
-   public void updateBeer(Beers beer){
-       beerDao.updateBeer(beer);
-   };
+    public void saveBeer(Beers beer){ beerDao.saveBeer(beer);}
+
+    public void updateBeer(Beers beer){
+        beerDao.updateBeer(beer);
+    };
+
+    public void deleteBeer(int beerId){
+        beerDao.deleteBeer( beerId);
+    };
+
 }

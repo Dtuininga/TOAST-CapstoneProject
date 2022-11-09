@@ -1,6 +1,7 @@
 package com.techelevator.controller;
 
-import com.techelevator.model.*;
+
+import com.techelevator.model.Brewery;
 import com.techelevator.services.BreweryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,10 +22,10 @@ public class BreweryController {
         return breweryService.getAllBreweries();
     }
 
-    @RequestMapping(value = "breweries/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/breweries/{id}", method = RequestMethod.GET)
     public Brewery getBreweryByBreweryId(@PathVariable int id){return breweryService.getBreweryByBreweryId(id);}
 
-    @RequestMapping(value = "breweriesbyuser/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/breweriesbyuser/{id}", method = RequestMethod.GET)
     public List<Brewery> getBreweriesByUserId(@PathVariable int id){ return breweryService.getBreweriesByUserId(id);}
 
     @ResponseStatus(HttpStatus.CREATED)
