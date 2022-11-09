@@ -198,6 +198,7 @@ code {
         text-decoration: none;
         color: #3A4F41;
   }
+<<<<<<< HEAD
   
   .cardImage{
     width: 300px;
@@ -206,6 +207,17 @@ code {
     background-position: center;
     border-radius: 200px;
   }
+=======
+  .beercard > img { /*BeerList*/
+    object-fit: cover;
+    max-width: 400px;
+    max-height: 200px;
+    left: 40px;
+    top: 100px;
+    padding: 15px;
+    border-radius: 5px;
+    }
+>>>>>>> c65bef60265ac8b8fde674cf3540bfc076b5ce70
 
   .login { /*existing acct login*/
     display: block;
@@ -248,4 +260,16 @@ code {
 
   .beerStats {
     display: flex;
+  }
+  .reviewcard { /*BeerList*/
+    
+    text-decoration: none;
+        color: #3A4F41;
+        display: grid;
+        border: 4px solid #3A4F41;
+        margin: 10px;
+        align-items: center;
+        text-decoration: none;
+        color: #3A4F41;
+        padding: 10px;
   }
