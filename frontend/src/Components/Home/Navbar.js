@@ -9,7 +9,7 @@ export default function Navbar(props) {
 return(
     
         <div className="navbar">
-            <button onClick={props.handleChange}>Sidebar</button>
+            
             <div className="branding">
             <img src="./Images/toastnobkgd.png" className="toastLogo" alt="BeerToaster logo"></img>
                 <h1>TOAST!</h1>

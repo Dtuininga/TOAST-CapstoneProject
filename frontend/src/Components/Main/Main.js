@@ -29,7 +29,9 @@ const mapDispatchToProps = (dispatch) => ({
 class Main extends Component {
     constructor(props){
         super(props);
-        
+        this.state = {
+            isLoggedIn: false
+        }
     }
 
     handleLogout = () => {
@@ -55,6 +57,7 @@ class Main extends Component {
                         <Link className='homeLink' to='/login'>Home</Link>
                 }
                 <Sidebar />
+                <div className='content'>
                 <Switch>
                     <Route path='/login' component={() => <Login/>}/>
                     <Route path='/register'component={() => <Register/>}/>
@@ -65,6 +68,7 @@ class Main extends Component {
                     <Route path='/home' component={this.props.token.token !== undefined ? () => <Home/> : null}/>
                     <Redirect to='/login'/>
                 </Switch>
+                </div>
             </div>
         )
     }

@@ -11,7 +11,7 @@ function BeerList(){
     },[])
 
     return(
-        <div>
+        <div className='beerList content'>
             {beerArray}
         </div>
     )

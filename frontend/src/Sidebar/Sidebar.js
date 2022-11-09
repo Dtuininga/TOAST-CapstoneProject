@@ -5,6 +5,7 @@ function Sidebar(props){
     
     return(
         <div className="sidebar">
+            <img className="burger" src="./Images/burger.png" />
         <div className = "userInfo">
                 <div className="userImg">?</div>
             <h3 className="user">User ID: Barney</h3>

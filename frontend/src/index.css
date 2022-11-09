@@ -32,6 +32,21 @@ code {
   width:100%;
 }
 
+.sidebar .burger{
+  width: 50px;
+  margin-left: 300px;
+  position: absolute;
+}
+
+.beerList{
+  margin-left: 45px;
+}
+
+ .sidebar:hover .burger{
+  visibility: hidden;
+}
+
+
 .sidebar{
   
   display: flex;
@@ -64,7 +79,8 @@ code {
   background-color: #C73E1D;
   align-content: center;
   height: 150px;
-
+  width: 100vw;
+  border: none;
 }
 
 .navbar h1{
