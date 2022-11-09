@@ -17,6 +17,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin-top: 190px;
 }
 
 code {
@@ -26,10 +27,13 @@ code {
 
 .homeLink{
   display: flex;
+  flex-direction: row;
   background-color: #C73E1D;
   color: white;
   font-size: large;
   width:100%;
+  position: fixed;
+  top: 150px;
 }
 
 .sidebar .burger{
@@ -38,12 +42,14 @@ code {
   position: absolute;
 }
 
-.beerList{
-  margin-left: 45px;
-}
+
 
  .sidebar:hover .burger{
   visibility: hidden;
+}
+
+.homePage{
+  margin-left: 45px;
 }
 
 
@@ -60,7 +66,10 @@ code {
   position: fixed;
   left: -130px;
   transition: all 0.35s ease-out;
+  margin-top: -15px;
 }
+
+
 
 .sidebar:hover{
   background-color: #C73E1D;
@@ -81,6 +90,8 @@ code {
   height: 150px;
   width: 100vw;
   border: none;
+  position: fixed;
+  top: 0;
 }
 
 .navbar h1{
@@ -127,7 +138,7 @@ code {
     max-width: 250px;
   }
   .userImg { /*Navbar*/
-    background-color: rgb(228, 240, 64);
+    background-color: rgb(209, 165, 45);
     border-radius: 50%;
     height: 150px;
     width: 150px;
@@ -136,23 +147,20 @@ code {
     font-size: 50px;
   }
   
-  .card-image { /*BreweriesList*/
-    object-fit: cover;
-    max-width: 400px;
-    height: 168px;
-    left: 40px;
-    top: 100px;
-    padding: 15px;
-    border-radius: 5px;
-    }
+
+    
     .brewerycard { /*BreweriesList*/
         display: flex;
         border: 4px solid #3A4F41;
         margin: 40px;
+        margin-left: 50px;
+        padding-left: 10px;
         align-items: center;
         text-decoration: none;
         color: #3A4F41;
+        border-radius: 10px;
     }
+
     .card-details { /*BreweriesList*/
         margin: 20px;
     }
@@ -183,20 +191,21 @@ code {
         color: #3A4F41;
         display: flex;
         border: 4px solid #3A4F41;
-        margin: 10px;
+        margin: 40px;
+        margin-left: 50px;
+        padding-left: 10px;
         align-items: center;
         text-decoration: none;
         color: #3A4F41;
   }
-  .beercard-image { /*BeerList*/
+  
+  .cardImage{
+    width: 300px;
+    height: 300px;
     object-fit: cover;
-    max-width: 400px;
-    height: 168px;
-    left: 40px;
-    top: 100px;
-    padding: 15px;
-    border-radius: 5px;
-    }
+    background-position: center;
+    border-radius: 200px;
+  }
 
   .login { /*existing acct login*/
     display: block;

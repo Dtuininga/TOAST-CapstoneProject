@@ -14,6 +14,8 @@ import BreweryDetails from '../Brewery/BreweryDetails'
 import BeerDetails from '../Beer/BeerDetails'
 import Sidebar from '../../Sidebar/Sidebar'
 
+//Need a way to get our users info from the backend so that we can pass them into props.
+
 const mapStateToProps = state => {
     return {
         token: state.token,
@@ -44,12 +46,12 @@ class Main extends Component {
     render(){
         return(
             <div className='mainPage'>
-                <Navbar handleChange={this.handlePush} />
+                <Navbar loggedIn={this.state.isLoggedIn} handleChange={this.handlePush} />
                 
                 {this.props.token.token !== undefined ?
-                        <div>
+                        <div className='homeLink'>
                             <Link to='/home'>Home |</Link>
-                            <Link to='/login' onClick={this.handleLogout}> logout</Link> 
+                            <Link to='/login' onClick={this.handleLogout}>| logout</Link> 
                             <Redirect to='/home'/>
 
                         </div>  

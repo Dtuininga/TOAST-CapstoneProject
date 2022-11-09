@@ -9,7 +9,7 @@ export default function BeerList(props) {
 return(
     <div>
     <a href={props.beerLink} className="beercard">
-            <img src={props.beerImage} />
+            <img src={props.beerImage} className='cardImage'/>
             <div className="beercard-details">
                 <h1>{props.beerName}</h1>
                 <h4 className="beerType">Type: {props.beerType}</h4> 

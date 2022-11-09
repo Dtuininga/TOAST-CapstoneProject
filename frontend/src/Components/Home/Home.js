@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom'
 
 function Home(props) {
     return(
-        <div>
+        <div className='homePage'>
             Welcome in!
         </div>
     )
