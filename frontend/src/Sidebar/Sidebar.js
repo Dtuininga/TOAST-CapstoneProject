@@ -10,7 +10,7 @@ function Sidebar(props){
         <div className="sidebar">
             <img className="burger" src="./Images/burger.png" />
         <div className = "userInfo">
-                <div className="userImg">?</div>
+                <img className="userImg" src="./Images/beeravatars/whiteavatar.png"/>
             <h3 className="user">{props.currentUser}</h3>
             </div>
             <div classname= "shortcutButtons">

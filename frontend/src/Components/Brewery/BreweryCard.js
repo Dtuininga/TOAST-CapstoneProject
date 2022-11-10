@@ -30,6 +30,7 @@ export default function BreweriesList(props) {
                         <div>Hello</div>
                         <div>Howdy</div>
                         <div>Howareya</div>
+                        <a href={"/BreweryDetails"} className="breweryLink">For this brewery's full details and beer list, click here!</a>
                         </div>
                     <div className="title" onClick={toggle}>
                         <h6>{brewSelected ? 'See less...' : 'See more...'}</h6>

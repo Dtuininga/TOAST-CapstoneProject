@@ -5,6 +5,7 @@ import {ConfigureStore} from './Redux/configureStore'
 import ReviewCard from './Components/Users/ReviewCard'
 import ReviewForm from './Components/Users/ReviewForm'
 import BeerDetails from './Components/Beer/BeerDetails'
+import BreweryDetails from './Components/Brewery/BreweryDetails'
 
 
 

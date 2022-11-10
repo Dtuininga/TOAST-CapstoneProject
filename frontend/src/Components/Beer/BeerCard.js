@@ -10,9 +10,8 @@ export default function BeerList(props) {
     }
 
     //TODO:
-    //able to arrange list by rating? alphabet? 
+    //able to arrange list by rating? alphabet? Brewery? 
 
-        //fetch: get all beers
 return(
     <div className="beercard">
             <img src={props.beerImage} className='cardImage'/>
@@ -24,6 +23,8 @@ return(
                         <div className={selected ? 'info show' : 'info'}>
                             <h6 className="beerAbv">ABV: {props.beerAbv}</h6>
                             <h6 className="beerDesc">{props.beerDesc}</h6>
+                            <h6 className="brewedBy">Brewed by: {props.breweryId}</h6>
+                            <a href="/BeerDetails" className="breweryLink">For this beer's full details and reviews, click here!</a>
                         </div>
                     <div className="title" onClick={toggle}>
                         <h6>{selected ? 'See less...' : 'See more...'}</h6>
