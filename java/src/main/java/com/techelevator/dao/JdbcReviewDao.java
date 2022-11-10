@@ -20,13 +20,15 @@ public class JdbcReviewDao implements ReviewDao {
     @Override
     public List<Review> getReviewsByBeerId(int beerId) {
         List<Review> reviewsByBeer = new ArrayList<>();
-        String sql = "select " +
-                "review_id = ?, " +
-                "beer_id = ?, " +
-                "review = ?, " +
-                "rating = ? " +
-                "from beer_reviews " +
-                "where beer_id = ?";
+        String sql = "SELECT " +
+                "review_id, " +
+                "beer_id, " +
+                "review, " +
+                "rating, " +
+                "user_id, " +
+                "review_author " +
+                "FROM review " +
+                "WHERE beer_id = ?";
 
         SqlRowSet rs = jdbcTemplate.queryForRowSet(sql, beerId);
         while (rs.next()) {
@@ -38,26 +40,30 @@ public class JdbcReviewDao implements ReviewDao {
 
     @Override
     public void addReview(Review review) {
-//        List<Review> reviews = new ArrayList<>();
-        String sql = "INSERT INTO review" +
-                "(beer_id, review, rating)"+
-                "VALUES (?, ?, ?)";
-
-      jdbcTemplate.update(sql,
-                          review.getBeerId(),
-                          review.getReview(),
-                          review.getRating()
-                    );
-        }
-
-        private Review mapRowToReview(SqlRowSet rs){
-            Review review = new Review();
-            review.setReviewId(rs.getInt( "review_id"));
-            review.setBeerId(rs.getInt("beer_id"));
-            review.setReview(rs.getString("review"));
-            review.setRating(rs.getInt("rating"));
-            return review;
-        }
+        String sql = "INSERT INTO review(beer_id, review, rating, user_id, review_author)" +
+                "VALUES(?, ?, ?, ?, ?)";
+        jdbcTemplate.update(sql,
+                review.getBeerId(),
+                review.getReview(),
+                review.getRating(),
+                review.getUserId(),
+                review.getReviewAuthor());
     }
 
+    @Override
+    public void deleteReview(int reviewId) {
+        String sql = "DELETE FROM review WHERE review_id = ?";
+        jdbcTemplate.update(sql, reviewId);
+    }
 
+    private Review mapRowToReview(SqlRowSet rs){
+        Review review = new Review();
+        review.setReviewId(rs.getInt("review_id"));
+        review.setBeerId(rs.getInt("beer_id"));
+        review.setReview(rs.getString("review"));
+        review.setRating(rs.getInt("rating"));
+        review.setUserId(rs.getInt("user_id"));
+        review.setReviewAuthor(rs.getString("review_author"));
+        return review;
+    }
+}

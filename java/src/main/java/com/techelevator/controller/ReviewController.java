@@ -14,13 +14,17 @@ public class ReviewController {
     @Autowired
     private ReviewService reviewService;
 
-    @RequestMapping(value ="/reviews", method = RequestMethod.GET)
-    public List<Review> getReviewsByBeerId(int beerId) {return reviewService.getReviews(beerId);}
+    @RequestMapping(value ="/reviews/{beerId}", method = RequestMethod.GET)
+    public List<Review> getReviewsByBeerId(@PathVariable int beerId) {return reviewService.getReviewsByBeerId(beerId);}
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(value = "/addReview", method = RequestMethod.POST)
     public void addReview(@RequestBody Review review){
         reviewService.addReview(review);
     }
+
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    @RequestMapping(path = "/deleteReview/{reviewId}", method = RequestMethod.DELETE)
+    public void deleteBrewery(@PathVariable int reviewId){reviewService.deleteReview(reviewId);}
 
 }

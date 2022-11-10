@@ -9,6 +9,7 @@ public class Review {
     private String review;
     private int rating;
     private int userId;
+    private String reviewAuthor;
 
     //constructors
 
@@ -16,12 +17,13 @@ public class Review {
 
     }
 
-    public Review(int reviewId, int beerId, String review, int rating, int userId) {
+    public Review(int reviewId, int beerId, String review, int rating, int userId, String reviewAuthor) {
         this.reviewId = reviewId;
         this.beerId = beerId;
         this.review = review;
         this.rating = rating;
         this.userId = userId;
+        this.reviewAuthor = reviewAuthor;
     }
 
     //methods
@@ -34,8 +36,10 @@ public class Review {
                 ", review='" + review + '\'' +
                 ", rating=" + rating +
                 ", userId=" + userId +
+                ", reviewAuthor=" + reviewAuthor + '\'' +
                 '}';
     }
+
 
     //getters
 
@@ -57,6 +61,10 @@ public class Review {
 
     public int getUserId() {return userId;}
 
+    public String getReviewAuthor() {
+        return reviewAuthor;
+    }
+
     //setters
 
     public void setReviewId(int reviewId) {
@@ -76,4 +84,8 @@ public class Review {
     }
 
     public void setUserId(int userId) {this.userId = userId;}
+
+    public void setReviewAuthor(String reviewAuthor) {
+        this.reviewAuthor = reviewAuthor;
+    }
 }

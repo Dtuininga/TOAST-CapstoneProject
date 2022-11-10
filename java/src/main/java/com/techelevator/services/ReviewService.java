@@ -20,11 +20,13 @@ public class ReviewService {
         this.reviewDao = reviewDao;
     }
 
-    public List<Review> getReviews(int beerId){
+    public List<Review> getReviewsByBeerId(int beerId){
         return reviewDao.getReviewsByBeerId(beerId);
     }
 
     public void addReview(Review review){
         reviewDao.addReview(review);
     }
+
+    public void deleteReview(int reviewId) {reviewDao.deleteReview(reviewId);}
 }
