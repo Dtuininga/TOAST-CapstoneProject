@@ -17,16 +17,13 @@ return(
     <div className="beercard">
             <img src={props.beerImage} className='cardImage'/>
             <div className="beercard-details">
-                <h1>{props.beerName}</h1>
+                <h2>{props.beerName}</h2>
                 <h4 className="beerType">Type: {props.beerType}</h4> 
-                <h4 className="beerDesc">{props.beerDesc}</h4>
-                <h3>Rating: {props.beerRating}</h3>
+                <h5>Rating: {props.beerRating}</h5>
                 <div className="accordion">
-                <div className={selected ? 'info show' : 'info'}>
-                        <div>Hi</div>
-                        <div>Hello</div>
-                        <div>Howdy</div>
-                        <div>Howareya</div>
+                        <div className={selected ? 'info show' : 'info'}>
+                            <h6 className="beerAbv">ABV: {props.beerAbv}</h6>
+                            <h6 className="beerDesc">{props.beerDesc}</h6>
                         </div>
                     <div className="title" onClick={toggle}>
                         <h6>{selected ? 'See less...' : 'See more...'}</h6>
