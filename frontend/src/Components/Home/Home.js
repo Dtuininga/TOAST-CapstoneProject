@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 function Home(props) {
     return(
         <div className='homePage'>
-            Welcome in!
+            <h2>Welcome {props.currentUser}!</h2>
         </div>
     )
 }
