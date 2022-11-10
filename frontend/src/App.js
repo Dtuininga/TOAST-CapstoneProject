@@ -15,7 +15,7 @@ function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <BeerDetails />
+        <Main />
       </BrowserRouter>
     </Provider>
   );
