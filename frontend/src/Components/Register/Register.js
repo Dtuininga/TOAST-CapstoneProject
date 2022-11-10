@@ -25,11 +25,11 @@ class Register extends Component{
         }
         
     }
-    is21 = () => {
+    is21 = () => { //for legal protections
         this.setState((state)=>({over21:!state.over21}))
     }
 
-    isBrewer = () => {  //when checked, add form lines for brewery name, address, website, etc? 
+    isBrewer = () => {  //when checked, add form lines for brewery info
         this.setState((state) => ({brewer: !state.brewer}))
         this.setState((state) => ({role: state.brewer ? 'BREWER' : 'USER'}))
     }
@@ -42,10 +42,16 @@ class Register extends Component{
         })
     }
 
-    handleSubmit = () => {
+    handleSubmit = () => { 
         const data = {over21: this.state.over21, username: this.state.username, password: this.state.password, confirmPassword: this.state.confirmPassword, role: this.state.role}
+        const breweryData = {breweryname: this.state.breweryname, 
+        brewerywebsite: this.state.brewerywebsite,
+        breweryphone: this.state.breweryphone,
+        breweryemail: this.state.breweryemail,
+        breweryaddress: this.state.breweryaddress}
         if(this.state.password === this.state.confirmPassword){
             axios.post(baseUrl + "/register", data)
+            axios.post(baseUrl + "/addbrewery", breweryData)
             alert("Account created successfully, please log in.")
             window.location.href = '/login'
         }else{
