@@ -1,6 +1,8 @@
 import React from "react";
 import Navbar from "../Home/Navbar";
-import BeerList from "../Beer/BeerList"
+import BeerList from "../Beer/BeerList";
+import ReviewForm from "../Users/ReviewForm";
+import ReviewCard from "../Users/ReviewCard";
 
 export default function BeerDetails() {
     //ToDo: add review list to bottom, pretty up the info text, shrink pic with window resize, standardize pic size/aspect
@@ -29,8 +31,10 @@ export default function BeerDetails() {
                 
             </div>
             <div className="reviewSection">
+                <ReviewForm />
                     (import review section by beer, create a form to leave a review for this beer)
             </div>
+                <ReviewCard />
             </div>
         )
 

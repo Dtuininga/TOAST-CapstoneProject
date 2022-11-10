@@ -3,6 +3,8 @@ import {Provider} from 'react-redux'
 import {BrowserRouter} from 'react-router-dom'
 import {ConfigureStore} from './Redux/configureStore'
 import ReviewCard from './Components/Users/ReviewCard'
+import ReviewForm from './Components/Users/ReviewForm'
+import BeerDetails from './Components/Beer/BeerDetails'
 
 
 
@@ -13,7 +15,7 @@ function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <Main />
+        <BeerDetails />
       </BrowserRouter>
     </Provider>
   );

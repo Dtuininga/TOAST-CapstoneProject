@@ -1,5 +1,45 @@
-//Todo: make individual review "cards" with name and rating on top.
-//users should be able to only leave one review per beer, but can delete
-//rating out of 5? 10? use beer mug unicode
+import React, { useState } from "react";
 
-//fetch: get reviews by beerID, also reviews by userID so user can see reviews theyve already written
+
+export default function ReviewForm(props) {
+//blank form should appear at bottom of beer details. ("Leave a review!")
+//username/review_author and beerName should populate by default, only logged in users can leave a review
+
+// handleInputChange = (event) => {
+//     event.preventDefault()
+//     this.setState({
+//         [event.target.name]: event.target.value
+//     })
+// }
+
+return(
+    <div className="reviewForm">
+
+         <input className="reviewEntry"
+                    type="textbox"
+                    id="reviewbody"
+                    name="reviewbody"
+                    class="form-control"
+                    placeholder="Tell people how you enjoyed this brew!"
+                    v-model="review.reviewbody"
+                    //onChange={this.handleInputChange}
+                    required
+                />
+                <form>
+                    "How would you rate this beer out of 5?"  
+                    <select id="beerRating" name="beerRating">
+                        
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    
+                    </select>
+                </form>
+                    
+                <button className="reviewButton" type="submit" >Submit Review</button>
+    </div>
+)
+
+}
