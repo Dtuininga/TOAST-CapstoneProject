@@ -58,7 +58,7 @@ class Main extends Component {
                     : 
                         <Link className='homeLink' to='/login'>Home</Link>
                 }
-                <Sidebar />
+                <Sidebar currentUser={this.props.user.username} />
                 <div className='content'>
                 <Switch>
                     <Route path='/login' component={() => <Login/>}/>

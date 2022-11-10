@@ -11,8 +11,7 @@ function Sidebar(props){
             <img className="burger" src="./Images/burger.png" />
         <div className = "userInfo">
                 <div className="userImg">?</div>
-            <h3 className="user">{props.userName}</h3>
-            <h4 className="userReviews">Reviews Written: 1</h4>
+            <h3 className="user">{props.currentUser}</h3>
             </div>
             <div classname= "shortcutButtons">
             <button><a href="./BreweryList" className="shortcut">Brewery List</a></button>

@@ -198,6 +198,10 @@ code {
         color: #3A4F41;
   }
   
+  .user{
+    text-align: center;
+  }
+
   .cardImage{
     max-width: 300px;
     height: 250px;
