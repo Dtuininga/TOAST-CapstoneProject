@@ -29,7 +29,7 @@ return(
                         <div>Howareya</div>
                         </div>
                     <div className="title" onClick={toggle}>
-                        <h6>{selected ? 'Show less...' : 'See more...'}</h6>
+                        <h6>{selected ? 'See less...' : 'See more...'}</h6>
                         
                     </div>
             

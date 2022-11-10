@@ -151,7 +151,7 @@ code {
     .brewerycard { /*BreweriesList*/
         display: flex;
         border: 4px solid #3A4F41;
-        margin: 40px;
+        margin: 20px ;
         margin-left: 50px;
         padding-left: 10px;
         align-items: center;
@@ -170,6 +170,13 @@ code {
     padding: 20px;
    
   }
+
+  .beercard-details{
+    
+    margin: auto;
+    padding: 20px;
+  }
+
   .breweryInfo { /*BreweryDetails*/
    max-width: 50%;
    margin: 15px; 
@@ -195,6 +202,7 @@ code {
         align-items: center;
         text-decoration: none;
         color: #3A4F41;
+        border-radius: 10px;
   }
   
   .user{
@@ -205,6 +213,7 @@ code {
     max-width: 300px;
     height: 250px;
     object-fit: cover;
+    float: left;
     background-position: center;
     border-radius: 200px;
     padding: 12px;
@@ -215,6 +224,7 @@ code {
   .accordion{
     width: 400px;
     margin-bottom: 10px;
+    overflow: hidden;
   }
 
   .title{
@@ -225,11 +235,11 @@ code {
     padding: 10px 20px;
     padding-bottom: 5px;
     margin-bottom: 0px;
-    
+    cursor: pointer;
   }
 
   .info{
-    background-color: #f5e3be;
+    
     max-height: 0;
     overflow: hidden;
     transition: all 0.35s cubic-bezier(0,1,0,1);
