@@ -2,7 +2,7 @@ import React from "react";
 
 
 export default function BeerList(props) {
-    //TODO: change hardcoded values to props, map over data list. Have Navbar appear when list by itself
+    //TODO:
     //able to arrange list by rating? alphabet? 
 
         //fetch: get all beers

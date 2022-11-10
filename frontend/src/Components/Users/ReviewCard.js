@@ -8,7 +8,9 @@ export default function ReviewCard(props) {
 return(
     
     <div className="reviewcard">
-            <h2 className="reviewheader">Reviewer: {props.username} Rating: {props.brewRating}</h2>
+            <div className="reviewheader">
+                Reviewer: {props.username} Rating: {props.brewRating}
+                </div>
 
             <div className="reviewcard-details">
                 <h4>Beer: {props.brewName}</h4>

@@ -237,6 +237,11 @@ code {
     background-color: #FF8C42;
     font-size: 1.25rem;
   }
+p {
+  font-size: 1.0rem;
+  font-style: italic;
+}
+
   .registerButton { /*account creation*/
     max-width:40%;
     min-width: 250px;

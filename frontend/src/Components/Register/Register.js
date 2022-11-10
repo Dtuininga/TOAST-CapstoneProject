@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import { baseUrl } from '../../Shared/baseUrl'
 import Navbar from '../Home/Navbar'
 
+
 class Register extends Component{
 
 
@@ -15,7 +16,12 @@ class Register extends Component{
             password: '',
             confirmPassword: '',
             brewer: false,
-            role: 'USER'
+            role: 'USER',
+            breweryname:'',
+            brewerywebsite:'',
+            breweryphone:'',
+            breweryemail:'',
+            breweryaddress:'',
         }
         
     }
@@ -40,10 +46,12 @@ class Register extends Component{
         const data = {over21: this.state.over21, username: this.state.username, password: this.state.password, confirmPassword: this.state.confirmPassword, role: this.state.role}
         if(this.state.password === this.state.confirmPassword){
             axios.post(baseUrl + "/register", data)
-            
+            alert("Account created successfully, please log in.")
+            window.location.href = '/login'
         }else{
             alert("Password and Confirm Password must match!!!")
-        }
+        } 
+        
     }
    
 
@@ -57,9 +65,64 @@ class Register extends Component{
                     <input type="checkbox" onChange={this.is21}/>
                 </div>
                 <div>
-                <span> Are you a brewer? </span>
+                <span> Are you a beer brewer? </span>
                     <input type="checkbox" onChange={this.isBrewer}/>
                 </div>
+                {this.state.brewer  &&
+                    <div className="brewer-form">
+                        <input
+                            type="text"
+                            id="breweryname"
+                            name="breweryname"
+                            class="form-control"
+                            placeholder="Brewery Name"
+                            v-model="brewery.breweryname"
+                            onChange={this.handleInputChange}
+                            required
+                        />
+                        <input
+                            type="text"
+                            id="brewerywebsite"
+                            name="brewerywebsite"
+                            class="form-control"
+                            placeholder="Brewery website URL"
+                            v-model="brewery.brewerywebsite"
+                            onChange={this.handleInputChange}
+                            required
+                        />
+                        <input
+                            type="text"
+                            id="breweryphone"
+                            name="breweryphone"
+                            class="form-control"
+                            placeholder="Contact phone number"
+                            v-model="brewery.breweryphone"
+                            onChange={this.handleInputChange}
+                            required
+                        />
+                        <input
+                            type="text"
+                            id="breweryemail"
+                            name="breweryemail"
+                            class="form-control"
+                            placeholder="Contact E-mail"
+                            v-model="brewery.breweryemail"
+                            onChange={this.handleInputChange}
+                            required
+                        />
+                        <input
+                            type="text"
+                            id="breweryaddress"
+                            name="breweryaddress"
+                            class="form-control"
+                            placeholder="Mailing Address"
+                            v-model="brewery.breweryimg"
+                            onChange={this.handleInputChange}
+                            required
+                        />
+                        <p>Once submitted, brewery information will be verified and a pending account created. Further details may be updated after account approval.</p>
+                    </div>
+    }
                 <label class="sr-only">Username</label>
                 <input
                     type="text"
