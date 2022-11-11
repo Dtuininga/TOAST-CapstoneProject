@@ -2,6 +2,8 @@ import React from "react";
 import Navbar from "../Home/Navbar";
 import BreweryDetails from "./BreweryDetails";
 import { checkPropTypes } from "prop-types";
+import {Switch, Route, Redirect, Link} from 'react-router-dom'
+
 
 export default function BreweriesList(props) {
     //TODO: change hardcoded values to props, map over data list. pics should alternate
@@ -30,7 +32,7 @@ export default function BreweriesList(props) {
                         <div>Hello</div>
                         <div>Howdy</div>
                         <div>Howareya</div>
-                        <a href={"/BreweryDetails"} className="breweryLink">For this brewery's full details and beer list, click here!</a>
+                        <Link to={'/brewery/brewlist'} className="breweryLink">Brew List</Link>
                         </div>
                     <div className="title" onClick={toggle}>
                         <h6>{brewSelected ? 'See less...' : 'See more...'}</h6>
@@ -39,7 +41,10 @@ export default function BreweriesList(props) {
             
                 </div> 
             </div>
-            
+            <Switch>
+                    <Route path={'/brewery/brewlist'}  component={() => <BreweryDetails />}/>
+                    
+                </Switch>
            </div>
 )
 }
