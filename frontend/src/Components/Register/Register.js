@@ -163,8 +163,9 @@ class Register extends Component{
                     onChange={this.handleInputChange}
                     required
                 />
+                <div className="avatarContainer">
                 Choose an Avatar color:   
-                        <select onChange={this.handleInputChange} id="avatarColor" name="avatarColor">
+                        <select onChange={this.handleInputChange} id="avatarColor" name="avatarColor" className='avatarSelect'>
                         <option value="./Images/beeravatars/pinkavatar.png">Pink</option>
                         <option value="./Images/beeravatars/redavatar.png">Red</option>
                         <option value="./Images/beeravatars/orangeavatar.png">Orange</option>
@@ -175,11 +176,11 @@ class Register extends Component{
                         <option value="./Images/beeravatars/blackavatar.png">Black</option>
                         <option value="./Images/beeravatars/whiteavatar.png">White</option>
                         </select>
-            
+                </div>
                 <div><button type="submit" className="registerButton" onClick={this.handleSubmit} disabled={!this.state.over21}>Let's make a TOAST!</button></div>
                 <sp/>
-                <div>
-                <Link to="/login">I already have an account!</Link>
+                <div className='alreadyReg'>
+                <Link className="alreadyReg" to="/login">I already have an account!</Link>
                 </div>
             </div>
             </div>

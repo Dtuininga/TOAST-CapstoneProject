@@ -177,6 +177,15 @@ code {
     padding: 20px;
   }
 
+  .avatarSelect{
+    margin-left: 5px;
+  }
+
+  .avatarContainer{
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
   .breweryInfo { /*BreweryDetails*/
    max-width: 50%;
    margin: 15px; 
@@ -274,7 +283,9 @@ code {
   }
 
   .registration { /*account creation*/
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: auto;
     margin-top: 15px;
     max-width: 40%;
@@ -295,6 +306,14 @@ p {
     font-size: 1.3rem;
     font-weight: 700;
     margin: auto;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+  }
+
+  .alreadyReg{
+    display: flex;
+    justify-content: center;
   }
 
   .beerStats {

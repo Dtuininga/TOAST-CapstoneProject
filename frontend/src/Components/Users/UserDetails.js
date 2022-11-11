@@ -11,9 +11,9 @@ return (
         
         <form>
 
-    <div>
+    <div className="avatarContainer">
         Change Avatar color:    
-        <select id="avatarColor" name="avatarColor">
+        <select id="avatarColor" name="avatarColor" className="avatarSelect">
                         <option value="./Images/beeravatars/pinkavatar.png">Pink</option>
                         <option value="./Images/beeravatars/redavatar.png">Red</option>
                         <option value="./Images/beeravatars/orangeavatar.png">Orange</option>
