@@ -10,7 +10,7 @@ function Home(props) {
             
             <p>conditional rendering based on user role. no profile defaults to login screen</p>
             <p>user/beer lover:</p>
-                <UserDetails />
+                <UserDetails username={props.currentUser} />
             <p>brewer should land on brewery info page and see "pending" or "approved" status, and be able to edit brewery info and add beers</p>
                 <BreweryUpdate />
             <p>Admin landing page should see a list of pending brewery requests to approve</p>

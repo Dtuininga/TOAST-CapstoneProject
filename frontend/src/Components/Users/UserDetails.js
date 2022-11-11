@@ -31,7 +31,7 @@ return (
                     id="username"
                     name="username"
                     class="form-control"
-                    placeholder="props.username"
+                    placeholder={props.username}
                     v-model="user.username"
                     //onChange={this.handleInputChange}
                     
