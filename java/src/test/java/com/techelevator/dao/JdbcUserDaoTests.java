@@ -27,4 +27,18 @@ public class JdbcUserDaoTests extends FinalCapstoneDaoTests {
         Assert.assertEquals("TEST_USER", user.getUsername());
     }
 
+//   @Test
+//   public void driverPresent(){
+//    try{
+//       Class.forName("org.postgresql.JDBC");
+//       System.out.println("The driver was successfully loaded.");
+//    }
+//    catch (ClassNotFoundException e){
+//       System.out.println("The driver class was not found in the program files at runtime.");
+//    e.printStackTrace();
+//    System.exit(1);
+//    }
+//
+//  }
+
 }
