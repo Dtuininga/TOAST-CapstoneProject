@@ -25,7 +25,6 @@ public class JdbcReviewDao implements ReviewDao {
                 "beer_id, " +
                 "review, " +
                 "rating, " +
-                "user_id, " +
                 "review_author " +
                 "FROM review " +
                 "WHERE beer_id = ?";
@@ -40,13 +39,12 @@ public class JdbcReviewDao implements ReviewDao {
 
     @Override
     public void addReview(Review review) {
-        String sql = "INSERT INTO review(beer_id, review, rating, user_id, review_author)" +
-                "VALUES(?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO review(beer_id, review, rating, review_author)" +
+                "VALUES(?, ?, ?, ?)";
         jdbcTemplate.update(sql,
                 review.getBeerId(),
                 review.getReview(),
                 review.getRating(),
-                review.getUserId(),
                 review.getReviewAuthor());
     }
 
@@ -62,7 +60,6 @@ public class JdbcReviewDao implements ReviewDao {
         review.setBeerId(rs.getInt("beer_id"));
         review.setReview(rs.getString("review"));
         review.setRating(rs.getInt("rating"));
-        review.setUserId(rs.getInt("user_id"));
         review.setReviewAuthor(rs.getString("review_author"));
         return review;
     }

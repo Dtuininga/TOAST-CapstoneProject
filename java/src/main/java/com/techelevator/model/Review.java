@@ -17,12 +17,11 @@ public class Review {
 
     }
 
-    public Review(int reviewId, int beerId, String review, int rating, int userId, String reviewAuthor) {
+    public Review(int reviewId, int beerId, String review, int rating, String reviewAuthor) {
         this.reviewId = reviewId;
         this.beerId = beerId;
         this.review = review;
         this.rating = rating;
-        this.userId = userId;
         this.reviewAuthor = reviewAuthor;
     }
 
@@ -35,7 +34,6 @@ public class Review {
                 ", beerId=" + beerId +
                 ", review='" + review + '\'' +
                 ", rating=" + rating +
-                ", userId=" + userId +
                 ", reviewAuthor=" + reviewAuthor + '\'' +
                 '}';
     }
@@ -59,8 +57,6 @@ public class Review {
         return rating;
     }
 
-    public int getUserId() {return userId;}
-
     public String getReviewAuthor() {
         return reviewAuthor;
     }
@@ -82,8 +78,6 @@ public class Review {
     public void setRating(int rating) {
         this.rating = rating;
     }
-
-    public void setUserId(int userId) {this.userId = userId;}
 
     public void setReviewAuthor(String reviewAuthor) {
         this.reviewAuthor = reviewAuthor;
