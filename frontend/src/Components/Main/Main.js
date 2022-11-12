@@ -14,6 +14,7 @@ import BreweryDetails from '../Brewery/BreweryDetails'
 import BeerDetails from '../Beer/BeerDetails'
 import Sidebar from '../../Sidebar/Sidebar'
 import BrewBeerList from '../Beer/BrewBeerList'
+import BreweryData from '../Brewery/BreweryData'
 
 //Need a way to get our users info from the backend so that we can pass them into props.
 
@@ -71,6 +72,7 @@ class Main extends Component {
                     <Route path='/home' component={this.props.token.token !== undefined ? () => <Home currentUser={this.props.user.username} /> : null}/>
                     <Route path='/brewery/brews' component={() => <BrewBeerList />} />
                     <Route path='/brew/reviews' component={() => <BeerDetails />} />
+                    <Route path='/BreweryData' coimponent={() => <BreweryData />} />
                     <Redirect to='/login'/>
                 </Switch>
                 </div>
