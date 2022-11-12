@@ -10,13 +10,14 @@ public class Beers {
     private String beerType;
     private String beerDescription;
     private boolean beerActive;
+    private int beerRating;
 
     //constructor
 
 
     public Beers() {}
 
-    public Beers(int beerId, int breweryId, String beerImg, String beerName, double beerAbv, String beerType, String beerDescription, boolean beerActive) {
+    public Beers(int beerId, int breweryId, String beerImg, String beerName, double beerAbv, String beerType, String beerDescription, boolean beerActive, int beerRating) {
         this.beerId = beerId;
         this.breweryId = breweryId;
         this.beerImg = beerImg;
@@ -25,6 +26,7 @@ public class Beers {
         this.beerType = beerType;
         this.beerDescription = beerDescription;
         this.beerActive = beerActive;
+        this.beerRating = beerRating;
     }
 
 //getters
@@ -61,6 +63,8 @@ public class Beers {
         return beerActive;
     }
 
+    public int getBeerRating(){return beerRating;}
+
     //setters
 
 
@@ -95,4 +99,6 @@ public class Beers {
     public void setBeerActive(boolean beerActive) {
         this.beerActive = beerActive;
     }
+
+    public void setBeerRating(int beerRating) {this.beerRating=beerRating;}
 }

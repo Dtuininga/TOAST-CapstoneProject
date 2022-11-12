@@ -386,3 +386,16 @@ p {
     background-color: #FF8C42;
     font-size: 1.25rem;
   }
+
+  .reviews {
+    display: flex;
+    overflow-x: scroll;
+    border: 1px solid black;
+    width: 100%;
+  }
+
+  .review-container {
+    border: 2px solid red;
+    height: 20rem;
+    min-width: 20rem;
+  }
