@@ -5,12 +5,13 @@ import {Switch, Route, Redirect, Link} from 'react-router-dom'
 function Sidebar(props){
 
     const token = props.userToken
+    const avatarPic= props.userpic
     
     return(
         <div className="sidebar">
             <img className="burger" src="./Images/burger.png" />
         <div className = "userInfo">
-                <img className="userImg" src="./Images/beeravatars/whiteavatar.png"/>
+                <img className="userImg" src={"./Images/beeravatars/whiteavatar.png"} />
             <h3 className="user">{props.currentUser}</h3>
             </div>
             <div classname= "shortcutButtons">

@@ -25,14 +25,14 @@ export default function BreweriesList(props) {
                 <h1>{props.brewName}</h1>
                 <h4 className="address">Address: {props.brewAddress}</h4> 
                 <h4 className="hours">Hours: {props.brewHours}</h4>
-                <h4>Rating: {props.brewRating}</h4>
+                <h4>Rating: {props.brewRating}</h4> 
                 <div className="accordion">
                 <div className={brewSelected ? 'info show' : 'info'}>
-                        <div>Hi</div>
-                        <div>Hello</div>
-                        <div>Howdy</div>
-                        <div>Howareya</div>
-                        <Link to={'/brewery/brewlist'} className="breweryLink">Brew List</Link>
+                        <div>Phone: {props.phone}</div>
+                        <div>Email: {props.email}</div>
+                        <div>Website: {props.website}</div>
+                        <div>{props.history}</div>
+                        <Link to={'/breweryDetails'} className="breweryLink">Brewery Details & Brew List</Link>
                         </div>
                     <div className="title" onClick={toggle}>
                         <h6>{brewSelected ? 'See less...' : 'See more...'}</h6>
