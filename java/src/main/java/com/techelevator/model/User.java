@@ -15,14 +15,16 @@ public class User {
    @JsonIgnore
    private boolean activated;
    private Set<Authority> authorities = new HashSet<>();
+   private String avatar;
 
    public User() { }
 
-   public User(Long id, String username, String password, String authorities) {
+   public User(Long id, String username, String password, String authorities, String avatar) {
       this.id = id;
       this.username = username;
       this.password = password;
       this.activated = true;
+      this.avatar = avatar;
    }
 
    public Long getId() {
@@ -73,6 +75,14 @@ public class User {
       }
    }
 
+   public String getAvatar() {
+      return avatar;
+   }
+
+   public void setAvatar(String avatar) {
+      this.avatar = avatar;
+   }
+
    @Override
    public boolean equals(Object o) {
       if (this == o) return true;
@@ -87,7 +97,7 @@ public class User {
 
    @Override
    public int hashCode() {
-      return Objects.hash(id, username, password, activated, authorities);
+      return Objects.hash(id, username, password, activated, authorities, avatar);
    }
 
    @Override
@@ -95,8 +105,10 @@ public class User {
       return "User{" +
               "id=" + id +
               ", username='" + username + '\'' +
+              ", password='" + password + '\'' +
               ", activated=" + activated +
               ", authorities=" + authorities +
+              ", avatar='" + avatar + '\'' +
               '}';
    }
 }

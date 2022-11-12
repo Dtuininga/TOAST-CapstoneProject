@@ -46,10 +46,15 @@ return(
                         <div className={selected ? 'info show' : 'info'}>
                             <h6 className="beerAbv">ABV: {props.beerAbv}</h6>
                             <h6 className="beerDesc">{props.beerDesc}</h6>
+<<<<<<< HEAD
                             <h6 className="brewedBy">Brewed by: {props.breweryId}</h6>
                             <div>What beer lovers have to say about this beer!</div>
                             <div className = "reviews">{reviews}</div>
                             <a href={beerHref} className="breweryLink">For this beer's full details and reviews, click here!</a>
+=======
+                            <h6 className="brewedBy">Brewed by Brewery ID# {props.brewery}</h6>
+                            <a href="/BeerDetails" className="breweryLink">For this beer's full details and reviews, click here!</a>
+>>>>>>> aefe61c55ac77314b3156a60de04ed32e50dfb40
                         </div>
                     <div className="title" onClick={toggle}>
                         <h6>{selected ? 'See less...' : 'See more...'}</h6>
