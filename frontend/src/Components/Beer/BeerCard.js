@@ -1,12 +1,11 @@
 import React from "react";
+import ReviewCard from "../Review/ReviewCard";
 
 
 export default function BeerList(props) {
 
     const[selected, setSelected] = React.useState(false)
-    const[reviews, setReviews] = React.useState("This is where they'll show up")
-
-
+    const[reviews, setReviews] = React.useState(null)
 
     const beerHref = "/BeerDetails/" + props.beerId;
     const customFetchUrl = "http://localhost:8081/reviews/" + props.beerId;
@@ -19,13 +18,12 @@ export default function BeerList(props) {
         fetch(customFetchUrl)
             .then(res => res.json())
             .then(data => setReviews(data.map(review => 
-
-            <div className="review-container">
-                <h3>{review.reviewAuthor}</h3>
-                <h5>Their Rating: {review.rating}</h5>
-                <p>{review.review}</p>
-            </div>
-
+                <ReviewCard
+                    reviewId={review.reviewId}
+                    author={review.reviewAuthor}
+                    rating={review.rating}
+                    review={review.review}
+                />
         )))
     })
 
@@ -39,7 +37,6 @@ return(
             <img src={props.beerImage} className='cardImage'/>
             <div className="beercard-details">
                 <h2>{props.beerName}</h2>
-                <h2>Beer ID: {props.beerId}</h2>
                 <h4 className="beerType">Type: {props.beerType}</h4> 
                 <h5>Rating: {props.beerRating}</h5>
                 <div className="accordion">
@@ -47,6 +44,12 @@ return(
                             <h6 className="beerAbv">ABV: {props.beerAbv}</h6>
                             <h6 className="beerDesc">{props.beerDesc}</h6>
                             <h6 className="brewedBy">Brewed by Brewery ID# {props.brewery}</h6>
+                            {reviews ? <div className='review-section'>
+                                <h6>Here's what other Toasters have to say about this beer!</h6>
+                                <div className = 'reviews-container'>
+                                    {reviews}
+                                </div>
+                            </div> : <h6>"No reviews for this beer, be the first to leave a review!"</h6>}
                             <a href="/BeerDetails" className="breweryLink">For this beer's full details and reviews, click here!</a>
                         </div>
                     <div className="title" onClick={toggle}>

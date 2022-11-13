@@ -1,7 +1,7 @@
 package com.techelevator.controller;
 
 import com.techelevator.model.*;
-import com.techelevator.services.BeersService;
+import com.techelevator.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;

@@ -1,6 +1,6 @@
 package com.techelevator.services;
 
-import com.techelevator.dao.JdbcBeerDao;
+import com.techelevator.dao.*;
 import com.techelevator.model.*;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;

@@ -319,52 +319,6 @@ p {
   .beerStats {
     display: flex;
   }
-  .reviewcard {      
-        display: grid;
-        border: 4px solid #3A4F41;
-        margin: 10px;
-        align-items: center;
-        text-decoration: none;
-        color: #3A4F41;
-        padding: 10px;
-        background-color: #FF8C42  ;
-  }
-  .reviewheader { /*reviewCard*/
-    display: flex;
-    font-size: 1.2rem;
-
-  }
-  .reviewrating { /*reviewCard*/
-   margin-left: auto;
-   margin-right: 0;
-  }
-  .reviewBody { /*reviewCard*/
-    background-color: white;
-    border-radius: 5px;
-    min-height: 50px;
-    margin: 5px;
-  }
-  .reviewForm {
-    display: grid;
-        border: 4px solid #3A4F41;
-        margin: 10px;
-        align-items: center;
-        text-decoration: none;
-        color: #3A4F41;
-        padding: 10px;
-        background-color: #FF8C42  ;
-  }
-  
-  .reviewEntry {
-    width: 100%;
-    height: 100px;
-    padding: 12px 20px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    background-color: #f8f8f8;
-    resize: none;
-  }
 
   .userUpdate { /*account update*/
     display: block;
@@ -387,15 +341,75 @@ p {
     font-size: 1.25rem;
   }
 
-  .reviews {
-    display: flex;
-    overflow-x: scroll;
-    border: 1px solid black;
-    width: 100%;
-  }
+.reviews-container {
+  display: flex;
+  overflow-x: scroll;
+  border: .2rem solid lightgray;
+  width: 100%;
+}
 
-  .review-container {
-    border: 2px solid red;
-    height: 20rem;
-    min-width: 20rem;
-  }
+.review {
+  margin-right: 5px;
+  height: 20rem;
+  min-width: 20rem;
+}
+
+.review-author {
+  color: black;
+}
+
+.review-rating {
+  color: black;
+}
+
+.review-body {
+  color: black;
+}
+/* 
+.reviewcard {      
+  display: grid;
+  border: 4px solid #3A4F41;
+  margin: 10px;
+  align-items: center;
+  text-decoration: none;
+  color: #3A4F41;
+  padding: 10px;
+  background-color: #FF8C42  ;
+}
+
+.reviewheader {
+display: flex;
+font-size: 1.2rem;
+}
+
+.reviewrating {
+margin-left: auto;
+margin-right: 0;
+}
+.reviewBody {
+background-color: white;
+border-radius: 5px;
+min-height: 50px;
+margin: 5px;
+}
+.reviewForm {
+display: grid;
+    border: 4px solid #3A4F41;
+    margin: 10px;
+    align-items: center;
+    text-decoration: none;
+    color: #3A4F41;
+    padding: 10px;
+    background-color: #FF8C42  ;
+}
+
+.reviewEntry {
+width: 100%;
+height: 100px;
+padding: 12px 20px;
+box-sizing: border-box;
+border: 2px solid #ccc;
+border-radius: 4px;
+background-color: #f8f8f8;
+resize: none;
+} */

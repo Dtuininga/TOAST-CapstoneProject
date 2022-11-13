@@ -7,7 +7,7 @@ function BeerList(){
     React.useEffect(()=>{
         fetch('http://localhost:8081/beers')
         .then(res => res.json())
-        .then(data => setBeerArray(data.map(item => <BeerCard beerImage={item.beerImg} brewery={item.breweryId} beerAbv={item.beerAbv} beerName={item.beerName} beerType={item.beerType} beerDesc={item.beerDescription}  />)))
+        .then(data => setBeerArray(data.map(item => <BeerCard beerId={item.beerId} beerImage={item.beerImg} brewery={item.breweryId} beerAbv={item.beerAbv} beerName={item.beerName} beerType={item.beerType} beerDesc={item.beerDescription}  />)))
     },[])
 
     console.log(beerArray)
