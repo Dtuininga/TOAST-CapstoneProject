@@ -3,6 +3,8 @@ import BreweryUpdate from '../Brewery/BreweryUpdate';
 import UserDetails from '../Users/UserDetails';
 
 function Home(props) {
+    //TODO: get rest of user info passed in with current user (avatar, ROLE, and attached brewery info if a Brewer) New GET?
+
 
     return(
         <div className='homePage'>

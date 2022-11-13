@@ -6,6 +6,9 @@ import Navbar from '../Home/Navbar'
 
 
 class Register extends Component{
+    //TODO: capture userID at brewery creation so the brewery is linked to one specific login
+    //-brewery can currently be created without a new userID & password? 
+
 
 
     constructor(props){
@@ -45,11 +48,11 @@ class Register extends Component{
 
     handleSubmit = () => { 
         const data = {over21: this.state.over21, username: this.state.username, password: this.state.password, confirmPassword: this.state.confirmPassword, role: this.state.role, avatar: this.state.avatarColor}
-        const breweryData = {breweryname: this.state.breweryname, 
-        brewerywebsite: this.state.brewerywebsite,
-        breweryphone: this.state.breweryphone,
-        breweryemail: this.state.breweryemail,
-        breweryaddress: this.state.breweryaddress}
+        const breweryData = {breweryName: this.state.breweryname, 
+        breweryWebsite: this.state.brewerywebsite,
+        breweryPhone: this.state.breweryphone,
+        breweryEmail: this.state.breweryemail,
+        breweryAddress: this.state.breweryaddress}
         if(this.state.password === this.state.confirmPassword){
             axios.post(baseUrl + "/register", data)
             if (this.state.brewer) {
