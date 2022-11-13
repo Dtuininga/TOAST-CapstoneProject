@@ -87,7 +87,7 @@ return(
                         />
                        <div>
         Beer Type:    
-        <select id="beerType" name="beerType">
+        <select onChange={this.handleBeerChange} id="beerType" name="beerType">
                         <option value="Pilsner">Pilsner</option>
                         <option value="Lager">Lager</option>
                         <option value="IPA">IPA</option>
