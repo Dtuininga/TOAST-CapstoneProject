@@ -8,6 +8,7 @@ Brewery Template
 //contactEmail: (string)
 //pictureUrl: (string)
 //about: (string)
+
 breweryID: test01
 barName: Moe's Tavern
 breweryOwner: Moe Szyslak
@@ -26,6 +27,7 @@ beerList: ["Sam Adams", "Wachusett Seasonal", "Downeast Cider"]
 contactEmail: WeKnowYourName@AOL.com
 pictureUrl: https://imageio.forbes.com/specials-images/imageserve/495572400/Cheers-Boston-Beacon-Hill--formerly-the-Bull-and-Finch-Pub----/960x0.jpg?format=jpg&width=960
 about: Making your way in the world today takes everything you've got. Taking a break from all your worries sure would help a lot. Wouldn't you like to get away? Sometimes you want to go where everybody knows your name.
+
 breweryID: test03
 barName: Mos Eisley Cantina
 breweryOwner: Chalmun
@@ -35,6 +37,7 @@ beerList: [Yatooni Boska, Hutt's Delight, Blue Milk Stout]
 contactEmail: WeDontServeDroids@holo.net
 pictureUrl: https://i0.wp.com/theretronetwork.com/wp-content/uploads/2020/05/exterior.jpg?resize=300%2C214&ssl=1
 about: No droids, no blasters, no questions asked. Nightly performance by Fingrin Dan and the Modal Nodes.
+
 breweryID: test04
 barName: McAnally's Pub
 breweryOwner: Mac McAnally

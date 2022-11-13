@@ -52,7 +52,9 @@ class Register extends Component{
         breweryaddress: this.state.breweryaddress}
         if(this.state.password === this.state.confirmPassword){
             axios.post(baseUrl + "/register", data)
+            if (this.isBrewer) {
             axios.post(baseUrl + "/addbrewery", breweryData)
+            }
             alert("Account created successfully, please log in.")
             window.location.href = '/login'
         }else{
