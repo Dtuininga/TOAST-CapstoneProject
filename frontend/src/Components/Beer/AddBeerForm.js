@@ -28,11 +28,9 @@ class AddBeerForm extends Component{
         beerActive:'false'}
         
             axios.post(baseUrl + "/addbeer", beerData)
-            
+            //can we make this conditional based on response?
             alert("Beer added successfully.")
-            
-        
-           
+     
     }
    
 

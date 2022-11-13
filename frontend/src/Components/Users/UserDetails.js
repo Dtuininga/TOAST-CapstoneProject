@@ -12,6 +12,10 @@ return (
         <form>
 
     <div className="avatarContainer">
+        <div>
+            Current avatar:
+            <img src={props.avatar}/>
+        </div>
         Change Avatar color:    
         <select id="avatarColor" name="avatarColor" className="avatarSelect">
                         <option value="./Images/beeravatars/pinkavatar.png">Pink</option>
