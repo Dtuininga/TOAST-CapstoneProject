@@ -350,14 +350,17 @@ p {
 .reviews-container {
   display: flex;
   overflow-x: scroll;
-  border: .2rem solid lightgray;
+  overflow-y: scroll;
   width: 100%;
 }
 
 .review {
   margin-right: 5px;
-  height: 20rem;
+  height: 15rem;
   min-width: 20rem;
+  background-color: #FFD580;
+  border-radius: 5px;
+  padding: .2rem;
 }
 
 .review-author {
@@ -370,6 +373,28 @@ p {
 
 .review-body {
   color: black;
+}
+
+.review-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.review-inputs {
+  display:flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.review-text {
+  height: 5rem;
+  width: 20.5rem;
+  display: flex;
+}
+
+#rating {
+  width: 8rem;
 }
 /* 
 .reviewcard {      

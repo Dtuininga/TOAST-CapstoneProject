@@ -1,4 +1,5 @@
 import React from "react";
+import AddReviewForm from "../Review/AddReviewForm";
 import ReviewCard from "../Review/ReviewCard";
 
 
@@ -44,6 +45,7 @@ return(
                             <h6 className="beerAbv">ABV: {props.beerAbv}</h6>
                             <h6 className="beerDesc">{props.beerDesc}</h6>
                             <h6 className="brewedBy">Brewed by Brewery ID# {props.brewery}</h6>
+
                             {reviews != 0 
                             ? <div className='review-section'>
                                 <h6>Here's what other Toasters have to say about this beer!</h6>
@@ -51,7 +53,12 @@ return(
                                     {reviews}
                                 </div>
                               </div> 
-                            : <h6>No reviews for this beer, be the first to leave a review!</h6>}
+                            : <strong>No reviews for this beer, be the first to leave a review!</strong>}
+
+
+                        <AddReviewForm
+                            beerId={props.beerId}
+                        />
                             <a href="/BeerDetails" className="breweryLink">For this beer's full details and reviews, click here!</a>
                         </div>
                     <div className="title" onClick={toggle}>
