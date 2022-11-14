@@ -72,7 +72,7 @@ class Main extends Component {
                     <Route path='/login' component={() => <Login/>}/>
                     <Route path='/register'component={() => <Register/>}/>
                     <Route path='/BreweryList' component={() => <BreweryList />} />
-                    <Route path='/BreweryDetails' component={() => <BreweryDetails />} />
+                    <Route path='/BreweryDetails/:id' component={() => <BreweryDetails />} />
                     <Route path='/BeerList' component={() => <BeerList />} />
                     <Route path='/BeerDetails' component={() => <BeerDetails />} />
                     <Route path='/home' component={this.props.token.token !== undefined ? () => <Home currentUser={this.props.user.username} /> : null}/>

@@ -1,8 +1,16 @@
 import React from "react";
-import BreweryDetails from "./BreweryDetails";
+// import BreweryDetails from "./BreweryDetails";
 import BeerList from "../Beer/BeerCard";
+import BeerCard from '../Beer/BeerCard'
 
 export default function BreweryData(props) {
+    const[beerArray, setBeerArray] = React.useState([])
+
+    React.useEffect(()=>{
+        fetch(`http://localhost:8081/beersbybrewery/${props.breweryId}`)
+        .then(res => res.json())
+        .then(data => setBeerArray(data.map(item => <BeerCard beerId={item.beerId} beerImage={item.beerImg} brewery={item.breweryId} beerAbv={item.beerAbv} beerName={item.beerName} beerType={item.beerType} beerDesc={item.beerDescription}  />)))
+    },[props.breweryId])
 
     return(
         <div>
@@ -13,21 +21,16 @@ export default function BreweryData(props) {
         </div>
         <div className="breweryDetails">
             <div className="breweryInfo">
-                <ul>
-                <li>Average Beer Score: &{props.breweryRating}</li>
-                <li>breweryOwner: {props.userId}</li>
-                <li>address: {props.breweryAddress}</li>
-                <li>hours: {props.breweryHours}</li>
-                <li>contactPhone: {props.breweryPhone}</li>
-                <li>contactEmail: {props.breweryEmail}</li>
-                <li>{props.breweryHistory}</li>
-                <li>Website: {props.breweryWebsite}</li>
-                </ul>
+            <p>address: {props.breweryAddress}</p>
+            <p>hours: {props.breweryHours}</p>
+            <p>contactPhone: {props.breweryPhone}</p>
+            <p>contactEmail: {props.breweryEmail}</p>
+            <p>{props.breweryHistory}</p>
+            <p>Website: {props.breweryWebsite}</p>
             </div>
-            <div className="breweryBeers">
-                <h4>fetch by brewery id</h4>
-                <BeerList />
-            </div>
+            <div className='beerList content'>
+            {beerArray}
+        </div>
 
         </div>
 
