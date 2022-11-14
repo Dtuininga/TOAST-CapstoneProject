@@ -7,16 +7,21 @@ export default function BeerList(props) {
 
     const[selected, setSelected] = React.useState(false)
     const[reviews, setReviews] = React.useState(null)
+    const[rating, setRating] = React.useState(0)
+
+    let totalScore = 0;
 
     const beerHref = "/BeerDetails/" + props.beerId;
-    const customFetchUrl = "http://localhost:8081/reviews/" + props.beerId;
+    const customReviewsUrl = "http://localhost:8081/reviews/" + props.beerId;
+    const customRatingUrl = "http://localhost:8081/beer/rating/" + props.beerId;
+
 
     function toggle(){
         setSelected(oldSelect => !oldSelect)
     }
 
     React.useEffect(() => {
-        fetch(customFetchUrl)
+        fetch(customReviewsUrl)
             .then(res => res.json())
             .then(data => setReviews(data.map(review => 
                 <ReviewCard
@@ -26,10 +31,11 @@ export default function BeerList(props) {
                     review={review.review}
                 />
         )))
+        fetch(customRatingUrl)
+            .then(res => res.json())
+            .then(data => setRating(data))
     })
-
-
-
+    
     //TODO:
     //able to arrange list by rating? alphabet? Brewery? 
 
@@ -39,13 +45,12 @@ return(
             <div className="beercard-details">
                 <h2>{props.beerName}</h2>
                 <h4 className="beerType">Type: {props.beerType}</h4> 
-                <h5>Rating: {props.beerRating}</h5>
+                {rating != 0 && <h5>Average Rating: {rating}/ 5</h5>}
                 <div className="accordion">
                         <div className={selected ? 'info show' : 'info'}>
                             <h6 className="beerAbv">ABV: {props.beerAbv}</h6>
                             <h6 className="beerDesc">{props.beerDesc}</h6>
                             <h6 className="brewedBy">Brewed by Brewery ID# {props.brewery}</h6>
-
                             {reviews != 0 
                             ? <div className='review-section'>
                                 <h6>Here's what other Toasters have to say about this beer!</h6>
@@ -54,7 +59,6 @@ return(
                                 </div>
                               </div> 
                             : <strong>No reviews for this beer, be the first to leave a review!</strong>}
-
 
                         <AddReviewForm
                             beerId={props.beerId}

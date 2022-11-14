@@ -9,6 +9,7 @@ import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 import com.techelevator.model.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -51,4 +52,8 @@ public class BeersController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @RequestMapping(value = "/deletebeer/{id}", method = RequestMethod.DELETE)
     public void deleteBeer(@PathVariable int id){beersService.deleteBeer(id);}
+
+    @ResponseStatus(HttpStatus.FOUND)
+    @RequestMapping(value = "/beer/rating/{id}", method = RequestMethod.GET)
+    public BigDecimal getBeerRating(@PathVariable int id){return beersService.getBeerRating(id);}
 }

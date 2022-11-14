@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -39,5 +40,7 @@ public class BeersService {
     public void deleteBeer(int beerId){
         beerDao.deleteBeer( beerId);
     };
+
+    public BigDecimal getBeerRating(int beerId){return beerDao.getAverageRatingByBeerId(beerId);};
 
 }

@@ -6,6 +6,8 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 @Component
@@ -99,6 +101,17 @@ public class JdbcBeerDao implements BeerDao {
             jdbcTemplate.update(sql, beer.getBreweryId(), beer.getBeerImg(), beer.getBeerName(), beer.getBeerAbv(),
                                 beer.getBeerType(), beer.getBeerDescription(), beer.isBeerActive(), beer.getBeerId());
         }
+
+    @Override
+    public BigDecimal getAverageRatingByBeerId(int beerId) {
+        String sql = "SELECT avg(rating) FROM review " +
+                "WHERE beer_id = ?;";
+        BigDecimal rating = BigDecimal.valueOf(0);
+        if(jdbcTemplate.queryForObject(sql, BigDecimal.class, beerId) != null) {
+            rating = jdbcTemplate.queryForObject(sql, BigDecimal.class, beerId).setScale(1, RoundingMode.CEILING);
+        }
+        return rating;
+    }
 
 
     private Beers mapRowToBeers(SqlRowSet rs) {
