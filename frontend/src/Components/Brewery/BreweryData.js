@@ -1,5 +1,5 @@
 import React from "react";
-import BreweryDetails from "./BreweryDetails";
+// import BreweryDetails from "./BreweryDetails";
 import BeerList from "../Beer/BeerCard";
 
 export default function BreweryData(props) {
@@ -14,7 +14,7 @@ export default function BreweryData(props) {
         <div className="breweryDetails">
             <div className="breweryInfo">
                 <ul>
-                <li>Average Beer Score: &{props.breweryRating}</li>
+                
                 <li>breweryOwner: {props.userId}</li>
                 <li>address: {props.breweryAddress}</li>
                 <li>hours: {props.breweryHours}</li>

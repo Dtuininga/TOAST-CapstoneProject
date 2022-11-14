@@ -42,7 +42,18 @@ export default function BreweriesList(props) {
                 </div> 
             </div>
             <Switch>
-                    <Route path={'/:'}  component={() => <BreweryDetails />}/>
+                    <Route path={'/:'}  component={() => <BreweryDetails 
+                        brewId = {props.brewId}
+                        image = {props.brewImage} 
+                        address = {props.brewName}
+                        name = {props.brewName}
+                        hours = {props.brewHours}
+                        rating = {props.brewRating}
+                        phone = {props.phone}
+                        email = {props.email}
+                        website = {props.website}
+                        history = {props.history}
+                        />}/>
                     
                 </Switch>
            </div>
