@@ -44,12 +44,14 @@ return(
                             <h6 className="beerAbv">ABV: {props.beerAbv}</h6>
                             <h6 className="beerDesc">{props.beerDesc}</h6>
                             <h6 className="brewedBy">Brewed by Brewery ID# {props.brewery}</h6>
-                            {reviews ? <div className='review-section'>
+                            {reviews != 0 
+                            ? <div className='review-section'>
                                 <h6>Here's what other Toasters have to say about this beer!</h6>
                                 <div className = 'reviews-container'>
                                     {reviews}
                                 </div>
-                            </div> : <h6>"No reviews for this beer, be the first to leave a review!"</h6>}
+                              </div> 
+                            : <h6>No reviews for this beer, be the first to leave a review!</h6>}
                             <a href="/BeerDetails" className="breweryLink">For this beer's full details and reviews, click here!</a>
                         </div>
                     <div className="title" onClick={toggle}>

@@ -15,6 +15,7 @@ import BeerDetails from '../Beer/BeerDetails'
 import Sidebar from '../../Sidebar/Sidebar'
 import BrewBeerList from '../Beer/BrewBeerList'
 import BreweryData from '../Brewery/BreweryData'
+import {createStore, Redux} from 'redux'
 
 //Need a way to get our users info from the backend so that we can pass them into props.
 
@@ -24,6 +25,11 @@ const mapStateToProps = state => {
         user: state.user,
     }
 }
+
+// const store = createStore();
+
+// const currentState = store.getState()
+// console.log("State" + currentState)
 
 const mapDispatchToProps = (dispatch) => ({
     addToken: () => { dispatch(addToken()) },
