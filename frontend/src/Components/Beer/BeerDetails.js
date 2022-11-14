@@ -33,8 +33,9 @@ export default function BeerDetails() {
             <div className="reviewSection">
                 <ReviewForm />
                     (import review section by beer, create a form to leave a review for this beer)
+                    <ReviewCard />
             </div>
-                <ReviewCard />
+                
             </div>
         )
 
