@@ -389,12 +389,13 @@ p {
 
 .review-text {
   height: 5rem;
-  width: 20.5rem;
+  width: 100%;
   display: flex;
 }
 
 #rating {
   width: 8rem;
+  align-self: flex-end;
 }
 /* 
 .reviewcard {      
