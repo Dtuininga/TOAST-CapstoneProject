@@ -63,7 +63,7 @@ return(
                         <AddReviewForm
                             beerId={props.beerId}
                         />
-                            <a href="/BeerDetails" className="breweryLink">For this beer's full details and reviews, click here!</a>
+                    
                         </div>
                     <div className="title" onClick={toggle}>
                         <h6>{selected ? 'See less...' : 'See more...'}</h6>
