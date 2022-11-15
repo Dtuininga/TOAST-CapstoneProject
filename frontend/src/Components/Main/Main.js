@@ -61,8 +61,7 @@ class Main extends Component {
                             <Link to='/home'>Home |</Link>
                             <Link to='/login' onClick={this.handleLogout}>| Logout |</Link> 
                             <Redirect to='/home'/>
-                            <Link to={'BreweryList'} >| Brewery List |</Link>
-                            <Link to={'BeerList'}>| Global Beer List |</Link>
+                         
 
                         </div>  
                     : 
