@@ -16,6 +16,8 @@ export default function BreweryDetails(props) {
 
     const store = useStore()
     const token = store.getState().token.token
+    const user = store.getState().user;
+    console.log(user)
     
 
     React.useEffect(()=>{ //calls brewery info from ID# passed from breweryCard
