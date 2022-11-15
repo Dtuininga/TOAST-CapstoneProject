@@ -40,7 +40,7 @@ class Main extends Component {
     constructor(props){
         super(props);
         this.state = {
-            isLoggedIn: false
+            token: this.props.token.token
         }
     }
 
@@ -54,7 +54,7 @@ class Main extends Component {
     render(){
         return(
             <div className='mainPage'>
-                <Navbar loggedIn={this.state.isLoggedIn} handleChange={this.handlePush} />
+                <Navbar  />
                 
                 {this.props.token.token !== undefined ?
                         <div className='homeLink'>

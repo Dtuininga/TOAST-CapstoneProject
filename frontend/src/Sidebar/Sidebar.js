@@ -15,9 +15,9 @@ function Sidebar(props){
             <h3 className="user">{props.currentUser}</h3>
             </div>
             <div classname= "shortcutButtons">
-            <button><a href="./BreweryList" className="shortcut">Brewery List</a></button>
-            <button><a href="./BeerList" className="shortcut">Global Beer List</a></button>
-            <button><a href="./admin_tools" className="shortcut">Admin/Brewer Tools</a></button>
+            <button><Link to="/BreweryList" className="shortcut">Brewery List</Link></button>
+            <button><Link to="/BeerList" className="shortcut">Global Beer List</Link></button>
+            {/* <button><Link href="./admin_tools" className="shortcut">Admin/Brewer Tools</a></button> */}
         
         </div>
         </div>
