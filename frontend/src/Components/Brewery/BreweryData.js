@@ -21,12 +21,14 @@ export default function BreweryData(props) {
         </div>
         <div className="breweryDetails">
             <div className="breweryInfo">
-            <p>address: {props.breweryAddress}</p>
-            <p>hours: {props.breweryHours}</p>
-            <p>contactPhone: {props.breweryPhone}</p>
-            <p>contactEmail: {props.breweryEmail}</p>
             <p>{props.breweryHistory}</p>
+            <p>Address: {props.breweryAddress}</p>
+            <p>Hours: {props.breweryHours}</p>
+            <p>Phone: {props.breweryPhone}</p>
+            <p>Email: {props.breweryEmail}</p>
             <p>Website: {props.breweryWebsite}</p>
+            
+            
             </div>
             <div className='beerList content'>
             {beerArray}

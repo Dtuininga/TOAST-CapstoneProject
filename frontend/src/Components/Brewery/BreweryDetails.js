@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../Home/Navbar";
-import BeerList from "../Beer/BeerList";
+//import BeerList from "../Beer/BeerList";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import BreweryData from "./BreweryData";
@@ -33,7 +33,7 @@ export default function BreweryDetails(props) {
 
     
 
-        return( //hardcoded placeholder data to maintain formatting
+        return( 
             <div>
                 {breweryData}
             </div>
