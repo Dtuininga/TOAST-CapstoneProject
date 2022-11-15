@@ -1,10 +1,13 @@
 import {Link} from 'react-router-dom'
 import BreweryUpdate from '../Brewery/BreweryUpdate';
 import UserDetails from '../Users/UserDetails';
+import {useStore} from "react-redux"
 
 function Home(props) {
     //TODO: get rest of user info passed in with current user (avatar, ROLE, and attached brewery info if a Brewer) New GET?
+    const store = useStore()
 
+    console.log(store.getState())
 
     return(
         <div className='homePage'>

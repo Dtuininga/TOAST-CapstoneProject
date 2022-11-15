@@ -1,13 +1,16 @@
 import React from "react";
 // import BreweryDetails from "./BreweryDetails";
 import BeerList from "../Beer/BeerCard";
-import BeerCard from '../Beer/BeerCard'
+import BeerCard from '../Beer/BeerCard';
+import { useStore } from "react-redux";
 
 export default function BreweryData(props) {
     const[beerArray, setBeerArray] = React.useState([])
+    const store = useStore()
+    const token = store.getState().token.token
 
     React.useEffect(()=>{
-        fetch(`http://localhost:8081/beersbybrewery/${props.breweryId}`)
+        fetch(`http://localhost:8081/beersbybrewery/${props.breweryId}`, {headers: {'Authorization' : 'Bearer ' + token}} )
         .then(res => res.json())
         .then(data => setBeerArray(data.map(item => <BeerCard beerId={item.beerId} beerImage={item.beerImg} brewery={item.breweryId} beerAbv={item.beerAbv} beerName={item.beerName} beerType={item.beerType} beerDesc={item.beerDescription}  />)))
     },[props.breweryId])

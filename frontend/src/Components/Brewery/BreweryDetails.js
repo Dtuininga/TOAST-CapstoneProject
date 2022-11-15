@@ -4,6 +4,7 @@ import BeerList from "../Beer/BeerList";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import BreweryData from "./BreweryData";
+import {useStore} from 'react-redux'
 
 export default function BreweryDetails(props) {
     //trying to recieve the brewery ID# from the clicked on breweryCard
@@ -12,10 +13,13 @@ export default function BreweryDetails(props) {
 
 
     let { id } = useParams();
-    console.log(id);
+
+    const store = useStore()
+    const token = store.getState().token.token
+    
 
     React.useEffect(()=>{ //calls brewery info from ID# passed from breweryCard
-        fetch(`http://localhost:8081/breweries/${id}`)
+        fetch("http://localhost:8081/breweries/" + id, {headers: {'Authorization' : 'Bearer ' + token}} )
         .then(res => res.json())
         .then(data => setBreweryData(
             <BreweryData breweryId={data.breweryId}
