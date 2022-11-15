@@ -1,17 +1,22 @@
 import { checkPropTypes } from "prop-types";
 import React from "react";
 import {Switch, Route, Redirect, Link} from 'react-router-dom'
+import {useStore} from 'react-redux'
 
 function Sidebar(props){
 
     const token = props.userToken
-    const avatarPic= props.userpic
+    
+    const store = useStore()
+    const avatarPic = store.getState().user.avatar
+
+
     
     return(
         <div className="sidebar">
             <img className="burger" src="./Images/burger.png" />
         <div className = "userInfo">
-                <img className="userImg" src={"./Images/beeravatars/whiteavatar.png"} />
+                {props.currentUser && <img className="userImg" src={avatarPic} />}
             <h3 className="user">{props.currentUser}</h3>
             </div>
             <div classname= "shortcutButtons">
