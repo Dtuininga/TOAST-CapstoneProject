@@ -171,6 +171,12 @@ code {
     margin-left: 45px;
    
   }
+.breweryBanner {
+  height: 500px;
+  border-radius: 10px;
+    object-fit: cover;
+}
+
 
   .beercard-details{
     
