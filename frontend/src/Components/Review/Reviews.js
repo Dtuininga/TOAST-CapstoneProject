@@ -8,7 +8,7 @@ export default function Reviews(props) {
     //     fetch("http://localhost:8081/reviews/100")
     //         .then(res => res.json())
     //         .then(data => setReviews(data)), [])
-
+    console.log(props.user)
     function getData() {
         fetch("http://localhost:8081/reviews/100")
             .then(res => res.json())

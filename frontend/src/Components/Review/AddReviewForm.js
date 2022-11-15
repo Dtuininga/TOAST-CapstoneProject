@@ -1,14 +1,20 @@
 import axios from 'axios';
 import React from 'react'
 import { baseUrl } from '../../Shared/baseUrl'
+import {useStore} from "react-redux"
 
 export default function AddReviewForm(props) {
+
+    const store = useStore()
+    const username = store.getState().user.username
+
     const [formData, setFormData] = React.useState({
         reviewAuthor: "placeHolderAuthor",
         review: "",
         beerId: props.beerId,
         rating: 1
     });
+    
 
     const emptyData = {
         reviewAuthor: "placeHolderAuthor",
@@ -31,7 +37,7 @@ export default function AddReviewForm(props) {
         const reviewData = {
             review: formData.review,
             beerId: formData.beerId,
-            reviewAuthor: formData.reviewAuthor,
+            reviewAuthor: username,
             rating: formData.rating
         }
         axios.post(baseUrl + "/addReview", reviewData)

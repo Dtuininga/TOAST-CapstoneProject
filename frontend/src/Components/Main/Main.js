@@ -59,8 +59,10 @@ class Main extends Component {
                 {this.props.token.token !== undefined ?
                         <div className='homeLink'>
                             <Link to='/home'>Home |</Link>
-                            <Link to='/login' onClick={this.handleLogout}>| logout</Link> 
+                            <Link to='/login' onClick={this.handleLogout}>| Logout |</Link> 
                             <Redirect to='/home'/>
+                            <Link to={'BreweryList'} >| Brewery List |</Link>
+                            <Link to={'BeerList'}>| Global Beer List |</Link>
 
                         </div>  
                     : 
@@ -70,7 +72,7 @@ class Main extends Component {
                 <div className='content'>
                 <Switch>
                     <Route path='/login' component={() => <Login/>}/>
-                    <Route path='/register'component={() => <Register/>}/>
+                    <Route path='/register' component={() => <Register/>}/>
                     <Route path='/BreweryList' component={() => <BreweryList />} />
                     <Route path='/BreweryDetails/:id' component={() => <BreweryDetails />} />
                     <Route path='/BeerList' component={() => <BeerList />} />
@@ -78,7 +80,7 @@ class Main extends Component {
                     <Route path='/home' component={this.props.token.token !== undefined ? () => <Home currentUser={this.props.user.username} /> : null}/>
                     <Route path='/brewery/brews' component={() => <BrewBeerList />} />
                     <Route path='/brew/reviews' component={() => <BeerDetails />} />
-                    <Route path='/BreweryData' coimponent={() => <BreweryData />} />
+                    <Route path='/BreweryData' component={() => <BreweryData />} />
                     <Redirect to='/login'/>
                 </Switch>
                 </div>
