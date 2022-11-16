@@ -413,6 +413,62 @@ code {
   width: 8rem;
   align-self: flex-end;
 }
+
+.admin-tools {
+  display: inline;
+  justify-content: flex-end;
+  margin-right: 3rem;
+  position: fixed;
+  top: 15rem;
+  left: 67rem;
+  color: white;
+  min-width: 20rem;
+}
+
+.show-tools {
+  border-bottom: .2rem solid gray;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: gray;
+  background-color: white;
+}
+
+.admin-tools:hover{
+  border-right: .2rem solid black;
+  border-left: .2rem solid black;
+  border-bottom: .2rem solid black;
+  border-top: .2rem solid black;
+  border-radius: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+.reviewId-label, .beerId-label {
+  color: black;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+.delete-review-form, .delete-beer-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.delete-button {
+  color: red;
+  font-weight: bold;
+}
+
+.form-separator {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-top: .2rem dashed black;
+}
+
+
 /* 
 .reviewcard {      
   display: grid;
