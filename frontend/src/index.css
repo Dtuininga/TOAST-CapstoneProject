@@ -421,7 +421,7 @@ code {
   position: fixed;
   top: 15rem;
   left: 67rem;
-  color: white;
+  background-color: white;
   min-width: 20rem;
 }
 
@@ -468,6 +468,9 @@ code {
   border-top: .2rem dashed black;
 }
 
+.review-id, .beer-id {
+  color: red;
+}
 
 /* 
 .reviewcard {      

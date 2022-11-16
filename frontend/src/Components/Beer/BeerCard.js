@@ -44,7 +44,7 @@ return(
     <div className="beercard">
             <img src={props.beerImage} className='cardImage'/>
             <div className="beercard-details">
-                {props.role === "ROLE_ADMIN" && <h2>Beer ID: {props.beerId}</h2>}
+                {props.role === "ROLE_ADMIN" && <h2 className="beer-id">Beer ID: {props.beerId}</h2>}
                 <h2>{props.beerName}</h2>
                 <h4 className="beerType">Type: {props.beerType}</h4> 
                 {rating != 0 && <h5>Average Rating: {rating}/ 5</h5>}
