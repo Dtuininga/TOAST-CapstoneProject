@@ -1,6 +1,7 @@
 import React from "react";
 import AddReviewForm from "../Review/AddReviewForm";
 import ReviewCard from "../Review/ReviewCard";
+import { useStore } from "react-redux";
 
 
 export default function BeerList(props) {
@@ -14,6 +15,10 @@ export default function BeerList(props) {
     const beerHref = "/BeerDetails/" + props.beerId;
     const customReviewsUrl = "http://localhost:8081/reviews/" + props.beerId;
     const customRatingUrl = "http://localhost:8081/beer/rating/" + props.beerId;
+    const store = useStore()
+    const userState = store.getState()
+    const token = userState.token.token
+    const headers = {headers: {'Authorization' : 'Bearer ' + token}}
 
 
     function toggle(){
@@ -21,7 +26,7 @@ export default function BeerList(props) {
     }
 
     React.useEffect(() => {
-        fetch(customReviewsUrl)
+        fetch(customReviewsUrl, headers)
             .then(res => res.json())
             .then(data => setReviews(data.map(review => 
                 <ReviewCard
@@ -32,7 +37,7 @@ export default function BeerList(props) {
                     review={review.review}
                 />
         )))
-        fetch(customRatingUrl)
+        fetch(customRatingUrl, headers)
             .then(res => res.json())
             .then(data => setRating(data))
     })

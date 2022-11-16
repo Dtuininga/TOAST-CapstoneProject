@@ -6,23 +6,20 @@ import axios from 'axios'
 function BeerList(props){
     const[beerArray, setBeerArray] = React.useState([])
     const[isHidden, setIsHidden] = React.useState(true)
+    const store = useStore()
+    const userState = store.getState()
+    const token = userState.token.token
+    const username = userState.user.username ? userState.user.username : "No User"
+    const role = userState.user.authorities.length > 0 ? userState.user.authorities[0].name : "No role"
+    const headers = {headers: {'Authorization' : 'Bearer ' + token}}
 
     const [formData, setFormData] = React.useState({
         reviewId: "",
         beerId: ""
     })
 
-    const store = useStore()
-    const userState = store.getState()
-    const username = userState.user.username ? userState.user.username : "No User"
-    const role = userState.user.authorities.length > 0 ? userState.user.authorities[0].name : "No role"
-    const token = store.getState().token.token
-
-    console.log("Role = " + role)
-    console.log("Username = " + username)
-
     React.useEffect(()=>{
-        fetch('http://localhost:8081/beers', {headers: {'Authorization' : 'Bearer ' + token}})
+        fetch('http://localhost:8081/beers', headers)
         .then(res => res.json())
         .then(data => setBeerArray(data.map(item => <BeerCard  role={role} beerId={item.beerId} beerImage={item.beerImg} brewery={item.breweryId} beerAbv={item.beerAbv} beerName={item.beerName} beerType={item.beerType} beerDesc={item.beerDescription}  />)))
     },[])
@@ -63,8 +60,6 @@ function BeerList(props){
         }))
         alert("Beer Deleted!")
     }
-
-    // console.log(beerArray)
 
     return(
         <div className='beerList content'>
