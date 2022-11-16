@@ -1,18 +1,15 @@
 import {Link} from 'react-router-dom'
-import BreweryUpdate from '../Brewery/BreweryUpdate';
-import UserDetails from '../Users/UserDetails';
 import {useStore} from "react-redux"
 import BrewerHome from './BrewerHome';
 import AdminHome from './AdminHome';
 import UserHome from './UserHome';
-import {useEffect} from 'react'
 
 function Home(props) {
     //TODO: get rest of user info passed in with current user (avatar, ROLE, and attached brewery info if a Brewer) New GET?
     const store = useStore();
     const authority = store.getState().user.authorities;
     let role = ''
-    const {username} = store.getState().user
+    const {username, avatar} = store.getState().user
 
     authority.map( (auth) => {
         role = auth.name
@@ -22,7 +19,7 @@ function Home(props) {
     return(
         <div className='homePage'>
            {role === 'ROLE_BREWER' && <BrewerHome userName = {username} />}
-           {role === 'ROLE_USER' && <UserHome userName = {username} />}
+           {role === 'ROLE_USER' && <UserHome userName = {username} avatar = {avatar} />}
            {role === 'ROLE_ADMIN' && <AdminHome userName = {username} />}
         </div>
     )
