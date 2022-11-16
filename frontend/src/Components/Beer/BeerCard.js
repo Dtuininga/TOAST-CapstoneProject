@@ -60,7 +60,7 @@ return(
                             <h6 className="brewedBy">Brewed by Brewery ID# {props.brewery}</h6>
                             {reviews != 0 
                             ? <div className='review-section'>
-                                <h6>Here's what other Toasters have to say about this beer!</h6>
+                                <h6 style={{fontWeight: "bolder"}}>Here's what other Toasters have to say about this beer!</h6>
                                 <div className = 'reviews-container'>
                                     {reviews}
                                 </div>

@@ -6,6 +6,7 @@ import axios from 'axios'
 function BeerList(props){
     const[beerArray, setBeerArray] = React.useState([])
     const[isHidden, setIsHidden] = React.useState(true)
+    const[deleteAlert, setDeleteAlert] = React.useState()
     const store = useStore()
     const userState = store.getState()
     const token = userState.token.token
@@ -48,7 +49,6 @@ function BeerList(props){
             ...prevFormData,
             reviewId: ""
         }))
-        alert("Review Deleted!")
     }
 
     function handleDeleteBeer(event) {
@@ -58,7 +58,6 @@ function BeerList(props){
             ...prevFormData,
             beerId: ""
         }))
-        alert("Beer Deleted!")
     }
 
     return(
