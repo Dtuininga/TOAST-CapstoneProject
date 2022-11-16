@@ -6,11 +6,7 @@ import Navbar from '../Home/Navbar'
 
 
 class Register extends Component{
-    //TODO: capture userID at brewery creation so the brewery is linked to one specific login
-    //-brewery can currently be created without a new userID & password? 
-
-
-
+    
     constructor(props){
         super(props);
         this.state = {
@@ -20,11 +16,11 @@ class Register extends Component{
             confirmPassword: '',
             brewer: false,
             role: 'USER',
-            breweryname:'',
-            brewerywebsite:'',
-            breweryphone:'',
-            breweryemail:'',
-            breweryaddress:'',
+            // breweryname:'',
+            // brewerywebsite:'',
+            // breweryphone:'',
+            // breweryemail:'',
+            // breweryaddress:'',
             avatarColor: ''
         }
         
@@ -55,9 +51,9 @@ class Register extends Component{
         breweryAddress: this.state.breweryaddress}
         if(this.state.password === this.state.confirmPassword){
             axios.post(baseUrl + "/register", data)
-            if (this.state.brewer) {
-            axios.post(baseUrl + "/addbrewery", breweryData)
-            }
+            // if (this.state.brewer) {
+            // axios.post(baseUrl + "/addbrewery", breweryData)
+            // }
             alert("Account created successfully, please log in.")
             window.location.href = '/login'
         }else{
@@ -82,58 +78,7 @@ class Register extends Component{
                 </div>
                 {this.state.brewer  &&
                     <div className="brewer-form">
-                        <input
-                            type="text"
-                            id="breweryname"
-                            name="breweryname"
-                            class="form-control"
-                            placeholder="Brewery Name"
-                            v-model="brewery.breweryname"
-                            onChange={this.handleInputChange}
-                            required
-                        />
-                        <input
-                            type="text"
-                            id="brewerywebsite"
-                            name="brewerywebsite"
-                            class="form-control"
-                            placeholder="Brewery website URL"
-                            v-model="brewery.brewerywebsite"
-                            onChange={this.handleInputChange}
-                            required
-                        />
-                        <input
-                            type="text"
-                            id="breweryphone"
-                            name="breweryphone"
-                            class="form-control"
-                            placeholder="Contact phone number"
-                            v-model="brewery.breweryphone"
-                            onChange={this.handleInputChange}
-                            required
-                        />
-                        <input
-                            type="text"
-                            id="breweryemail"
-                            name="breweryemail"
-                            class="form-control"
-                            placeholder="Contact E-mail"
-                            v-model="brewery.breweryemail"
-                            onChange={this.handleInputChange}
-                            required
-                        />
-                        <input
-                            type="text"
-                            id="breweryaddress"
-                            name="breweryaddress"
-                            class="form-control"
-                            placeholder="Mailing Address"
-                            v-model="brewery.breweryimg"
-                            onChange={this.handleInputChange}
-                            required
-                        />
-                    
-                        <p>Once submitted, brewery information will be verified and a pending account created. Further details may be updated after account approval.</p>
+                        <p>Welcome brewer! After your account is created, you'll be able to log in and begin adding your brewery info!</p>
                     </div>
     }
                 <label class="sr-only">Username</label>
