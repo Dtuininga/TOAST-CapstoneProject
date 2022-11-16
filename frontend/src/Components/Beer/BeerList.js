@@ -63,7 +63,7 @@ function BeerList(props){
 
     return(
         <div className='beerList content'>
-            {beerArray}
+            {beerArray != 0 ? beerArray : <h1 style={{marginLeft: "4rem"}}>You must be logged in to view this page</h1>}
             {role === "ROLE_ADMIN" && <div className='admin-tools' onMouseEnter={showElement} onMouseLeave={hideElement}>
                 <h2 className='show-tools'>Admin Tools</h2>
                 <div className={isHidden ? "hidden" : ""}>
