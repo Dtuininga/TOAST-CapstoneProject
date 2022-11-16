@@ -3,7 +3,7 @@ import Navbar from "../Home/Navbar";
 import ReviewCard from "../Users/ReviewCard";
 import AddBeerForm from "../Beer/AddBeerForm";
 
-export default function BreweryUpdate(){
+export default function BreweryUpdate(props){
 //form where brewer can update brewery info and add/deactivate beers
 //form should be blank if no brewery created, but populate with existing info as props to be edited
 //add textbox input for brewery description/history
@@ -12,14 +12,14 @@ export default function BreweryUpdate(){
 
     return(
         <div className="breweryUpdate">
-            <h3>Status: Pending Approval</h3>
+            <h3>Status: {props.status ? 'Approved' : 'Pending'}</h3>
             <form>
              <input
                             type="text"
                             id="breweryname"
                             name="breweryname"
                             class="form-control"
-                            placeholder="props.breweryname"
+                            placeholder={props.breweryName}
                             v-model="brewery.breweryname"
                             //onChange={this.handleInputChange}
                             required
@@ -29,7 +29,7 @@ export default function BreweryUpdate(){
                             id="breweryImageUrl"
                             name="breweryImageUrl"
                             class="form-control"
-                            placeholder="props.breweryImageUrl"
+                            placeholder={props.breweryImg}
                             v-model="brewery.breweryImageUrl"
                             //onChange={this.handleInputChange}
                             required
@@ -39,7 +39,7 @@ export default function BreweryUpdate(){
                             id="brewerywebsite"
                             name="brewerywebsite"
                             class="form-control"
-                            placeholder="props.brewerywebsite"
+                            placeholder={props.breweryWebsite}
                             v-model="brewery.brewerywebsite"
                             //onChange={this.handleInputChange}
                             required
@@ -49,7 +49,7 @@ export default function BreweryUpdate(){
                             id="breweryphone"
                             name="breweryphone"
                             class="form-control"
-                            placeholder="props.breweryphone"
+                            placeholder={props.breweryPhone}
                             v-model="brewery.breweryphone"
                             //onChange={this.handleInputChange}
                             required
@@ -59,7 +59,7 @@ export default function BreweryUpdate(){
                             id="breweryemail"
                             name="breweryemail"
                             class="form-control"
-                            placeholder="props.breweryemail"
+                            placeholder={props.breweryEmail}
                             v-model="brewery.breweryemail"
                             //onChange={this.handleInputChange}
                             required
@@ -69,7 +69,7 @@ export default function BreweryUpdate(){
                             id="breweryaddress"
                             name="breweryaddress"
                             class="form-control"
-                            placeholder="props.breweryaddress"
+                            placeholder={props.breweryAddress}
                             v-model="brewery.breweryimg"
                             //onChange={this.handleInputChange}
                             required
@@ -79,7 +79,7 @@ export default function BreweryUpdate(){
                             id="breweryhours"
                             name="breweryhours"
                             class="form-control"
-                            placeholder="props.breweryhours"
+                            placeholder={props.breweryHours}
                             v-model="brewery.breweryhours"
                             //onChange={this.handleInputChange}
                             required
@@ -90,7 +90,7 @@ export default function BreweryUpdate(){
                     id="username"
                     name="username"
                     class="form-control"
-                    placeholder="props.username"
+                    placeholder={props.userName}
                     v-model="user.username"
                     //onChange={this.handleInputChange}
                     
