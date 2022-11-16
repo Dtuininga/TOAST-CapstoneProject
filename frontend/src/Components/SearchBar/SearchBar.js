@@ -5,7 +5,7 @@ const SearchBar = ({searchChange})=>{
   
   return(
     <div className="container">
-      <header>
+      <header className="search-header">
         <h1 className="title">Lets find a brewery to Toast to!</h1>
         <a href="" className="href">Brewery watchlist</a>
       </header>
@@ -21,11 +21,12 @@ const SearchBar = ({searchChange})=>{
           // value={}
           onChange={searchChange}
       />
-      <button title="search--btn"
+      <button title="search-btn"
               className="searchBar--button" 
               id="search--btn" >  
               </button>
     </form>
+    
     <section id="brewery--searched" className="brewery--searched">
     </section>
 
