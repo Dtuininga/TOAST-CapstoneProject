@@ -5,6 +5,8 @@ import axios from "axios";
 
 
 class AddBeerForm extends Component{
+    //should not be able to add beer until brewery is built
+//make addbeerForm button disabled if breweryID===null? 
 
     constructor(props){
         super(props);

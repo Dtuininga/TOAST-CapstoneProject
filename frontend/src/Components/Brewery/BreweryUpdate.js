@@ -5,6 +5,10 @@ import AddBeerForm from "../Beer/AddBeerForm";
 
 export default function BreweryUpdate(){
 //form where brewer can update brewery info and add/deactivate beers
+//form should be blank if no brewery created, but populate with existing info as props to be edited
+//add textbox input for brewery description/history
+//should not be able to add beer until brewery is built
+//make addbeerForm button disabled if breweryID===null? 
 
     return(
         <div className="breweryUpdate">
