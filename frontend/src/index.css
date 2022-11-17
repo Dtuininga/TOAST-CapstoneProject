@@ -237,6 +237,9 @@ code {
   .user{
     text-align: center;
   }
+  .userUpdatePic > img{
+    height: 100px;
+  }
 
   .cardImage{ /*beerCard AND BreweryCard */
     width: 250px;

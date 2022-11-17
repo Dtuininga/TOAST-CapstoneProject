@@ -89,7 +89,7 @@ return(
                             id="beerABV"
                             name="beerABV"
                             class="form-control"
-                            placeholder="Alcohol By Volume"
+                            placeholder="Alcohol By Volume (max 9.9)"
                             v-model="beer.beerABV"
                             onChange={this.handleBeerChange}
                             required

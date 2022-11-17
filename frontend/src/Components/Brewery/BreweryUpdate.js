@@ -2,6 +2,9 @@ import React from "react";
 import Navbar from "../Home/Navbar";
 import ReviewCard from "../Users/ReviewCard";
 import AddBeerForm from "../Beer/AddBeerForm";
+import UserDetails from "../Users/UserDetails";
+import SmallBeerCard from '../Brewery/SmallBeerCard';
+import { useStore } from "react-redux";
 
 export default function BreweryUpdate(props){
 //form where brewer can update brewery info and add/deactivate beers
@@ -10,9 +13,22 @@ export default function BreweryUpdate(props){
 //should not be able to add beer until brewery is built
 //make addbeerForm button disabled if breweryID===null? 
 
+const[beerArray, setBeerArray] = React.useState([])
+const store = useStore()
+const token = store.getState().token.token
+
+React.useEffect(()=>{
+    fetch(`http://localhost:8081/beersbybrewery/${props.breweryId}`, {headers: {'Authorization' : 'Bearer ' + token}} )
+    .then(res => res.json())
+    .then(data => setBeerArray(data.map(item => <SmallBeerCard beerId={item.beerId} beerImage={item.beerImg} brewery={item.breweryId} beerAbv={item.beerAbv} beerName={item.beerName} beerType={item.beerType} beerDesc={item.beerDescription}  />)))
+},[props.breweryId])
+
     return(
+        <div classname="brewerControlBoard">
         <div className="breweryUpdate">
-            <h3>Status: {props.status ? 'Approved' : 'Pending'}</h3>
+            <h3>Brewery Status: {props.status ? 'Approved' : 'Pending'}</h3>
+            <h6>{props.status ? 'Your brewery profile is active! You can update your information and add beers to your Beer List!' : 
+            'Your brewery in being reviewed. Please allow up to 24 hours for approval'} </h6>
             <form>
              <input
                             type="text"
@@ -70,7 +86,7 @@ export default function BreweryUpdate(props){
                             name="breweryaddress"
                             class="form-control"
                             placeholder={props.breweryAddress}
-                            v-model="brewery.breweryimg"
+                            v-model="brewery.breweryaddress"
                             //onChange={this.handleInputChange}
                             required
                         />
@@ -84,43 +100,26 @@ export default function BreweryUpdate(props){
                             //onChange={this.handleInputChange}
                             required
                         />
-        Change Brewery Owner name:
-        <input
-                    type="text"
-                    id="username"
-                    name="username"
-                    class="form-control"
-                    placeholder={props.userName}
-                    v-model="user.username"
-                    //onChange={this.handleInputChange}
-                    
-                />
-        Change Password: 
-        <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    class="form-control"
-                    placeholder="Password"
-                    v-model="user.password"
-                    //onChange={this.handleInputChange}
-                    
-                />
-                <input
-                    type="password"
-                    id="password-confirm"
-                    name="confirmPassword"
-                    class="form-control"
-                    placeholder="Confirm Password"
-                    v-model="user.password"
-                    //onChange={this.handleInputChange}
-                    
-                />   
+                        <textarea
+                            rows = "5"
+                            id="brewerydesc"
+                            name="brewerydesc"
+                            class="form-control"
+                            placeholder={props.breweryHistory}
+                            v-model="brewery.brewerydesc"
+                            //onChange={this.handleInputChange}
+                            required
+                        />
+        
                 <button type="submit">Update Changes</button>     
         </form>
+    
         <AddBeerForm breweryId={props.breweryId}/>
         <h4>My Beer List (get beers by brewery ID)</h4>
+        {beerArray}
+        </div>
         
+        <UserDetails username={props.userName} userpic={props.avatar} />
         </div>
     )
 }
