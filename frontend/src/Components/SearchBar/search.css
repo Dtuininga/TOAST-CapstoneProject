@@ -1,33 +1,9 @@
 * {
   box-sizing: border-box;
 }
-/* Container */
-.container {
-  margin: 0;
-  padding: 0;
-  background-color: #121212;
-  font-family: 'Inter', sans-serif;
-  max-width: 550px;
-  min-height: 100vh;
-  margin: 0 auto;
-  background:  #4B4B4B;;
-}
 
-/* Header */
-.search-heaader {
-  display: flex;
-  flex-direction: column;
-  background-image: url("seacrch-img/search-header.jpg");
-  background-position: center;
-  background-size: cover;
-  background-blend-mode: multiply;
-  height: 35vh;
-  color: #FFF;
-  justify-content: space-evenly;
-  margin-left: auto;
-  align-items: center;
-  position: relative;
-}
+
+
 
 /* SEARCH BAR */
 
