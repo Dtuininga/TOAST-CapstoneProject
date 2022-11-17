@@ -2,45 +2,63 @@ import React, { useState } from "react";
 import { baseUrl } from '../../Shared/baseUrl'
 import { Component } from "react";
 import axios from "axios";
+import { useStore } from "react-redux";
+import {connect} from 'react-redux';
+import {createStore, Redux} from 'redux';
 
+
+const mapStateToProps = state => {
+    return {
+        token: state.token,
+        user: state.user,
+    }
+}
 
 class AddBeerForm extends Component{
     //should not be able to add beer until brewery is built
 //make addbeerForm button disabled if breweryID===null? 
 
+
+
     constructor(props){
         super(props);
+        const headers = {headers: {'Authorization' : 'Bearer ' + props.token.token}}
         this.state = {
-            beername: '',
-            beerImageUrl:'',
-            beerABV: '',
-            beerdesc:'',
-            beerActive: false,
-            beerType:'',
-            breweryId: `$(props.breweryId)`
-
+            headers: headers,
+            tempBeer:{
+                beername: '',
+                beerImageUrl:'',
+                beerABV: '',
+                beerdesc:'',
+                beerActive: false,
+                beerType:'',
+                breweryId: `$(props.breweryId)`
+            }
         }
     }
-    handleSubmit = () => { 
-        const beerData = {beerName: this.state.beername, 
-        beerImg: this.state.beerImageUrl,
-        beerAbv: this.state.beerABV,
-        beerType: this.state.beerType,
-        beerDescription: this.state.beerdesc,
+    handleSubmit = async (event) => { 
+        event.preventDefault();
+        const beerData = {beerName: this.state.tempBeer.beername, 
+        beerImg: this.state.tempBeer.beerImageUrl,
+        beerAbv: this.state.tempBeer.beerABV,
+        beerType: this.state.tempBeer.beerType,
+        beerDescription: this.state.tempBeer.beerdesc,
         beerActive:'false'}
-        
-            axios.post(baseUrl + "/addbeer", beerData)
+        console.log(this.state.headers)
+           await axios.post(baseUrl + "/addbeer", beerData, this.state.headers)
             //can we make this conditional based on response?
-            alert("Beer added successfully.")
+            // alert("Beer added successfully.")
      
     }
    
 
     handleBeerChange = (event) => {
         event.preventDefault()
-        this.setState({
-            [event.target.name]: event.target.value
-        })
+        let tBeer = {...this.state.tempBeer}
+        tBeer.event.target.name = event.target.value
+        this.setState(
+            {tBeer}
+        );
     }
 
 render(){ 
@@ -107,4 +125,4 @@ return(
 
 }
 }
-export default AddBeerForm;
+export default connect(mapStateToProps)(AddBeerForm);
