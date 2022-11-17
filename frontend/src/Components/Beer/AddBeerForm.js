@@ -25,26 +25,26 @@ class AddBeerForm extends Component{
         const headers = {headers: {'Authorization' : 'Bearer ' + props.token.token}}
         this.state = {
             headers: headers,
-            tempBeer:{
                 beername: '',
                 beerImageUrl:'',
                 beerABV: '',
                 beerdesc:'',
                 beerActive: false,
                 beerType:'',
-                breweryId: `$(props.breweryId)`
-            }
+                breweryId: props.breweryId
+       
         }
     }
     handleSubmit = async (event) => { 
         event.preventDefault();
-        const beerData = {beerName: this.state.tempBeer.beername, 
-        beerImg: this.state.tempBeer.beerImageUrl,
-        beerAbv: this.state.tempBeer.beerABV,
-        beerType: this.state.tempBeer.beerType,
-        beerDescription: this.state.tempBeer.beerdesc,
-        beerActive:'false'}
-        console.log(this.state.headers)
+        const beerData = {beerName: this.state.beername, 
+        beerImg: this.state.beerImageUrl,
+        beerAbv: this.state.beerABV,
+        beerType: this.state.beerType,
+        beerDescription: this.state.beerdesc,
+        beerActive:'false',
+        breweryId: this.state.breweryId}
+        console.log(this.state.breweryId)
            await axios.post(baseUrl + "/addbeer", beerData, this.state.headers)
             //can we make this conditional based on response?
             // alert("Beer added successfully.")
@@ -54,11 +54,10 @@ class AddBeerForm extends Component{
 
     handleBeerChange = (event) => {
         event.preventDefault()
-        let tBeer = {...this.state.tempBeer}
-        tBeer.event.target.name = event.target.value
+        
         this.setState(
-            {tBeer}
-        );
+            {[event.target.name] : event.target.value}
+        ); 
     }
 
 render(){ 

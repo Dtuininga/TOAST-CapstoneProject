@@ -118,7 +118,7 @@ export default function BreweryUpdate(props){
                 />   
                 <button type="submit">Update Changes</button>     
         </form>
-        <AddBeerForm />
+        <AddBeerForm breweryId={props.breweryId}/>
         <h4>My Beer List (get beers by brewery ID)</h4>
         
         </div>
