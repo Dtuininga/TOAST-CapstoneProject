@@ -23,6 +23,7 @@ class AddBeerForm extends Component{
     constructor(props){
         super(props);
         const headers = {headers: {'Authorization' : 'Bearer ' + props.token.token}}
+        const barId = props.breweryId
         this.state = {
             headers: headers,
                 beername: '',
@@ -31,19 +32,20 @@ class AddBeerForm extends Component{
                 beerdesc:'',
                 beerActive: false,
                 beerType:'',
-                breweryId: props.breweryId
+                breweryId: barId
        
         }
     }
     handleSubmit = async (event) => { 
         event.preventDefault();
         const beerData = {beerName: this.state.beername, 
+        breweryId: this.state.breweryId,
         beerImg: this.state.beerImageUrl,
         beerAbv: this.state.beerABV,
         beerType: this.state.beerType,
         beerDescription: this.state.beerdesc,
         beerActive:'false',
-        breweryId: this.state.breweryId}
+        }
         console.log(this.state.breweryId)
            await axios.post(baseUrl + "/addbeer", beerData, this.state.headers)
             //can we make this conditional based on response?

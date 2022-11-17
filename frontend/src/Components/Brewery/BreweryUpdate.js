@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../Home/Navbar";
 import ReviewCard from "../Users/ReviewCard";
 import AddBeerForm from "../Beer/AddBeerForm";
+import UpdateUserPassword from "../Users/UpdateUserPassword";
 
 export default function BreweryUpdate(props){
 //form where brewer can update brewery info and add/deactivate beers
@@ -84,40 +85,10 @@ export default function BreweryUpdate(props){
                             //onChange={this.handleInputChange}
                             required
                         />
-        Change Brewery Owner name:
-        <input
-                    type="text"
-                    id="username"
-                    name="username"
-                    class="form-control"
-                    placeholder={props.userName}
-                    v-model="user.username"
-                    //onChange={this.handleInputChange}
-                    
-                />
-        Change Password: 
-        <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    class="form-control"
-                    placeholder="Password"
-                    v-model="user.password"
-                    //onChange={this.handleInputChange}
-                    
-                />
-                <input
-                    type="password"
-                    id="password-confirm"
-                    name="confirmPassword"
-                    class="form-control"
-                    placeholder="Confirm Password"
-                    v-model="user.password"
-                    //onChange={this.handleInputChange}
-                    
-                />   
+        
                 <button type="submit">Update Changes</button>     
         </form>
+        <UpdateUserPassword />
         <AddBeerForm breweryId={props.breweryId}/>
         <h4>My Beer List (get beers by brewery ID)</h4>
         
