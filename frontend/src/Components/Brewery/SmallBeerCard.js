@@ -62,13 +62,14 @@ return(
                                     {reviews}
                                 </div>
                               </div> 
-                            : <strong>No ratings yet. Be the first to leave a review!</strong>}
+                            : <strong>No ratings yet.</strong>}
                         </div>
                     <div className="title" onClick={toggle}>
                         <h6>{selected ? '^ Close ^' : 'v See reviews... v'}</h6>
                         
                     </div>
-            
+                    <span> Active and viewable to the public? </span>
+                    <input type="checkbox" />
                 </div>
             </div>
            

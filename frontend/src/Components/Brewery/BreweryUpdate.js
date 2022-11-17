@@ -9,9 +9,8 @@ import { useStore } from "react-redux";
 export default function BreweryUpdate(props){
 //form where brewer can update brewery info and add/deactivate beers
 //form should be blank if no brewery created, but populate with existing info as props to be edited
-//add textbox input for brewery description/history
-//should not be able to add beer until brewery is built
-//make addbeerForm button disabled if breweryID===null? 
+//should not be able to set beer to active if brewery is not yet approved
+
 
 const[beerArray, setBeerArray] = React.useState([])
 const store = useStore()
@@ -115,7 +114,7 @@ React.useEffect(()=>{
         </form>
     
         <AddBeerForm breweryId={props.breweryId}/>
-        <h4>My Beer List (get beers by brewery ID)</h4>
+        <h4>My Beer List </h4>
         {beerArray}
         </div>
         
