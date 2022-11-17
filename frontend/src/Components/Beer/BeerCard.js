@@ -47,7 +47,7 @@ export default function BeerList(props) {
 
 return(
     <div className="beercard">
-            <img src={props.beerImage} className='cardImage'/>
+            
             <div className="beercard-details">
                 {props.role === "ROLE_ADMIN" && <h2 className="beer-id">Beer ID: {props.beerId}</h2>}
                 <h2>{props.beerName}</h2>
@@ -65,7 +65,7 @@ return(
                                     {reviews}
                                 </div>
                               </div> 
-                            : <strong>No reviews for this beer, be the first to leave a review!</strong>}
+                            : <strong>No ratings yet. Be the first to leave a review!</strong>}
 
                         <AddReviewForm
                             beerId={props.beerId}
@@ -73,13 +73,13 @@ return(
                     
                         </div>
                     <div className="title" onClick={toggle}>
-                        <h6>{selected ? 'See less...' : 'See more...'}</h6>
+                        <h6>{selected ? '^ See less... ^' : 'v See more... v'}</h6>
                         
                     </div>
             
                 </div>
             </div>
-            
+            <img src={props.beerImage} className='cardImage'/>
     </div>    
 )
 }

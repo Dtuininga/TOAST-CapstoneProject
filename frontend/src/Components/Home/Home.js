@@ -18,7 +18,7 @@ function Home(props) {
 
     return(
         <div className='homePage'>
-           {role === 'ROLE_BREWER' && <BrewerHome userName = {username} />}
+           {role === 'ROLE_BREWER' && <BrewerHome userName = {username} avatar = {avatar} />}
            {role === 'ROLE_USER' && <UserHome userName = {username} avatar = {avatar} />}
            {role === 'ROLE_ADMIN' && <AdminHome userName = {username} />}
         </div>

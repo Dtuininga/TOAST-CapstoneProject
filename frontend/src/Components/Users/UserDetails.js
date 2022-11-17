@@ -8,13 +8,13 @@ export default function UserDetails(props) {
 
 return (
     <div className="userUpdate">
-        
+        <h3>User Profile </h3>
         <form>
 
     <div className="avatarContainer">
-        <div>
+        <div className="userUpdatePic">
             Current avatar:
-            <img src={props.avatar}/>
+            <img src={props.userpic}/>
         </div>
         Change Avatar color:    
         <select id="avatarColor" name="avatarColor" className="avatarSelect">
@@ -35,7 +35,7 @@ return (
                     id="username"
                     name="username"
                     class="form-control"
-                    placeholder={props.username}
+                    value={props.username}
                     v-model="user.username"
                     //onChange={this.handleInputChange}
                     

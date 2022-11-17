@@ -1,6 +1,7 @@
 import BreweryUpdate from "../Brewery/BreweryUpdate"
 import React from "react"
 import {useStore} from 'react-redux'
+import BreweryCreation from "../Brewery/BreweryCreation"
 
 export default function BrewerHome(props){
 
@@ -32,6 +33,7 @@ export default function BrewerHome(props){
             breweryWebsite={item.breweryWebsite}
             breweryAddress={item.breweryAddress}
             userName = {user.username} 
+            //userAvatar = {user.userAvatar}
             status ={item.breweryActive}/>
            )
             ))
@@ -43,6 +45,8 @@ export default function BrewerHome(props){
         <div className="updateContainer">
         <div className="UpdateBreweryContainer">
         {updateBeerProps}
+        <h4>No brewery? make one!</h4>
+        <BreweryCreation userId={props.userId}/>
         </div>
         </div>
         </div>

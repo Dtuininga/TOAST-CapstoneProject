@@ -79,7 +79,7 @@ export default function AddReviewForm(props) {
                 </select>
             </div>
 
-            <button onClick={handleSubmit}>Submit Review</button>
+            <button onClick={handleSubmit} disabled={formData.review==""}>Submit Review</button>
         </form>
     )
 }

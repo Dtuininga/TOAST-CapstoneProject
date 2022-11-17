@@ -155,13 +155,14 @@ code {
         margin-left: 50px;
         padding-left: 10px;
         align-items: center;
-        text-decoration: none;
+        justify-content:center;
         color: #3A4F41;
         border-radius: 10px;
     }
 
     .card-details { /*BreweriesList*/
         margin: 20px;
+        width:50%;
     }
         
   .breweryDetails { /*BreweryDetails*/
@@ -235,6 +236,9 @@ code {
   
   .user{
     text-align: center;
+  }
+  .userUpdatePic > img{
+    height: 100px;
   }
 
   .cardImage{ /*beerCard AND BreweryCard */

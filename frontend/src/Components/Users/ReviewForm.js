@@ -2,8 +2,9 @@ import React, { useState } from "react";
 
 
 export default function ReviewForm(props) {
-//blank form should appear at bottom of beer details. ("Leave a review!")
-//username/review_author and beerName should populate by default, only logged in users can leave a review
+
+    
+//**not being used. see "AddReviewForm" */
 
 // handleInputChange = (event) => {
 //     event.preventDefault()
