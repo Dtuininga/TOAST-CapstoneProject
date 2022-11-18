@@ -33,7 +33,7 @@ export default function BrewerHome(props){
             breweryWebsite={item.breweryWebsite}
             breweryAddress={item.breweryAddress}
             userName = {user.username} 
-            //userAvatar = {user.userAvatar}
+            userAvatar = {user.userAvatar}
             status ={item.breweryActive}/>
            )
             ))
