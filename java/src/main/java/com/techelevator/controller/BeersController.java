@@ -9,6 +9,7 @@ import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 import com.techelevator.model.*;
 
+import javax.validation.Valid;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -39,13 +40,13 @@ public class BeersController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(value = "/addbeer", method = RequestMethod.POST)
-    public void saveBeer(@RequestBody Beers beer){
+    public void saveBeer(@Valid @RequestBody Beers beer){
         beersService.saveBeer(beer);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(value = "/updatebeer", method = RequestMethod.PUT)
-    public void updateBeer(@RequestBody Beers beers){
+    public void updateBeer(@Valid @RequestBody Beers beers){
         beersService.updateBeer(beers);
     }
 

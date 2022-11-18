@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -30,12 +31,12 @@ public class BreweryController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(value = "/addbrewery", method = RequestMethod.POST)
-    public void addBrewery(@RequestBody Brewery brewery){
+    public void addBrewery(@Valid @RequestBody Brewery brewery){
         breweryService.createBrewery(brewery);
     }
 
     @RequestMapping(path = "/updatebrewery", method = RequestMethod.PUT)
-    public void updateBrewery(@RequestBody Brewery brewery){
+    public void updateBrewery(@Valid @RequestBody Brewery brewery){
         breweryService.updateBrewery(brewery);
     }
 

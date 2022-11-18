@@ -30,11 +30,25 @@ class BreweryCreation extends Component{
                 breweryaddress:'',
                 breweryhours:'',
                 breweryactive: false,
-                
                 userId: props.userId
        
         }
     }
+
+    resetFormFields = () => {
+         this.setState({
+            breweryname :' ', 
+            brewerywebsite : '',
+            breweryphone: '',
+            brewerydesc:'',
+            breweryemail:'',
+            breweryImageUrl:'',
+            breweryaddress:'',
+            breweryhours:'',
+        });
+  
+    };
+
     handleSubmit = (event) => { 
         event.preventDefault();
         const breweryData = {breweryName: this.state.breweryname, 
@@ -46,10 +60,13 @@ class BreweryCreation extends Component{
         breweryHours: this.state.breweryhours,
         breweryImg: this.state.breweryImageUrl,
         breweryActive: this.state.breweryactive,
-        userId: this.state.userId} 
+        userId: this.props.userId} 
         
          axios.post(baseUrl + "/addbrewery", breweryData, this.state.headers)  
-            alert("Brewery created successfully.")
+         
+        alert("Brewery created successfully.")
+        
+        this.resetFormFields();
         } 
         
     
@@ -73,6 +90,7 @@ return(
                             class="form-control"
                             placeholder="BreweryName"
                             v-model="brewery.breweryname"
+                            value={this.state.breweryname}
                             onChange={this.handleInputChange}
                             required
                         />
@@ -83,6 +101,7 @@ return(
                             class="form-control"
                             placeholder="Brewery Image URL"
                             v-model="brewery.breweryImageUrl"
+                            value={this.state.breweryImageUrl}
                             onChange={this.handleInputChange}
                             required
                         />
@@ -93,6 +112,7 @@ return(
                             class="form-control"
                             placeholder="Brewery Website Address"
                             v-model="brewery.brewerywebsite"
+                            value={this.state.brewerywebsite}
                             onChange={this.handleInputChange}
                             required
                         />
@@ -103,6 +123,7 @@ return(
                             class="form-control"
                             placeholder="Contact Phone Number"
                             v-model="brewery.breweryphone"
+                            value={this.state.breweryphone}
                             onChange={this.handleInputChange}
                             required
                         />
@@ -113,6 +134,7 @@ return(
                             class="form-control"
                             placeholder="Contact Email"
                             v-model="brewery.breweryemail"
+                            value={this.state.breweryemail}
                             onChange={this.handleInputChange}
                             required
                         />
@@ -123,6 +145,7 @@ return(
                             class="form-control"
                             placeholder="Street Address"
                             v-model="brewery.breweryaddress"
+                            value={this.state.breweryaddress}
                             onChange={this.handleInputChange}
                             required
                         />
@@ -133,6 +156,7 @@ return(
                             class="form-control"
                             placeholder="Open Hours"
                             v-model="brewery.breweryhours"
+                            value = {this.state.breweryhours}
                             onChange={this.handleInputChange}
                             required
                         />
@@ -143,11 +167,13 @@ return(
                             class="form-control"
                             placeholder="Say something about your brand!"
                             v-model="brewery.brewerydesc"
+                            value={this.state.brewerydesc}
                             onChange={this.handleInputChange}
                             required
                         />
         
-                <button type="submit" onClick={this.handleSubmit}>Update Changes</button>     
+                <button type="submit" onClick={this.handleSubmit}>Update Changes</button> 
+                <button onClick={this.resetFormFields}>Reset</button>    
         </form>
 )
 

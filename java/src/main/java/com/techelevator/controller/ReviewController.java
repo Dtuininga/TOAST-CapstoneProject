@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -19,7 +20,7 @@ public class ReviewController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(value = "/addReview", method = RequestMethod.POST)
-    public void addReview(@RequestBody Review review){
+    public void addReview(@Valid @RequestBody Review review){
         reviewService.addReview(review);
     }
 

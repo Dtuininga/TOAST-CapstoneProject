@@ -46,7 +46,7 @@ export default function BrewerHome(props){
         <div className="UpdateBreweryContainer">
         {updateBeerProps}
         <h4>No brewery? make one!</h4>
-        <BreweryCreation userId={props.userId}/>
+        <BreweryCreation userId={userId}/>
         </div>
         </div>
         </div>

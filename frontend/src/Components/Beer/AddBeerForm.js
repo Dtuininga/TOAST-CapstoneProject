@@ -30,12 +30,25 @@ class AddBeerForm extends Component{
                 beerImageUrl:'',
                 beerABV: '',
                 beerdesc:'',
-                beerActive: false,
-                beerType:'',
+                beerActive: true,
+                beerType:'Pilsner',
                 breweryId: barId
        
         }
     }
+
+    resetFormFields = () => {
+        this.setState({
+            beername: '',
+            beerImageUrl:'',
+            beerABV: '',
+            beerdesc:'',
+            beerType:'',
+       });
+ 
+   };
+
+
     handleSubmit = async (event) => { 
         event.preventDefault();
         const beerData = {beerName: this.state.beername, 
@@ -44,12 +57,13 @@ class AddBeerForm extends Component{
         beerAbv: this.state.beerABV,
         beerType: this.state.beerType,
         beerDescription: this.state.beerdesc,
-        beerActive:'false',
+        beerActive:'true',
         }
         console.log(this.state.breweryId)
            await axios.post(baseUrl + "/addbeer", beerData, this.state.headers)
             //can we make this conditional based on response?
-            // alert("Beer added successfully.")
+            alert("Beer added successfully.")
+            this.resetFormFields();
      
     }
    
@@ -73,6 +87,7 @@ return(
                             class="form-control"
                             placeholder="New Beer Name"
                             v-model="beer.beername"
+                            value={this.state.beername}
                             onChange={this.handleBeerChange}
                             required
                         />
@@ -83,6 +98,7 @@ return(
                             class="form-control"
                             placeholder="Beer Picture URL"
                             v-model="beer.beerImageUrl"
+                            value={this.state.beerImageUrl}
                             onChange={this.handleBeerChange}
                             required
                         />
@@ -93,6 +109,7 @@ return(
                             class="form-control"
                             placeholder="Alcohol By Volume (max 9.9)"
                             v-model="beer.beerABV"
+                            value={this.state.beerABV}
                             onChange={this.handleBeerChange}
                             required
                         />
@@ -103,6 +120,7 @@ return(
                             class="form-control"
                             placeholder="Description"
                             v-model="beer.beerdesc"
+                            value={this.state.beerdesc}
                             onChange={this.handleBeerChange}
                             required
                         />
@@ -120,7 +138,8 @@ return(
                     </select>
                     </div>
             
-                <button type="submit" onClick={this.handleSubmit}>Update Changes</button>     
+                <button type="submit" onClick={this.handleSubmit}>Update Changes</button>
+                <button onClick={this.resetFormFields}>Reset</button>        
         </form>
 )
 
