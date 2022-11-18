@@ -2,13 +2,18 @@ import React from "react";
 import AddReviewForm from "../Review/AddReviewForm";
 import ReviewCard from "../Review/ReviewCard";
 import { useStore } from "react-redux";
+import axios from "axios";
 
 
 export default function BeerList(props) {
 
+   
+
+
     const[selected, setSelected] = React.useState(false)
     const[reviews, setReviews] = React.useState(null)
     const[rating, setRating] = React.useState(0)
+    const[isActive, setIsActive] = React.useState(props.isActive)
 
     let totalScore = 0;
 
@@ -24,6 +29,33 @@ export default function BeerList(props) {
     function toggle(){
         setSelected(oldSelect => !oldSelect)
     }
+
+    async function handleSubmit(event){
+        
+        event.preventDefault();
+        const beerData = {beerId: props.beerId,
+        beerName: props.beerName, 
+        breweryId: props.brewery,
+        beerImg: props.beerImage,
+        beerAbv: props.beerAbv,
+        beerType: props.beerType,
+        beerDescription: props.beerDesc,
+        beerActive:!isActive,
+        }
+        
+
+            axios.put("http://localhost:8081/updatebeer/", beerData, headers)
+            //can we make this conditional based on response?
+            alert("Beer updated successfully.")
+    }
+
+    function toggleActive(event){
+        setIsActive(oldActive => !oldActive)
+        event.preventDefault();
+        handleSubmit(event)
+        
+    }
+
     function mugCount() {
         if (props.rating==1){
             return <h4>&#127866;</h4>
@@ -96,7 +128,7 @@ return(
                         
                     </div>
                     <span> Active and viewable to the public? </span>
-                    <input type="checkbox" />
+                    <input type="checkbox" checked={isActive} onChange={toggleActive}/>
                 </div>
             </div>
            

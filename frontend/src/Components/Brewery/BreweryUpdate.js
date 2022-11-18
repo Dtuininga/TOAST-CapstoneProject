@@ -19,7 +19,7 @@ const token = store.getState().token.token
 React.useEffect(()=>{
     fetch(`http://localhost:8081/beersbybrewery/${props.breweryId}`, {headers: {'Authorization' : 'Bearer ' + token}} )
     .then(res => res.json())
-    .then(data => setBeerArray(data.map(item => <SmallBeerCard beerId={item.beerId} beerImage={item.beerImg} brewery={item.breweryId} beerAbv={item.beerAbv} beerName={item.beerName} beerType={item.beerType} beerDesc={item.beerDescription}  />)))
+    .then(data => setBeerArray(data.map(item => <SmallBeerCard beerId={item.beerId} beerImage={item.beerImg} brewery={item.breweryId} beerAbv={item.beerAbv} beerName={item.beerName} beerType={item.beerType} beerDesc={item.beerDescription} isActive={item.beerActive} />)))
 },[props.breweryId])
 
     return(
