@@ -45,7 +45,7 @@ class Login extends Component {
             <div>
                 <div className="login">
                     <h1>Welcome to TOAST!</h1>
-                <img src="./Images/toastnobkgd.png"/>
+                <img className="loginImg" src="./Images/toastnobkgd.png"/>
                 <h2>Please Sign In</h2>
                 <label class="sr-only">Username</label>
                 <input

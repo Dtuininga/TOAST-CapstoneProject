@@ -307,6 +307,7 @@ code {
     padding: 10px;
     border-radius: 10px;
     text-align: center;
+    object-fit: contain;
   }
   .loginButton { /*existing acct login*/
     max-width:40%;

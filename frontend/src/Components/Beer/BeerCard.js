@@ -60,7 +60,9 @@ export default function BeerList(props) {
     //able to arrange list by rating? alphabet? Brewery? 
 
 return(
-    <div className="beercard">
+    <section>
+        {props.isActive ? <div>
+        <div className="beercard">
             
             <div className="beercard-details">
                 {props.role === "ROLE_ADMIN" && <h2 className="beer-id">Beer ID: {props.beerId}</h2>}
@@ -94,6 +96,10 @@ return(
                 </div>
             </div>
             <img src={props.beerImage} className='cardImage'/>
-    </div>    
+            </div>  
+            </div>:"" }
+            </section>
+      
+    
 )
 }
