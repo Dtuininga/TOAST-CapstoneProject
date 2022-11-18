@@ -262,12 +262,23 @@ code {
   .title{
     background-color: #FFD580;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    border-radius: 0px 0px 10px 10px;
     align-items: center;
     padding: 10px 20px;
     padding-bottom: 5px;
     margin-bottom: 0px;
     cursor: pointer;
+  }
+  .review-body {
+    background-color: #f9f6fa ;
+    border: 1px solid #3A4F41;
+    font-size: 1.25rem;
+    font-style: italic;
+    padding: 5px;
+  }
+  .iconRating {
+    display: flex;
   }
 
   .info{

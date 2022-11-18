@@ -42,6 +42,20 @@ export default function BeerList(props) {
             .then(data => setRating(data))
     })
     
+    function mugCount() {
+        if (rating>=1 && rating <1.5){
+            return <h5>&#127866;</h5>
+        }else if (rating>=1.5 && rating <2.5){
+            return <h5>&#127866;&#127866;</h5>
+        }else if (rating>=2.5 && rating <3.5){
+            return <h5>&#127866;&#127866;&#127866;</h5>
+        }else if (rating>=3.5 && rating <4.5){
+            return <h5>&#127866;&#127866;&#127866;&#127866;</h5>
+        }else if (rating>=4.5){
+            return <h5>&#127866;&#127866;&#127866;&#127866;&#127866;</h5>
+    }
+}
+
     //TODO:
     //able to arrange list by rating? alphabet? Brewery? 
 
@@ -52,7 +66,7 @@ return(
                 {props.role === "ROLE_ADMIN" && <h2 className="beer-id">Beer ID: {props.beerId}</h2>}
                 <h2>{props.beerName}</h2>
                 <h4 className="beerType">Type: {props.beerType}</h4> 
-                {rating != 0 && <h5>Average Rating: {rating}/ 5</h5>}
+                {rating != 0 && <h5 className="iconRating">Average Rating:  <span> {mugCount()}</span> ({rating}/ 5)</h5>}
                 <div className="accordion">
                         <div className={selected ? 'info show' : 'info'}>
                             <h6 className="beerAbv">ABV: {props.beerAbv}</h6>

@@ -24,6 +24,19 @@ export default function BeerList(props) {
     function toggle(){
         setSelected(oldSelect => !oldSelect)
     }
+    function mugCount() {
+        if (props.rating==1){
+            return <h4>&#127866;</h4>
+        }else if (props.rating==2){
+            return <h4>&#127866;&#127866;</h4>
+        }else if (props.rating==3){
+            return <h4>&#127866;&#127866;&#127866;</h4>
+        }else if (props.rating==4){
+            return <h4>&#127866;&#127866;&#127866;&#127866;</h4>
+        }else if (props.rating==5){
+            return <h4>&#127866;&#127866;&#127866;&#127866;&#127866;</h4>
+    }
+}
 
     React.useEffect(() => {
         fetch(customReviewsUrl, headers)
@@ -42,6 +55,20 @@ export default function BeerList(props) {
             .then(data => setRating(data))
     })
     
+    function mugCount() {
+        if (rating>=1 && rating <1.5){
+            return <h5>&#127866;</h5>
+        }else if (rating>=1.5 && rating <2.5){
+            return <h5>&#127866;&#127866;</h5>
+        }else if (rating>=2.5 && rating <3.5){
+            return <h5>&#127866;&#127866;&#127866;</h5>
+        }else if (rating>=3.5 && rating <4.5){
+            return <h5>&#127866;&#127866;&#127866;&#127866;</h5>
+        }else if (rating>=4.5){
+            return <h5>&#127866;&#127866;&#127866;&#127866;&#127866;</h5>
+    }
+}
+
 return(
     <div className="beercard">
             
@@ -49,7 +76,7 @@ return(
                 {props.role === "ROLE_ADMIN" && <h2 className="beer-id">Beer ID: {props.beerId}</h2>}
                 <h2>{props.beerName}</h2>
                 <h4 className="beerType">Type: {props.beerType}</h4> 
-                {rating != 0 && <h5>Average Rating: {rating}/ 5</h5>}
+                {rating != 0 && <h5 className="iconRating">Average Rating:  <span> {mugCount()}</span> ({rating}/5)</h5>}
                 <div className="accordion">
                         <div className={selected ? 'info show' : 'info'}>
                             <h6 className="beerAbv">ABV: {props.beerAbv}</h6>
