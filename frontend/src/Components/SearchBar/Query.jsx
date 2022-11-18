@@ -14,10 +14,10 @@ export default function Query(props) {
 
   //Use Effect
 useEffect(() => {
-  fetch(`http://localhost:8081/breweriesbyuser/ + ${props.userId}`, {headers: {'Authorization' : 'Bearer ' + token}})
+  fetch(`http://localhost:8081/breweriesbyuser/${props.userId}`, {headers: {'Authorization' : 'Bearer ' + token}})
   .then(res => {res.json()})
-  .then(results => setQueryData(results))
-}, [props])
+  .then(data => setQueryData(data))
+}, [results])
  
   // functions
 
@@ -47,7 +47,7 @@ const handleSubmit = (e) => {
               value={queryData} 
               onChange={handleChange}
             />
-            <button type='submit'>
+            <button type='submit' onClick={() =>setResults(prevQueryData => prevQueryData + 1)}>
               Submit
             </button>
           </form>
