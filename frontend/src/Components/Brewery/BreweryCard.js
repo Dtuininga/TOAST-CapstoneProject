@@ -35,7 +35,7 @@ export default function BreweriesList(props) {
                         <Link to={`/BreweryDetails/${props.breweryId}`} className="breweryLink" >Brewery Details & Brew List</Link>
                         </div>
                     <div className="title" onClick={toggle}>
-                        <h6>{brewSelected ? 'See less...' : 'See more...'}</h6>
+                        <h6>{brewSelected ? '^ See less... ^' : 'v See more... v'}</h6>
                         
                     </div>
             

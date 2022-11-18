@@ -2,6 +2,7 @@ import React from "react";
 import AddReviewForm from "../Review/AddReviewForm";
 import ReviewCard from "../Review/ReviewCard";
 import { useStore } from "react-redux";
+import {Switch, Route, Redirect, Link, useParams} from 'react-router-dom'
 
 
 export default function BeerList(props) {
@@ -73,7 +74,7 @@ return(
                         <div className={selected ? 'info show' : 'info'}>
                             <h6 className="beerAbv">ABV: {props.beerAbv}</h6>
                             <h6 className="beerDesc">{props.beerDesc}</h6>
-                            <h6 className="brewedBy">Brewed by Brewery ID# {props.brewery}</h6>
+                            {props.brewery &&<Link to={`/BreweryDetails/${props.brewery}`} className="breweryLink" >See more about this Brewery!</Link>}
                             {reviews != 0 
                             ? <div className='review-section'>
                                 <h6 style={{fontWeight: "bolder"}}>Here's what other Toasters have to say about this beer!</h6>
