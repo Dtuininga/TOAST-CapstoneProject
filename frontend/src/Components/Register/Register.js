@@ -67,7 +67,8 @@ class Register extends Component{
         return(
             <div>
                     <div className="registration">
-                <h1>Create Account</h1>
+                        <h2>So you want to be a Toaster?</h2>
+                <h2>*Create an Account*</h2>
                 <div>
                     <span> I am over 21 years of age </span>
                     <input type="checkbox" onChange={this.is21}/>

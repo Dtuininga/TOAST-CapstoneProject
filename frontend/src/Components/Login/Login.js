@@ -44,6 +44,8 @@ class Login extends Component {
         return(
             <div>
                 <div className="login">
+                    <h1>Welcome to TOAST!</h1>
+                <img src="./Images/toastnobkgd.png"/>
                 <h2>Please Sign In</h2>
                 <label class="sr-only">Username</label>
                 <input
@@ -71,6 +73,7 @@ class Login extends Component {
                 <div>
                 <Link to="/register">Not registered? Set up an account here!</Link>
                 </div>
+                
             </div>
             </div>
         )
