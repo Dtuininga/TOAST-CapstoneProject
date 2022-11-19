@@ -115,7 +115,7 @@ React.useEffect(()=>{
         </form>
     
         <AddBeerForm breweryId={props.breweryId} breweryActive={props.breweryActive}/>
-        <h4>My Beer List </h4>
+        <h2 className='mybeers'>My Beer List </h2>
         {beerArray}
         </div>
         
