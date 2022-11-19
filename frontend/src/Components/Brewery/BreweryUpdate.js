@@ -111,7 +111,7 @@ React.useEffect(()=>{
                             required
                         />
         
-                <button type="submit">Update Changes</button>     
+                <div className='buttondiv'><button className="submitbutton" type="submit">Update Changes</button></div>  
         </form>
     
         <AddBeerForm breweryId={props.breweryId} breweryActive={props.breweryActive}/>

@@ -138,9 +138,10 @@ return(
                         
                     </select>
                     </div>
-            
+                <div className="buttondiv">
                 <button type="submit" onClick={this.handleSubmit} >Update Changes</button>
-                <button onClick={this.resetFormFields}>Reset</button>        
+                <button onClick={this.resetFormFields}>Reset</button>   
+                </div>     
         </form>
 )
 
