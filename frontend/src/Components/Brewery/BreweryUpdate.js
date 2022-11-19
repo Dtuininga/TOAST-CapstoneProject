@@ -8,8 +8,8 @@ import { useStore } from "react-redux";
 
 export default function BreweryUpdate(props){
 //form where brewer can update brewery info and add/deactivate beers
-//form should be blank if no brewery created, but populate with existing info as props to be edited
-//should not be able to set beer to active if brewery is not yet approved
+//ToDo: brewery "update changes" button needs to PUT/resubmit any changes to the input fields, and keep spread of input that has not been changed
+//ToDo: user profile update needs to allow for avatar and password change (pw change not part of MVP, delete inputs if not viable)
 
 
 const[beerArray, setBeerArray] = React.useState([])
@@ -24,6 +24,7 @@ React.useEffect(()=>{
 
     return(
         <div classname="brewerControlBoard">
+            <UserDetails username={props.userName} userpic={props.userAvatar} />
         <div className="breweryUpdate">
             <h3>Brewery Status: {props.status ? 'Approved' : 'Pending'}</h3>
             <h6>{props.status ? 'Your brewery profile is active! You can update your information and add beers to your Beer List!' : 
@@ -118,7 +119,7 @@ React.useEffect(()=>{
         {beerArray}
         </div>
         
-        <UserDetails username={props.userName} userpic={props.userAvatar} />
+        
         </div>
     )
 }

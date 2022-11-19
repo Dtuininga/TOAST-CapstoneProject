@@ -15,15 +15,15 @@ export default function BreweriesList(props) {
 
     return(
         <section>
-        {props.active ? <div>
+        {!props.active ? <div>
     <div className="brewerycard">
     
             <img src={props.brewImage} className="cardImage" />
             <div className="card-details">
                 <h1>{props.brewName}</h1>
                 <h4 className="address">Address: {props.brewAddress}</h4> 
-                <h4 className="hours">Hours: {props.brewHours}</h4>
-                <h4>Rating: {props.brewRating}  (breweryID={props.breweryId})</h4> 
+                <h4 className="Owner">Owner: {props.ownerId}</h4>
+                <h4>breweryID={props.breweryId}</h4> 
                 <div className="accordion">
                 <div className={brewSelected ? 'info show' : 'info'}>
                         <div>Phone: {props.phone}</div>
