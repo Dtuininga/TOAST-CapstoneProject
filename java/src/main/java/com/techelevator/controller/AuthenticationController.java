@@ -5,6 +5,7 @@ import javax.validation.Valid;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
@@ -62,15 +63,20 @@ public class AuthenticationController {
             userDao.create(newUser.getUsername(),newUser.getPassword(), newUser.getRole(), newUser.getAvatar());
         }
     }
-
+//    @PreAuthorize("isAuthenticated()")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @RequestMapping(path = "/deleteuser/{id}", method = RequestMethod.DELETE)
     public void deleteUser(@PathVariable Long id){userDao.deleteUser( id);}
 
+//    @PreAuthorize("isAuthenticated()")
+    @ResponseStatus(HttpStatus.OK)
     @RequestMapping(path = "/updateavatar/{id}", method = RequestMethod.PUT)
     public void updateUserAvatar( @PathVariable long id, @RequestBody String avatar){
         userDao.updateUserAvatar(id, avatar);
     }
 
+//    @PreAuthorize("isAuthenticated()")
+    @ResponseStatus(HttpStatus.OK)
     @RequestMapping(path = "/updatepassword/{id}", method = RequestMethod.PUT)
     public void updateUserPassword( @PathVariable long id, @RequestBody String password){
         userDao.updateUserPassword(id, password);
