@@ -118,7 +118,7 @@ React.useEffect(()=>{
         {beerArray}
         </div>
         
-        <UserDetails username={props.userName} userpic={props.avatar} />
+        <UserDetails username={props.userName} userpic={props.userAvatar} />
         </div>
     )
 }

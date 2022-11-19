@@ -30,7 +30,7 @@ class BreweryCreation extends Component{
                 breweryaddress:'',
                 breweryhours:'',
                 breweryactive: false,
-                userId: props.userId
+                userId: ''
        
         }
     }
@@ -60,7 +60,7 @@ class BreweryCreation extends Component{
         breweryHours: this.state.breweryhours,
         breweryImg: this.state.breweryImageUrl,
         breweryActive: this.state.breweryactive,
-        userId: this.props.userId} 
+        userId: this.props.userNumber} //"userId" was being superceded, I think
         
          axios.post(baseUrl + "/addbrewery", breweryData, this.state.headers)  
          
@@ -82,7 +82,8 @@ class BreweryCreation extends Component{
 
 render(){ 
 return(
-    <form>
+    <form className="breweryCreation">
+        <h4>We don't have your brewery info yet! Please fill out the form below:</h4>
              <input
                             type="text"
                             id="breweryname"

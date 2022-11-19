@@ -392,6 +392,19 @@ code {
     min-width:600px;
     border-radius: 10px;
   }
+
+  .breweryCreation {
+    display: block;
+    margin: auto;
+    margin-top: 15px;
+    width: 70%;
+    border: 4px solid #3A4F41;
+    padding: 10px;
+    background-color: #FF8C42;
+    font-size: 1.25rem;
+    min-width:600px;
+    border-radius: 10px;
+  }
   .beerImage {
     margin-left:100px;
   }

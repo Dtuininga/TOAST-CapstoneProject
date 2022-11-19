@@ -124,7 +124,7 @@ return(
                             : <strong>No ratings yet.</strong>}
                         </div>
                     <div className="title" onClick={toggle}>
-                        <h6>{selected ? '^ Close ^' : 'v See reviews... v'}</h6>
+                        <h6>{selected ? '^ Close ^' : 'v See details & reviews v'}</h6>
                         
                     </div>
                     <span> Active and viewable to the public? </span>

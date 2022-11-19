@@ -33,7 +33,7 @@ export default function BrewerHome(props){
             breweryWebsite={item.breweryWebsite}
             breweryAddress={item.breweryAddress}
             userName = {user.username} 
-            userAvatar = {user.userAvatar}
+            userAvatar = {user.avatar}
             status ={item.breweryActive}/>
            )
             ))
@@ -41,12 +41,11 @@ export default function BrewerHome(props){
 
     return(
         <div>
-        <h1>Welcome Brewer {props.userName}!</h1>
+        <h1>Welcome Brewer {props.userName}! </h1>
         <div className="updateContainer">
         <div className="UpdateBreweryContainer">
-        {updateBeerProps}
-        <h4>No brewery? make one!</h4>
-        <BreweryCreation userId={userId}/>
+        {updateBeerProps} 
+        {updateBeerProps=='' &&<BreweryCreation userNumber={userId}/>}
         </div>
         </div>
         </div>

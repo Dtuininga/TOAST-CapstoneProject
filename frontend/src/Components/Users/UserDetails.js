@@ -9,7 +9,7 @@ export default function UserDetails(props) {
 
 return (
     <div className="userUpdate">
-        <h3>User Profile </h3>
+        <h3>User Profile: {props.username} </h3>
         <form>
 
     <div className="avatarContainer">
@@ -57,7 +57,7 @@ return (
                 />   
                 <button type="submit">Update Changes</button><button >DELETE ACCOUNT</button>  
         </form>
-        <h4>My Reviews (get reviews by userid?)</h4>
+        <h4>My Reviews (get # of reviews, "badges" for 1,5,10 etc)</h4>
     </div>
 
 )
