@@ -30,7 +30,7 @@ const[brewerydetails, setBreweryDetails] =React.useState({
     breweryAddress: props.breweryAddress,
     breweryHours: props.breweryHours,
     breweryHistory: props.breweryHistory,
-    breweryActive: true,
+    breweryActive: props.breweryActive,
     userId: props.userNumber
 })
 
