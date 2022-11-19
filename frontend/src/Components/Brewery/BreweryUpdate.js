@@ -5,6 +5,8 @@ import AddBeerForm from "../Beer/AddBeerForm";
 import UserDetails from "../Users/UserDetails";
 import SmallBeerCard from '../Brewery/SmallBeerCard';
 import { useStore } from "react-redux";
+import axios from "axios";
+import { baseUrl } from "../../Shared/baseUrl";
 
 export default function BreweryUpdate(props){
 //form where brewer can update brewery info and add/deactivate beers
@@ -13,14 +15,45 @@ export default function BreweryUpdate(props){
 
 
 const[beerArray, setBeerArray] = React.useState([])
+
 const store = useStore()
 const token = store.getState().token.token
+
+
+const[brewerydetails, setBreweryDetails] =React.useState({
+    breweryId: props.breweryId,
+    breweryName: props.breweryName,
+    breweryImg: props.breweryImg,
+    breweryWebsite: props.breweryWebsite,
+    breweryPhone: props.breweryPhone,
+    breweryEmail: props.breweryEmail,
+    breweryAddress: props.breweryAddress,
+    breweryHours: props.breweryHours,
+    breweryHistory: props.breweryHistory,
+    breweryActive: true,
+    userId: props.userNumber
+})
 
 React.useEffect(()=>{
     fetch(`http://localhost:8081/beersbybrewery/${props.breweryId}`, {headers: {'Authorization' : 'Bearer ' + token}} )
     .then(res => res.json())
     .then(data => setBeerArray(data.map(item => <SmallBeerCard beerId={item.beerId} beerImage={item.beerImg} brewery={item.breweryId} beerAbv={item.beerAbv} beerName={item.beerName} beerType={item.beerType} beerDesc={item.beerDescription} isActive={item.beerActive} breweryActive={props.status}/>)))
 },[props.breweryId])
+
+    function handleInputChange(event){
+        event.preventDefault()
+
+        setBreweryDetails({
+            ...brewerydetails,
+            [event.target.name] : event.target.value
+        })
+    }
+
+    function handleSubmit(event){
+        event.preventDefault()
+        axios.put(baseUrl + "/updatebrewery", brewerydetails, {headers: {'Authorization' : 'Bearer ' + token}})
+        alert("Brewery updated successfully")
+    }
 
     return(
         <div classname="brewerControlBoard">
@@ -32,86 +65,86 @@ React.useEffect(()=>{
             <form>
              <input
                             type="text"
-                            id="breweryname"
-                            name="breweryname"
+                            id="breweryName"
+                            name="breweryName"
                             class="form-control"
                             placeholder={props.breweryName}
                             v-model="brewery.breweryname"
-                            //onChange={this.handleInputChange}
+                            onChange={handleInputChange}
                             required
                         />
                         <input
                             type="text"
-                            id="breweryImageUrl"
-                            name="breweryImageUrl"
+                            id="breweryImg"
+                            name="breweryImg"
                             class="form-control"
                             placeholder={props.breweryImg}
                             v-model="brewery.breweryImageUrl"
-                            //onChange={this.handleInputChange}
+                            onChange={handleInputChange}
                             required
                         />
                         <input
                             type="text"
-                            id="brewerywebsite"
-                            name="brewerywebsite"
+                            id="breweryWebsite"
+                            name="breweryWebsite"
                             class="form-control"
                             placeholder={props.breweryWebsite}
                             v-model="brewery.brewerywebsite"
-                            //onChange={this.handleInputChange}
+                            onChange={handleInputChange}
                             required
                         />
                         <input
                             type="text"
-                            id="breweryphone"
-                            name="breweryphone"
+                            id="breweryPhone"
+                            name="breweryPhone"
                             class="form-control"
                             placeholder={props.breweryPhone}
                             v-model="brewery.breweryphone"
-                            //onChange={this.handleInputChange}
+                            onChange={handleInputChange}
                             required
                         />
                         <input
                             type="text"
-                            id="breweryemail"
-                            name="breweryemail"
+                            id="breweryEmail"
+                            name="breweryEmail"
                             class="form-control"
                             placeholder={props.breweryEmail}
                             v-model="brewery.breweryemail"
-                            //onChange={this.handleInputChange}
+                            onChange={handleInputChange}
                             required
                         />
                         <input
                             type="text"
-                            id="breweryaddress"
-                            name="breweryaddress"
+                            id="breweryAddress"
+                            name="breweryAddress"
                             class="form-control"
                             placeholder={props.breweryAddress}
                             v-model="brewery.breweryaddress"
-                            //onChange={this.handleInputChange}
+                            onChange={handleInputChange}
                             required
                         />
                         <input
                             type="text"
-                            id="breweryhours"
-                            name="breweryhours"
+                            id="breweryHours"
+                            name="breweryHours"
                             class="form-control"
                             placeholder={props.breweryHours}
                             v-model="brewery.breweryhours"
-                            //onChange={this.handleInputChange}
+                            onChange={handleInputChange}
                             required
                         />
                         <textarea
                             rows = "5"
-                            id="brewerydesc"
-                            name="brewerydesc"
+                            id="breweryHistory"
+                            name="breweryHistory"
                             class="form-control"
                             placeholder={props.breweryHistory}
                             v-model="brewery.brewerydesc"
-                            //onChange={this.handleInputChange}
+                            onChange={handleInputChange}
                             required
                         />
         
-                <div className='buttondiv'><button className="submitbutton" type="submit">Update Changes</button></div>  
+                <div className='buttondiv'><button onClick={handleSubmit} className="submitbutton" type="submit">Update Changes</button></div>  
         </form>
     
         <AddBeerForm breweryId={props.breweryId} breweryActive={props.breweryActive}/>

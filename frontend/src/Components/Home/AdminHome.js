@@ -23,7 +23,7 @@ export default function AdminHome(props){
 
     return(
         <div>
-            Welcome Admin {userName}
+            <h1 className='welcome'>Welcome Admin {userName}</h1>
             <h4>List of breweries with "pending" status to approve:</h4>
             {brewArray}
             <h4>Other functions - list of reviews, user profiles to be able to delete?</h4>
