@@ -57,7 +57,7 @@ class AddBeerForm extends Component{
         beerAbv: this.state.beerABV,
         beerType: this.state.beerType,
         beerDescription: this.state.beerdesc,
-        beerActive:'true',
+        beerActive:'false',
         }
         console.log(this.state.breweryId)
            await axios.post(baseUrl + "/addbeer", beerData, this.state.headers)
@@ -127,7 +127,7 @@ return(
                        <div>
         Beer Type:    
         <select onChange={this.handleBeerChange} id="beerType" name="beerType">
-                        <option defaultValue="Beer">Beer</option>
+                       
                         <option value="Pilsner">Pilsner</option>
                         <option value="Lager">Lager</option>
                         <option value="IPA">IPA</option>
@@ -139,7 +139,7 @@ return(
                     </select>
                     </div>
             
-                <button type="submit" onClick={this.handleSubmit}>Update Changes</button>
+                <button type="submit" onClick={this.handleSubmit} >Update Changes</button>
                 <button onClick={this.resetFormFields}>Reset</button>        
         </form>
 )

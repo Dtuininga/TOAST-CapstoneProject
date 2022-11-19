@@ -128,7 +128,7 @@ return(
                         
                     </div>
                     <span> Active and viewable to the public? </span>
-                    <input type="checkbox" checked={isActive} onChange={toggleActive}/>
+                    {props.breweryActive ? <input type="checkbox" checked={isActive} onChange={toggleActive}/> : <h6>(New brews may be added, will remain disabled by default until brewery is approved)</h6>}
                 </div>
             </div>
            

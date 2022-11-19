@@ -18,6 +18,8 @@ export default function BreweriesList(props) {
 
 
     return(
+        <section>
+        {props.active ? <div>
     <div className="brewerycard">
     
             <img src={props.brewImage} className="cardImage" />
@@ -57,6 +59,8 @@ export default function BreweriesList(props) {
                     
                 </Switch>
            </div>
+           </div>:"" }
+            </section>
 )
 //replace the "Link to" information on line 35 with just {"/BreweryDetails"} to remove the janky useParams stuff
 }

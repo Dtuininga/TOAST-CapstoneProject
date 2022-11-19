@@ -19,7 +19,7 @@ const token = store.getState().token.token
 React.useEffect(()=>{
     fetch(`http://localhost:8081/beersbybrewery/${props.breweryId}`, {headers: {'Authorization' : 'Bearer ' + token}} )
     .then(res => res.json())
-    .then(data => setBeerArray(data.map(item => <SmallBeerCard beerId={item.beerId} beerImage={item.beerImg} brewery={item.breweryId} beerAbv={item.beerAbv} beerName={item.beerName} beerType={item.beerType} beerDesc={item.beerDescription} isActive={item.beerActive} />)))
+    .then(data => setBeerArray(data.map(item => <SmallBeerCard beerId={item.beerId} beerImage={item.beerImg} brewery={item.breweryId} beerAbv={item.beerAbv} beerName={item.beerName} beerType={item.beerType} beerDesc={item.beerDescription} isActive={item.beerActive} breweryActive={props.status}/>)))
 },[props.breweryId])
 
     return(
@@ -113,7 +113,7 @@ React.useEffect(()=>{
                 <button type="submit">Update Changes</button>     
         </form>
     
-        <AddBeerForm breweryId={props.breweryId}/>
+        <AddBeerForm breweryId={props.breweryId} breweryActive={props.breweryActive}/>
         <h4>My Beer List </h4>
         {beerArray}
         </div>
