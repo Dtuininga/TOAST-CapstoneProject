@@ -14,11 +14,11 @@ return (
 
     <div className="avatarContainer">
         <div className="userUpdatePic">
-            <p>Current Avatar</p> 
+            <h3>Current Avatar</h3> 
             <img src={props.userpic}/>
         </div>
         <div>
-        <p className="changecolortext">Change Avatar color</p>   
+        <h3 className="changecolortext">Change Avatar color</h3>   
         
         <select id="avatarColor" name="avatarColor" className="avatarSelect">
                         <option value="./Images/beeravatars/pinkavatar.png">Pink</option>
