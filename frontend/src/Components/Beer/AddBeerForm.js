@@ -79,7 +79,7 @@ class AddBeerForm extends Component{
 render(){ 
 return(
     <form>
-        Add a new brew! 
+        <h3>Add a new brew!</h3>
              <input
                             type="text"
                             id="beername"
