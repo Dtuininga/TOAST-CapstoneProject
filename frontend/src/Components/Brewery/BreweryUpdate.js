@@ -61,8 +61,9 @@ React.useEffect(()=>{
         <div className="breweryUpdate">
             <h3>Brewery Status: {props.status ? 'Approved' : 'Pending'}</h3>
             <h6>{props.status ? 'Your brewery profile is active! You can update your information and add beers to your Beer List!' : 
-            'Your brewery in being reviewed. Please allow up to 24 hours for approval'} </h6>
+            'Your brewery is being reviewed. Please allow up to 24 hours for approval'} </h6>
             <form>
+                <label htmlFor="breweryName">Brewery Name:</label>
              <input
                             type="text"
                             id="breweryName"
@@ -73,6 +74,7 @@ React.useEffect(()=>{
                             onChange={handleInputChange}
                             required
                         />
+                        <label htmlFor="breweryImg">Brewery Picture URL:</label>
                         <input
                             type="text"
                             id="breweryImg"
@@ -83,6 +85,7 @@ React.useEffect(()=>{
                             onChange={handleInputChange}
                             required
                         />
+                        <label htmlFor="breweryWebsite">Brewery Website:</label>
                         <input
                             type="text"
                             id="breweryWebsite"
@@ -93,6 +96,7 @@ React.useEffect(()=>{
                             onChange={handleInputChange}
                             required
                         />
+                        <label htmlFor="breweryPhone">Phone Number:</label>
                         <input
                             type="text"
                             id="breweryPhone"
@@ -103,6 +107,7 @@ React.useEffect(()=>{
                             onChange={handleInputChange}
                             required
                         />
+                        <label htmlFor="breweryEmail">Contact Email:</label>
                         <input
                             type="text"
                             id="breweryEmail"
@@ -113,6 +118,7 @@ React.useEffect(()=>{
                             onChange={handleInputChange}
                             required
                         />
+                        <label htmlFor="breweryAddress">Street Address:</label>
                         <input
                             type="text"
                             id="breweryAddress"
@@ -123,6 +129,7 @@ React.useEffect(()=>{
                             onChange={handleInputChange}
                             required
                         />
+                        <label htmlFor="breweryHours">Hours of Operation:</label>
                         <input
                             type="text"
                             id="breweryHours"
@@ -133,6 +140,7 @@ React.useEffect(()=>{
                             onChange={handleInputChange}
                             required
                         />
+                        <label htmlFor="breweryHistory">Say something about your brewery!</label>
                         <textarea
                             rows = "5"
                             id="breweryHistory"
