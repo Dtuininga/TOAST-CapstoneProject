@@ -63,6 +63,19 @@ public class AuthenticationController {
         }
     }
 
+    @RequestMapping(path = "/deleteuser/{id}", method = RequestMethod.DELETE)
+    public void deleteUser(@PathVariable Long id){userDao.deleteUser( id);}
+
+    @RequestMapping(path = "/updateavatar/{id}", method = RequestMethod.PUT)
+    public void updateUserAvatar( @PathVariable long id, @RequestBody String avatar){
+        userDao.updateUserAvatar(id, avatar);
+    }
+
+    @RequestMapping(path = "/updatepassword/{id}", method = RequestMethod.PUT)
+    public void updateUserPassword( @PathVariable long id, @RequestBody String password){
+        userDao.updateUserPassword(id, password);
+    }
+
     /**
      * Object to return as body in JWT Authentication.
      */

@@ -9,11 +9,12 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.techelevator.model.User;
 
-@Service
+@Component
 public class JdbcUserDao implements UserDao {
 
     private JdbcTemplate jdbcTemplate;
@@ -85,6 +86,26 @@ public class JdbcUserDao implements UserDao {
         int newUserId = (int) keyHolder.getKeys().get(id_column);
 
         return userCreated;
+    }
+
+    @Override
+    public void updateUserAvatar(Long id, String avatar) {
+        String sql = "UPDATE users SET avatar = ? WHERE user_id = ?";
+        jdbcTemplate.update(sql, avatar, id);
+    }
+
+    @Override
+    public void updateUserPassword(Long userId, String password) {
+        String password_hash = new BCryptPasswordEncoder().encode(password);
+
+        String sql = "UPDATE users SET password_hash = ? WHERE user_id = ?";
+        jdbcTemplate.update(sql, password_hash, userId);
+    }
+
+    @Override
+    public void deleteUser(Long userId) {
+        String sql = "DELETE FROM users where user_id = ?";
+        jdbcTemplate.update(sql, userId);
     }
 
     private User mapRowToUser(SqlRowSet rs) {
