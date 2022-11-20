@@ -23,7 +23,7 @@ export default function BreweriesList(props) {
                 <h1>{props.brewName}</h1>
                 <h4 className="address">Address: {props.brewAddress}</h4> 
                 <h4 className="hours">Hours: {props.brewHours}</h4>
-                <h4>Rating: {props.brewRating}  (breweryID={props.breweryId})</h4> 
+                <h4>Rating: {props.brewRating != null ? props.brewRating : 'No current reviews'} </h4> 
                 <div className="accordion">
                 <div className={brewSelected ? 'info show' : 'info'}>
                         <div>Phone: {props.phone}</div>
