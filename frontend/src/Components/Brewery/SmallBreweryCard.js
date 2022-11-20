@@ -64,8 +64,8 @@ export default function BreweriesList(props) {
                         <h6>{brewSelected ? '^ See less... ^' : 'v See more... v'}</h6>
                         
                     </div>
-                    <span> Make active and viewable to the public? </span>
-                    <input type="checkbox" checked={isActive} onChange={toggleActive}/> 
+                    
+                    <button className="submitbutton" type="submit" onClick={toggleActive}>Activate brewery</button>
                 </div> 
             </div>
             <Switch>

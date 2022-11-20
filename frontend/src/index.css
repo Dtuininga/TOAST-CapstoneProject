@@ -5,6 +5,12 @@
   box-sizing: border-box;
 }
 
+.submitbutton{
+  width: 200px;
+  height: 30px;
+  border-radius: 5px;
+}
+
 #page-wrap{
   padding-bottom: 10px;
   padding-top: 10px;
