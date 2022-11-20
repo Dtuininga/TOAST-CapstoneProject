@@ -61,7 +61,7 @@ React.useEffect(()=>{
         <div className="breweryUpdate">
             <h3>Brewery Status: {props.status ? 'Approved' : 'Pending'}</h3>
             <h6>{props.status ? 'Your brewery profile is active! You can update your information and add beers to your Beer List!' : 
-            'Your brewery is being reviewed. Please allow up to 24 hours for approval'} </h6>
+            'Your brewery is being reviewed. Please allow up to 48 hours for approval. In the meantime, you may update your Brewery Info and prepare your beer offerings!'} </h6>
             <form>
                 <label htmlFor="breweryName">Brewery Name:</label>
              <input

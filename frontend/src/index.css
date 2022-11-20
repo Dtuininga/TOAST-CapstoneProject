@@ -544,6 +544,10 @@ h6{
   color: red;
   font-weight: bold;
 }
+.pendingAlert{
+  color: red;
+  font-weight: 800;
+}
 
 .form-separator {
   margin-top: 1rem;

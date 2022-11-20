@@ -33,6 +33,7 @@ export default function BreweryDetails(props) {
             breweryPhone={data.breweryPhone}
             breweryWebsite={data.breweryWebsite}
             breweryAddress={data.breweryAddress}
+            breweryActive={data.breweryActive}
             /> 
             ))
     }, [])

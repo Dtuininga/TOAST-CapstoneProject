@@ -56,19 +56,7 @@ export default function BeerList(props) {
         
     }
 
-    function mugCount() {
-        if (props.rating==1){
-            return <h4>&#127866;</h4>
-        }else if (props.rating==2){
-            return <h4>&#127866;&#127866;</h4>
-        }else if (props.rating==3){
-            return <h4>&#127866;&#127866;&#127866;</h4>
-        }else if (props.rating==4){
-            return <h4>&#127866;&#127866;&#127866;&#127866;</h4>
-        }else if (props.rating==5){
-            return <h4>&#127866;&#127866;&#127866;&#127866;&#127866;</h4>
-    }
-}
+   
 
     React.useEffect(() => {
         fetch(customReviewsUrl, headers)
@@ -128,7 +116,7 @@ return(
                         
                     </div>
                     <span> Active and viewable to the public? </span>
-                    {props.breweryActive ? <input type="checkbox" checked={isActive} onChange={toggleActive}/> : <h6>(New brews may be added, will remain disabled by default until brewery is approved)</h6>}
+                    {props.breweryActive ? <input type="checkbox" checked={isActive} onChange={toggleActive}/> : <h6>(New brews may be added, but will remain disabled by default until brewery is approved. Once Brewery is active, beers may be activated individually.)</h6>}
                 </div>
             </div>
            
