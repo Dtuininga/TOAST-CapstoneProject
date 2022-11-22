@@ -72,12 +72,13 @@ return(
                 {rating != 0 && <h5 className="iconRating">Average Rating:  <span> {mugCount()}</span> ({rating}/ 5)</h5>}
                 <div className="accordion">
                         <div className={selected ? 'info show' : 'info'}>
-                            <h6 className="beerAbv">ABV: {props.beerAbv}</h6>
-                            <h6 className="beerDesc">{props.beerDesc}</h6>
-                            {props.brewery &&<Link to={`/BreweryDetails/${props.brewery}`} className="breweryLink" >See more about this Brewery!</Link>}
+                            <h4 className="beerAbv">ABV: {props.beerAbv}</h4>
+                            <h5 className="beerDesc">{props.beerDesc}</h5>
+                            {props.brewery &&<h5><Link to={`/BreweryDetails/${props.brewery}`} className="breweryLink" >See more about this Brewery!{"\n"}</Link></h5>}
+                            
                             {reviews != 0 
                             ? <div className='review-section'>
-                                <h6 style={{fontWeight: "bolder"}}>Here's what other Toasters have to say about this beer!</h6>
+                                <h5 style={{fontWeight: "bolder"}}>Here's what other Toasters have to say about this beer!</h5>
                                 <div className = 'reviews-container'>
                                     {reviews}
                                 </div>
