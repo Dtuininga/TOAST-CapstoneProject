@@ -1,15 +1,32 @@
 import React from "react";
-import { Axios } from "axios";
+import axios from "axios";
 import ReviewCard from "../Users/ReviewCard";
+import { baseUrl } from "../../Shared/baseUrl";
+import { useStore } from "react-redux";
 
 export default function UserDetails(props) {
+    const store = useStore()
+const token = store.getState().token.token
 
-//fetch: user by user id; reviews by user ID?  user should only be able to see and edit their own profile & delete their own reviews
+const[userdetails, setUserDetails] =React.useState({
+    userId: props.userId,
+    username: props.username,
+    avatar: props.userpic
+})
+
+    function handleDelete(event){
+        event.preventDefault()
+        axios.delete("http://localhost:8081/deleteuser/" + props.userId)
+        alert("Profile deleted successfully. You will now be logged out.")
+        window.location.href = '/login'
+    
+}
+
 
 
 return (
     <div className="userUpdate">
-        <h3>User Profile: {props.username} </h3>
+        <h3>User Profile: {props.username} UserId: {props.userId}</h3>
         <form>
 
     <div className="avatarContainer">
@@ -55,7 +72,7 @@ return (
                     //onChange={this.handleInputChange}
                     
                 />   
-                <button type="submit">Update Changes</button><button >DELETE ACCOUNT</button>  
+                <button type="submit">Update Changes</button><button onClick={handleDelete}>DELETE ACCOUNT</button>  
         </form>
         <h4>My Reviews (get # of reviews, "badges" for 1,5,10 etc)</h4>
     </div>

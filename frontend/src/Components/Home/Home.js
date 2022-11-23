@@ -9,7 +9,7 @@ function Home(props) {
     const store = useStore();
     const authority = store.getState().user.authorities;
     let role = ''
-    const {username, avatar} = store.getState().user
+    const {username, id, avatar} = store.getState().user
 
     authority.map( (auth) => {
         role = auth.name
@@ -19,7 +19,7 @@ function Home(props) {
     return(
         <div className='homePage'>
            {role === 'ROLE_BREWER' && <BrewerHome userName = {username} avatar = {avatar} />}
-           {role === 'ROLE_USER' && <UserHome userName = {username} avatar = {avatar} />}
+           {role === 'ROLE_USER' && <UserHome userName = {username} userId={id} avatar = {avatar} />}
            {role === 'ROLE_ADMIN' && <AdminHome userName = {username} />}
         </div>
     )

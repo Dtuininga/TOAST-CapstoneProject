@@ -10,7 +10,6 @@ import { baseUrl } from "../../Shared/baseUrl";
 
 export default function BreweryUpdate(props){
 //form where brewer can update brewery info and add/deactivate beers
-//ToDo: brewery "update changes" button needs to PUT/resubmit any changes to the input fields, and keep spread of input that has not been changed
 //ToDo: user profile update needs to allow for avatar and password change (pw change not part of MVP, delete inputs if not viable)
 
 
