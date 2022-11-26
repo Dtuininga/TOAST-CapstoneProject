@@ -16,11 +16,6 @@ class Register extends Component{
             confirmPassword: '',
             brewer: false,
             role: 'USER',
-            // breweryname:'',
-            // brewerywebsite:'',
-            // breweryphone:'',
-            // breweryemail:'',
-            // breweryaddress:'',
             avatarColor: ''
         }
         
@@ -44,16 +39,9 @@ class Register extends Component{
 
     handleSubmit = () => { 
         const data = {over21: this.state.over21, username: this.state.username, password: this.state.password, confirmPassword: this.state.confirmPassword, role: this.state.role, avatar: this.state.avatarColor}
-        const breweryData = {breweryName: this.state.breweryname, 
-        breweryWebsite: this.state.brewerywebsite,
-        breweryPhone: this.state.breweryphone,
-        breweryEmail: this.state.breweryemail,
-        breweryAddress: this.state.breweryaddress}
+
         if(this.state.password === this.state.confirmPassword){
             axios.post(baseUrl + "/register", data)
-            // if (this.state.brewer) {
-            // axios.post(baseUrl + "/addbrewery", breweryData)
-            // }
             alert("Account created successfully, please log in.")
             window.location.href = '/login'
         }else{

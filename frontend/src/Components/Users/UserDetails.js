@@ -14,30 +14,56 @@ const[userdetails, setUserDetails] =React.useState({
     avatar: props.userpic
 })
 
+const authority = store.getState().user.authorities;
+    let role = ''
+authority.map( (auth) => {
+    role = auth.name
+});
     function handleDelete(event){
         event.preventDefault()
+        //would love a confirmation window to pop up here. "Are you sure? cannot be undone!"
         axios.delete("http://localhost:8081/deleteuser/" + props.userId)
         alert("Profile deleted successfully. You will now be logged out.")
-        window.location.href = '/login'
+        window.location.href = '/login'    
+}
+
+
+
+function handleAvatarChange(event){
+    //event.preventDefault()
+    setUserDetails(prevuserdetails => ({
+        ...prevuserdetails,
+        avatar : event.target.value
+}))
+    axios({
+        method: "put",
+        url: "http://localhost:8081/updateavatar/" + userdetails.userId,
+        data: event.target.value,
+        headers: {'Authorization' : 'Bearer ' + token, 'Content-Type': 'text/plain'}
+    })
     
+    console.log("Avatar changed to: "+userdetails.avatar)
+    alert("Avatar picture updated, change will be permanently reflected on next login.")
+      
 }
 
 
 
 return (
     <div className="userUpdate">
-        <h3>User Profile: {props.username} UserId: {props.userId}</h3>
+        <h3>User Profile: {props.username} {role === 'ROLE_ADMIN' &&<span>UserId: {props.userId}</span>}</h3>
         <form>
 
     <div className="avatarContainer">
         <div className="userUpdatePic">
             <h3>Current Avatar</h3> 
-            <img src={props.userpic}/>
+            <img src={userdetails.avatar}/>
         </div>
         <div>
         <h3 className="changecolortext">Change Avatar color</h3>   
         
-        <select id="avatarColor" name="avatarColor" className="avatarSelect">
+        <select onChange={handleAvatarChange} id="avatar" name="avatar" className="avatarSelect" >
+                        <option default>Choose New</option>
                         <option value="./Images/beeravatars/pinkavatar.png">Pink</option>
                         <option value="./Images/beeravatars/redavatar.png">Red</option>
                         <option value="./Images/beeravatars/orangeavatar.png">Orange</option>
@@ -51,7 +77,7 @@ return (
                     </div> 
                     </div>
        
-        Change Password: 
+        {/* Change Password: 
         <input
                     type="password"
                     id="password"
@@ -71,10 +97,11 @@ return (
                     v-model="user.password"
                     //onChange={this.handleInputChange}
                     
-                />   
-                <button type="submit">Update Changes</button><button onClick={handleDelete}>DELETE ACCOUNT</button>  
+                />    
+                <button type="submit">Update Changes</button> */}
+                <button onClick={handleDelete} >DELETE ACCOUNT</button>  
         </form>
-        <h4>My Reviews (get # of reviews, "badges" for 1,5,10 etc)</h4>
+        {/* <h4>My Reviews (get # of reviews, "badges" for 1,5,10 etc)</h4> */}
     </div>
 
 )

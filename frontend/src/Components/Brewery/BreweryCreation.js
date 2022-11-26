@@ -60,7 +60,7 @@ class BreweryCreation extends Component{
         breweryHours: this.state.breweryhours,
         breweryImg: this.state.breweryImageUrl,
         breweryActive: this.state.breweryactive,
-        userId: this.props.userNumber} //"userId" was being superceded, I think
+        userId: this.props.userNumber} //"userId" was being superceded
         
          axios.post(baseUrl + "/addbrewery", breweryData, this.state.headers)  
          

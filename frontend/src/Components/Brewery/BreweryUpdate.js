@@ -56,7 +56,7 @@ React.useEffect(()=>{
 
     return(
         <div classname="brewerControlBoard">
-            <UserDetails username={props.userName} userpic={props.userAvatar} />
+            
         <div className="breweryUpdate">
             <h3>Brewery Status: {props.status ? 'Approved' : 'Pending'}</h3>
             <h6>{props.status ? 'Your brewery profile is active! You can update your information and add beers to your Beer List!' : 
