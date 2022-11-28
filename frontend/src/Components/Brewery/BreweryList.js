@@ -16,7 +16,7 @@ function BreweryList(props){
 
     return(
         <div className='breweryList'>
-            {token != null ? brewArray : <h1 style={{marginLeft: "10rem"}}>You must be logged in to view the Brewery List page</h1>}
+            {token != null ? brewArray : <h1 style={{marginLeft: "20rem"}}>You must be logged in to view the Brewery List page</h1>}
         </div>
     )
 }

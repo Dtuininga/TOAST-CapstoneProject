@@ -42,7 +42,7 @@ function handleAvatarChange(event){
         headers: {'Authorization' : 'Bearer ' + token, 'Content-Type': 'text/plain'}
     })
     
-    console.log("Avatar changed to: "+userdetails.avatar)
+    console.log("Avatar changed to: "+event.target.value)
     alert("Avatar picture updated, change will be permanently reflected on next login.")
       
 }
