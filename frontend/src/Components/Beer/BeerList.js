@@ -6,11 +6,9 @@ import axios from 'axios'
 function BeerList(props){
     const[beerArray, setBeerArray] = React.useState([])
     const[isHidden, setIsHidden] = React.useState(true)
-    const[deleteAlert, setDeleteAlert] = React.useState()
     const store = useStore()
     const userState = store.getState()
     const token = userState.token.token
-    const username = userState.user.username ? userState.user.username : "No User"
     const role = userState.user.authorities.length > 0 ? userState.user.authorities[0].name : "No role"
     const headers = {headers: {'Authorization' : 'Bearer ' + token}}
 
@@ -19,12 +17,13 @@ function BeerList(props){
         beerId: ""
     })
 
-    React.useEffect(()=>{
+    function fillBeerArray() {
         fetch('http://localhost:8081/beers', headers)
-        .then(res => res.json())
-        .then(data => setBeerArray(data.map(item => <BeerCard  role={role} beerId={item.beerId} beerImage={item.beerImg} brewery={item.breweryId} beerAbv={item.beerAbv} beerName={item.beerName} beerType={item.beerType} beerDesc={item.beerDescription} isActive={item.beerActive} /> )))
-        
-    },[])
+            .then(res => res.json())
+            .then(data => setBeerArray(data.map(item => <BeerCard  role={role} beerId={item.beerId} beerImage={item.beerImg} brewery={item.breweryId} beerAbv={item.beerAbv} beerName={item.beerName} beerType={item.beerType} beerDesc={item.beerDescription} isActive={item.beerActive} /> )))
+    }
+
+    React.useEffect(() => fillBeerArray(), [formData])
 
     function showElement() {
         setIsHidden("")
@@ -54,7 +53,7 @@ function BeerList(props){
 
     function handleDeleteBeer(event) {
         event.preventDefault()
-        axios.delete("http://localhost:8081/deletebeer/" + parseInt(formData.beerId))
+        axios.delete("http://localhost:8081/deletebeer/" + parseInt(formData.beerId), headers)
         setFormData(prevFormData => ({
             ...prevFormData,
             beerId: ""
