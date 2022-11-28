@@ -9,6 +9,11 @@ function Sidebar(props){
     
     const store = useStore()
     const avatarPic = store.getState().user.avatar
+    const [clicked, setClicked] = React.useState(false)
+
+    function toggleClicked(){
+        setClicked(oldCLicked => !oldCLicked)
+    }
 
 
     

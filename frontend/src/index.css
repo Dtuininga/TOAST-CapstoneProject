@@ -18,7 +18,7 @@
 
 body {
   margin: 0;
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin-top: 190px;
@@ -294,11 +294,6 @@ h6{
     align-items: start;
   }
 
-  .brewImage{
-    position:fixed;
-    width: 2px;
-  }
-
   .accordion{
     width: 400px;
     margin-bottom: 10px;
@@ -570,6 +565,84 @@ h6{
   color: red;
 }
 
+@media only screen and (max-width: 1200px){
+
+  body{
+    margin-top: 250px;
+    
+
+  }
+
+  .sidebar{
+    margin-top: -75px;
+    width: 1350px;
+    height:50px;
+    transition: all 0.35s ease-out;
+  }
+
+  .sidebar .burger{
+    margin-left: 100px;
+  }
+
+  .sidebar:hover{
+    width: 1350px;
+    height: 400px;
+  }
+
+  .sidebar button {
+    display: block;
+    width: 250px;
+   border-radius: 6px;
+   margin: 3px;
+    background-color: #E1DEE3;
+    visibility:collapse;
+    margin-left: -20000px;
+  }
+
+  .sidebar .userInfo {
+    visibility:collapse;
+  }
+
+  .sidebar:hover .userInfo {
+    visibility: visible;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: -250px;
+    margin-bottom: 0px;
+  }
+
+  .sidebar:hover button{
+    display: block;
+    width: 90vw;
+   border-radius: 6px;
+    margin: 3px;
+    margin-left: -300px;
+    background-color: #E1DEE3;
+    visibility:visible;
+  }
+
+
+
+  .sidebar:hover .burger{
+    visibility: none;
+    margin-left: -110px;
+    
+  }
+
+  .beercard{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .loginImg{
+    max-width: 300px;
+  }
+
+  
+
+}
 
 
 /* 
