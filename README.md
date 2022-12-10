@@ -1,5 +1,9 @@
 # Final Capstone
+Final group project for the April 2022 cohort of Merit America's Java Full Stack Developer Program. 
+Worked on by Jungwoo Seo, Nick Mensah, Jesse Goodrum, Adri Valido, and Don Tuininga
 
-This directory contains all of the starter projects for the final capstone. The React starter project works with the Java project with a single configuration update that you can read about in the README.
+The TOAST! Brewery Finder Application was collaboratively designed and built as a team effort with daily Scrum meetings in an Agile format. 
+For our presentation, we scored a 9.38 out of possible 10 (points removed for not including error handling (bad password, etc) and some presentation aesthetics)
+This repo is intended to be my personal version to tinker with and improve for practice and experimentation.
 
-Each project contains instructions that provides information about the starting code and explains how to get started with the final capstone project.
+-Don Tuininga, 12/9/2022
